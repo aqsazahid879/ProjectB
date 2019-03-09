@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnAddStudent = new System.Windows.Forms.Button();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.txtRegistrationNumber = new System.Windows.Forms.TextBox();
@@ -44,12 +44,25 @@
             this.lblContact = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnViewStudent = new System.Windows.Forms.Button();
             this.gridStudentInformation = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ErrorEmail = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ErrorFirstName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ErrorContact = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ErrorLastName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ErrorRegistrationNumber = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ErrorStatus = new System.Windows.Forms.ErrorProvider(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridStudentInformation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorEmail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorFirstName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorContact)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorLastName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorRegistrationNumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorStatus)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -59,7 +72,7 @@
             this.tabControl1.Location = new System.Drawing.Point(127, 32);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(491, 276);
+            this.tabControl1.Size = new System.Drawing.Size(610, 276);
             this.tabControl1.TabIndex = 13;
             // 
             // tabPage1
@@ -80,23 +93,10 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(483, 250);
+            this.tabPage1.Size = new System.Drawing.Size(602, 250);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Add Student";
             this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.button1);
-            this.tabPage2.Controls.Add(this.gridStudentInformation);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(483, 250);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "View Student";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // btnAddStudent
             // 
@@ -106,6 +106,7 @@
             this.btnAddStudent.TabIndex = 25;
             this.btnAddStudent.Text = "Add Student";
             this.btnAddStudent.UseVisualStyleBackColor = true;
+            this.btnAddStudent.Click += new System.EventHandler(this.btnAddStudent_Click);
             // 
             // txtStatus
             // 
@@ -113,6 +114,7 @@
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.Size = new System.Drawing.Size(100, 20);
             this.txtStatus.TabIndex = 24;
+            this.txtStatus.Leave += new System.EventHandler(this.txtStatus_Leave);
             // 
             // txtRegistrationNumber
             // 
@@ -120,6 +122,7 @@
             this.txtRegistrationNumber.Name = "txtRegistrationNumber";
             this.txtRegistrationNumber.Size = new System.Drawing.Size(100, 20);
             this.txtRegistrationNumber.TabIndex = 23;
+            this.txtRegistrationNumber.Leave += new System.EventHandler(this.txtRegistrationNumber_Leave);
             // 
             // txtEmail
             // 
@@ -127,6 +130,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(100, 20);
             this.txtEmail.TabIndex = 22;
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // txtContact
             // 
@@ -134,6 +138,7 @@
             this.txtContact.Name = "txtContact";
             this.txtContact.Size = new System.Drawing.Size(100, 20);
             this.txtContact.TabIndex = 21;
+            this.txtContact.Leave += new System.EventHandler(this.txtContact_Leave);
             // 
             // txtLastName
             // 
@@ -141,6 +146,7 @@
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(100, 20);
             this.txtLastName.TabIndex = 20;
+            this.txtLastName.Leave += new System.EventHandler(this.txtLastName_Leave);
             // 
             // txtFirstName
             // 
@@ -148,6 +154,7 @@
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(100, 20);
             this.txtFirstName.TabIndex = 19;
+            this.txtFirstName.Leave += new System.EventHandler(this.txtFirstName_Leave);
             // 
             // lblStatus
             // 
@@ -203,22 +210,61 @@
             this.lblFirstName.TabIndex = 13;
             this.lblFirstName.Text = "First Name";
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.btnViewStudent);
+            this.tabPage2.Controls.Add(this.gridStudentInformation);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(602, 250);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "View Student";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnViewStudent
+            // 
+            this.btnViewStudent.Location = new System.Drawing.Point(154, 22);
+            this.btnViewStudent.Name = "btnViewStudent";
+            this.btnViewStudent.Size = new System.Drawing.Size(95, 23);
+            this.btnViewStudent.TabIndex = 1;
+            this.btnViewStudent.Text = "View Student";
+            this.btnViewStudent.UseVisualStyleBackColor = true;
+            this.btnViewStudent.Click += new System.EventHandler(this.btnViewStudent_Click);
+            // 
             // gridStudentInformation
             // 
             this.gridStudentInformation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridStudentInformation.Location = new System.Drawing.Point(94, 71);
+            this.gridStudentInformation.Location = new System.Drawing.Point(6, 71);
             this.gridStudentInformation.Name = "gridStudentInformation";
-            this.gridStudentInformation.Size = new System.Drawing.Size(240, 150);
+            this.gridStudentInformation.Size = new System.Drawing.Size(590, 150);
             this.gridStudentInformation.TabIndex = 0;
+            this.gridStudentInformation.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridStudentInformation_CellClick);
+            this.gridStudentInformation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridStudentInformation_CellContentClick);
             // 
-            // button1
+            // ErrorEmail
             // 
-            this.button1.Location = new System.Drawing.Point(154, 22);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "View Student";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ErrorEmail.ContainerControl = this;
+            // 
+            // ErrorFirstName
+            // 
+            this.ErrorFirstName.ContainerControl = this;
+            // 
+            // ErrorContact
+            // 
+            this.ErrorContact.ContainerControl = this;
+            // 
+            // ErrorLastName
+            // 
+            this.ErrorLastName.ContainerControl = this;
+            // 
+            // ErrorRegistrationNumber
+            // 
+            this.ErrorRegistrationNumber.ContainerControl = this;
+            // 
+            // ErrorStatus
+            // 
+            this.ErrorStatus.ContainerControl = this;
             // 
             // Student
             // 
@@ -228,12 +274,17 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "Student";
             this.Text = "Student";
-            this.Load += new System.EventHandler(this.Student_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridStudentInformation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorEmail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorFirstName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorContact)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorLastName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorRegistrationNumber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorStatus)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -256,7 +307,13 @@
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.Label lblFirstName;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnViewStudent;
         private System.Windows.Forms.DataGridView gridStudentInformation;
+        private System.Windows.Forms.ErrorProvider ErrorEmail;
+        private System.Windows.Forms.ErrorProvider ErrorFirstName;
+        private System.Windows.Forms.ErrorProvider ErrorContact;
+        private System.Windows.Forms.ErrorProvider ErrorLastName;
+        private System.Windows.Forms.ErrorProvider ErrorRegistrationNumber;
+        private System.Windows.Forms.ErrorProvider ErrorStatus;
     }
 }
