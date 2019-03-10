@@ -172,7 +172,7 @@ namespace ProjectB
             
         }
         /// <summary>
-        /// Checking that the given letter of strings are gigits
+        /// Checking that the given letter of strings are Digits
         /// </summary>
         /// <param name="Digits"></param>
         /// <returns>bool</returns>
