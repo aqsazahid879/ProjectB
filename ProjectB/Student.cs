@@ -29,44 +29,97 @@ namespace ProjectB
         /// <param name="e"></param>
         private void btnAddStudent_Click(object sender, EventArgs e)
         {
-            String FirstName, LastName, Contact, Email, RegistrationNumber;
-            int Status;
-            if(IsValidString(txtFirstName.Text))
+            if (btnAddStudent.Text == "Update Student")
             {
-                if (IsValidString(txtLastName.Text))
+                
+                String FirstName, LastName, Contact, Email, RegistrationNumber;
+                int Status;
+                string ID = lblID.Text;
+                if (IsValidString(txtFirstName.Text))
                 {
-                    if (isValidContact(txtContact.Text))
+                    if (IsValidString(txtLastName.Text))
                     {
-                        if(isDigit(txtStatus.Text) && isDigit(txtStatus.Text))
+                        if (isValidContact(txtContact.Text))
                         {
-                            if(IsValidEmail(txtEmail.Text) && isValidRegistrationNumber(txtRegistrationNumber.Text))
+                            if (isDigit(txtStatus.Text) && isDigit(txtStatus.Text))
                             {
-                                FirstName = txtFirstName.Text;
-                                LastName = txtLastName.Text;
-                                Contact = txtContact.Text;
-                                Email = txtEmail.Text;
-                                RegistrationNumber = txtRegistrationNumber.Text;
-                                Status = Convert.ToInt32(txtStatus.Text);
-                                conn.Open();
-                                String cmd = String.Format("INSERT INTO Student(FirstName, LastName,Contact, Email, RegistrationNumber, Status) values('{0}','{1}','{2}','{3}','{4}','{5}')", FirstName, LastName, Contact, Email, RegistrationNumber, Status);
-                                SqlCommand command = new SqlCommand(cmd, conn);
-                                command.Parameters.Add(new SqlParameter("0", 1));
+                                if (IsValidEmail(txtEmail.Text) && isValidRegistrationNumber(txtRegistrationNumber.Text))
+                                {
+                                    FirstName = txtFirstName.Text;
+                                    LastName = txtLastName.Text;
+                                    Contact = txtContact.Text;
+                                    Email = txtEmail.Text;
+                                    RegistrationNumber = txtRegistrationNumber.Text;
+                                    Status = Convert.ToInt32(txtStatus.Text);
+                                    conn.Open();
+                                    string cmd = String.Format("UPDATE Student SET FirstName = @FirstName, LastName = @LastName, Contact = @Contact, Email = @Email, RegistrationNumber = @RegistrationNumber, Status = @Status WHERE Id = @ID");
+                                    SqlCommand command = new SqlCommand(cmd, conn);
+                                    command.Parameters.Add(new SqlParameter("@FirstName", FirstName));
+                                    command.Parameters.Add(new SqlParameter("@LastName", LastName));
+                                    command.Parameters.Add(new SqlParameter("@Contact", Contact));
+                                    command.Parameters.Add(new SqlParameter("@Email", Email));
+                                    command.Parameters.Add(new SqlParameter("@RegistrationNumber", RegistrationNumber));
+                                    command.Parameters.Add(new SqlParameter("@Status", Status));
+                                    command.Parameters.Add(new SqlParameter("@Id", ID));
+                                    SqlDataReader reader = command.ExecuteReader();
 
-                                SqlDataReader reader = command.ExecuteReader();
-                                SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
-                                txtContact.Text = "";
-                                txtEmail.Text = "";
-                                txtFirstName.Text = "";
-                                txtLastName.Text = "";
-                                txtRegistrationNumber.Text = "";
-                                txtStatus.Text = "";
-                                conn.Close();
+                                    SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
+                                    txtContact.Text = "";
+                                    txtEmail.Text = "";
+                                    txtFirstName.Text = "";
+                                    txtLastName.Text = "";
+                                    txtRegistrationNumber.Text = "";
+                                    txtStatus.Text = "";
+                                    conn.Close();
+                                }
                             }
                         }
                     }
                 }
             }
-            
+            else
+            {
+                lblID.Hide();
+                String FirstName, LastName, Contact, Email, RegistrationNumber;
+                int Status;
+                
+                if (IsValidString(txtFirstName.Text))
+                {
+                    if (IsValidString(txtLastName.Text))
+                    {
+                        if (isValidContact(txtContact.Text))
+                        {
+                            if (isDigit(txtStatus.Text) && isDigit(txtStatus.Text))
+                            {
+                                if (IsValidEmail(txtEmail.Text) && isValidRegistrationNumber(txtRegistrationNumber.Text))
+                                {
+                                    FirstName = txtFirstName.Text;
+                                    LastName = txtLastName.Text;
+                                    Contact = txtContact.Text;
+                                    Email = txtEmail.Text;
+                                    RegistrationNumber = txtRegistrationNumber.Text;
+                                    Status = Convert.ToInt32(txtStatus.Text);
+                                    conn.Open();
+                                    String cmd = String.Format("INSERT INTO Student(FirstName, LastName,Contact, Email, RegistrationNumber, Status) values('{0}','{1}','{2}','{3}','{4}','{5}')", FirstName, LastName, Contact, Email, RegistrationNumber, Status);
+                                    SqlCommand command = new SqlCommand(cmd, conn);
+                                    command.Parameters.Add(new SqlParameter("0", 1));
+
+                                    SqlDataReader reader = command.ExecuteReader();
+                                    SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
+                                    txtContact.Text = "";
+                                    txtEmail.Text = "";
+                                    txtFirstName.Text = "";
+                                    txtLastName.Text = "";
+                                    txtRegistrationNumber.Text = "";
+                                    txtStatus.Text = "";
+                                    conn.Close();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
         }
 
         /// <summary>
@@ -277,14 +330,20 @@ namespace ProjectB
         private void gridStudentInformation_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             var item = gridStudentInformation.Rows[e.RowIndex].Cells[0].Value;
+            //int IdOfItem;
+            //var SecondItem = gridStudentInformation.Rows[e.RowIndex].Cells[6].Value;
             string cmd = String.Format("SELECT * FROM Student WHERE Id = @item");
             SqlCommand command = new SqlCommand(cmd, conn);
             command.Parameters.Add(new SqlParameter("@item", item));
             conn.Open();
             SqlDataReader reader = command.ExecuteReader();
-            
+            Student s = new Student();
+            //tabControl1.SelectedTab = tabControl1.TabPages["View Student"].Show;
+            TabADDStudent.Show();
+            btnAddStudent.Text = "Update Student";
             while(reader.Read())
             {
+                lblID.Text = Convert.ToString(reader[0]);
                 txtFirstName.Text = Convert.ToString(reader[1]);
                 txtLastName.Text = Convert.ToString(reader[2]);
                 txtContact.Text = Convert.ToString(reader[3]);
@@ -292,7 +351,57 @@ namespace ProjectB
                 txtRegistrationNumber.Text = Convert.ToString(reader[5]);
                 txtStatus.Text = Convert.ToString(reader[6]);
             }
-            MessageBox.Show("success");
+
+            
+            
+
+            
+            // MessageBox.Show("success");
+            conn.Close();
+        }
+
+        private void btnUpdateStudent_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Student_Load(object sender, EventArgs e)
+        {
+            lblID.Hide();
+        }
+
+        private void gridStudentInformation_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void gridStudentInformation_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            //var item = gridStudentInformation.Rows[e.RowIndex].Cells[0].Value;
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnDeleteStudent_Click(object sender, EventArgs e)
+        {
+            String ID = txtIDTab.Text;
+            string cmd = String.Format("DELETE FROM Student WHERE Id = @ID");
+            SqlCommand command = new SqlCommand(cmd, conn);
+            command.Parameters.Add(new SqlParameter("@ID", ID));
+            conn.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            conn.Close();
+            conn.Open();
+            cmd = String.Format("SELECT *FROM Student");
+            reader = command.ExecuteReader();
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            gridStudentInformation.DataSource = table;
+            TabViewStudent.Refresh();
             conn.Close();
         }
     }
