@@ -46,8 +46,21 @@
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.TabViewStudent = new System.Windows.Forms.TabPage();
+            this.txtIDTab = new System.Windows.Forms.TextBox();
+            this.lblIDEnter = new System.Windows.Forms.Label();
+            this.BtnDeleteStudent = new System.Windows.Forms.Button();
             this.btnViewStudent = new System.Windows.Forms.Button();
             this.gridStudentInformation = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.registrationNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.projectBDataSet = new ProjectB.ProjectBDataSet();
             this.TabUpdateStudent = new System.Windows.Forms.TabPage();
             this.btnUpdateStudent = new System.Windows.Forms.Button();
             this.txtStat1 = new System.Windows.Forms.TextBox();
@@ -68,13 +81,13 @@
             this.ErrorLastName = new System.Windows.Forms.ErrorProvider(this.components);
             this.ErrorRegistrationNumber = new System.Windows.Forms.ErrorProvider(this.components);
             this.ErrorStatus = new System.Windows.Forms.ErrorProvider(this.components);
-            this.BtnDeleteStudent = new System.Windows.Forms.Button();
-            this.lblIDEnter = new System.Windows.Forms.Label();
-            this.txtIDTab = new System.Windows.Forms.TextBox();
+            this.studentTableAdapter = new ProjectB.ProjectBDataSetTableAdapters.StudentTableAdapter();
             this.StudentControl.SuspendLayout();
             this.TabADDStudent.SuspendLayout();
             this.TabViewStudent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridStudentInformation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet)).BeginInit();
             this.TabUpdateStudent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorEmail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorFirstName)).BeginInit();
@@ -89,10 +102,10 @@
             this.StudentControl.Controls.Add(this.TabADDStudent);
             this.StudentControl.Controls.Add(this.TabViewStudent);
             this.StudentControl.Controls.Add(this.TabUpdateStudent);
-            this.StudentControl.Location = new System.Drawing.Point(127, 32);
+            this.StudentControl.Location = new System.Drawing.Point(12, 32);
             this.StudentControl.Name = "StudentControl";
             this.StudentControl.SelectedIndex = 0;
-            this.StudentControl.Size = new System.Drawing.Size(610, 337);
+            this.StudentControl.Size = new System.Drawing.Size(918, 337);
             this.StudentControl.TabIndex = 13;
             // 
             // TabADDStudent
@@ -114,7 +127,7 @@
             this.TabADDStudent.Location = new System.Drawing.Point(4, 22);
             this.TabADDStudent.Name = "TabADDStudent";
             this.TabADDStudent.Padding = new System.Windows.Forms.Padding(3);
-            this.TabADDStudent.Size = new System.Drawing.Size(602, 250);
+            this.TabADDStudent.Size = new System.Drawing.Size(602, 311);
             this.TabADDStudent.TabIndex = 0;
             this.TabADDStudent.Text = "Add Student";
             this.TabADDStudent.UseVisualStyleBackColor = true;
@@ -250,10 +263,38 @@
             this.TabViewStudent.Location = new System.Drawing.Point(4, 22);
             this.TabViewStudent.Name = "TabViewStudent";
             this.TabViewStudent.Padding = new System.Windows.Forms.Padding(3);
-            this.TabViewStudent.Size = new System.Drawing.Size(602, 311);
+            this.TabViewStudent.Size = new System.Drawing.Size(910, 311);
             this.TabViewStudent.TabIndex = 1;
             this.TabViewStudent.Text = "View Student";
             this.TabViewStudent.UseVisualStyleBackColor = true;
+            this.TabViewStudent.Click += new System.EventHandler(this.TabViewStudent_Click);
+            // 
+            // txtIDTab
+            // 
+            this.txtIDTab.Location = new System.Drawing.Point(280, 38);
+            this.txtIDTab.Name = "txtIDTab";
+            this.txtIDTab.Size = new System.Drawing.Size(100, 20);
+            this.txtIDTab.TabIndex = 4;
+            // 
+            // lblIDEnter
+            // 
+            this.lblIDEnter.AutoSize = true;
+            this.lblIDEnter.Location = new System.Drawing.Point(56, 41);
+            this.lblIDEnter.Name = "lblIDEnter";
+            this.lblIDEnter.Size = new System.Drawing.Size(206, 13);
+            this.lblIDEnter.TabIndex = 3;
+            this.lblIDEnter.Text = "Enter The Id of Record you want to delete";
+            this.lblIDEnter.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // BtnDeleteStudent
+            // 
+            this.BtnDeleteStudent.Location = new System.Drawing.Point(142, 80);
+            this.BtnDeleteStudent.Name = "BtnDeleteStudent";
+            this.BtnDeleteStudent.Size = new System.Drawing.Size(93, 23);
+            this.BtnDeleteStudent.TabIndex = 2;
+            this.BtnDeleteStudent.Text = "Delete Student";
+            this.BtnDeleteStudent.UseVisualStyleBackColor = true;
+            this.BtnDeleteStudent.Click += new System.EventHandler(this.BtnDeleteStudent_Click);
             // 
             // btnViewStudent
             // 
@@ -267,15 +308,87 @@
             // 
             // gridStudentInformation
             // 
+            this.gridStudentInformation.AutoGenerateColumns = false;
             this.gridStudentInformation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridStudentInformation.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.firstNameDataGridViewTextBoxColumn,
+            this.lastNameDataGridViewTextBoxColumn,
+            this.contactDataGridViewTextBoxColumn,
+            this.emailDataGridViewTextBoxColumn,
+            this.registrationNumberDataGridViewTextBoxColumn,
+            this.statusDataGridViewTextBoxColumn,
+            this.Delete});
+            this.gridStudentInformation.DataSource = this.studentBindingSource;
             this.gridStudentInformation.Location = new System.Drawing.Point(9, 136);
             this.gridStudentInformation.Name = "gridStudentInformation";
-            this.gridStudentInformation.Size = new System.Drawing.Size(590, 150);
+            this.gridStudentInformation.Size = new System.Drawing.Size(843, 150);
             this.gridStudentInformation.TabIndex = 0;
             this.gridStudentInformation.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridStudentInformation_CellClick);
             this.gridStudentInformation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridStudentInformation_CellContentClick);
             this.gridStudentInformation.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridStudentInformation_CellContentDoubleClick);
             this.gridStudentInformation.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridStudentInformation_CellMouseDoubleClick);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // firstNameDataGridViewTextBoxColumn
+            // 
+            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            // 
+            // contactDataGridViewTextBoxColumn
+            // 
+            this.contactDataGridViewTextBoxColumn.DataPropertyName = "Contact";
+            this.contactDataGridViewTextBoxColumn.HeaderText = "Contact";
+            this.contactDataGridViewTextBoxColumn.Name = "contactDataGridViewTextBoxColumn";
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            // 
+            // registrationNumberDataGridViewTextBoxColumn
+            // 
+            this.registrationNumberDataGridViewTextBoxColumn.DataPropertyName = "RegistrationNumber";
+            this.registrationNumberDataGridViewTextBoxColumn.HeaderText = "RegistrationNumber";
+            this.registrationNumberDataGridViewTextBoxColumn.Name = "registrationNumberDataGridViewTextBoxColumn";
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Delete";
+            this.Delete.ToolTipText = "Delete";
+            this.Delete.UseColumnTextForButtonValue = true;
+            // 
+            // studentBindingSource
+            // 
+            this.studentBindingSource.DataMember = "Student";
+            this.studentBindingSource.DataSource = this.projectBDataSet;
+            // 
+            // projectBDataSet
+            // 
+            this.projectBDataSet.DataSetName = "ProjectBDataSet";
+            this.projectBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // TabUpdateStudent
             // 
@@ -295,7 +408,7 @@
             this.TabUpdateStudent.Location = new System.Drawing.Point(4, 22);
             this.TabUpdateStudent.Name = "TabUpdateStudent";
             this.TabUpdateStudent.Padding = new System.Windows.Forms.Padding(3);
-            this.TabUpdateStudent.Size = new System.Drawing.Size(602, 250);
+            this.TabUpdateStudent.Size = new System.Drawing.Size(602, 311);
             this.TabUpdateStudent.TabIndex = 2;
             this.TabUpdateStudent.Text = "Update Student";
             this.TabUpdateStudent.UseVisualStyleBackColor = true;
@@ -430,38 +543,15 @@
             // 
             this.ErrorStatus.ContainerControl = this;
             // 
-            // BtnDeleteStudent
+            // studentTableAdapter
             // 
-            this.BtnDeleteStudent.Location = new System.Drawing.Point(142, 80);
-            this.BtnDeleteStudent.Name = "BtnDeleteStudent";
-            this.BtnDeleteStudent.Size = new System.Drawing.Size(93, 23);
-            this.BtnDeleteStudent.TabIndex = 2;
-            this.BtnDeleteStudent.Text = "Delete Student";
-            this.BtnDeleteStudent.UseVisualStyleBackColor = true;
-            this.BtnDeleteStudent.Click += new System.EventHandler(this.BtnDeleteStudent_Click);
-            // 
-            // lblIDEnter
-            // 
-            this.lblIDEnter.AutoSize = true;
-            this.lblIDEnter.Location = new System.Drawing.Point(56, 41);
-            this.lblIDEnter.Name = "lblIDEnter";
-            this.lblIDEnter.Size = new System.Drawing.Size(206, 13);
-            this.lblIDEnter.TabIndex = 3;
-            this.lblIDEnter.Text = "Enter The Id of Record you want to delete";
-            this.lblIDEnter.Click += new System.EventHandler(this.label7_Click);
-            // 
-            // txtIDTab
-            // 
-            this.txtIDTab.Location = new System.Drawing.Point(280, 38);
-            this.txtIDTab.Name = "txtIDTab";
-            this.txtIDTab.Size = new System.Drawing.Size(100, 20);
-            this.txtIDTab.TabIndex = 4;
+            this.studentTableAdapter.ClearBeforeFill = true;
             // 
             // Student
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(790, 367);
+            this.ClientSize = new System.Drawing.Size(1007, 367);
             this.Controls.Add(this.StudentControl);
             this.Name = "Student";
             this.Text = "Student";
@@ -472,6 +562,8 @@
             this.TabViewStudent.ResumeLayout(false);
             this.TabViewStudent.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridStudentInformation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet)).EndInit();
             this.TabUpdateStudent.ResumeLayout(false);
             this.TabUpdateStudent.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorEmail)).EndInit();
@@ -528,5 +620,16 @@
         private System.Windows.Forms.Label lblIDEnter;
         private System.Windows.Forms.Button BtnDeleteStudent;
         private System.Windows.Forms.TextBox txtIDTab;
+        private ProjectBDataSet projectBDataSet;
+        private System.Windows.Forms.BindingSource studentBindingSource;
+        private ProjectBDataSetTableAdapters.StudentTableAdapter studentTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contactDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn registrationNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn Delete;
     }
 }

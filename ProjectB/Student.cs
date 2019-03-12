@@ -71,6 +71,19 @@ namespace ProjectB
                                     txtRegistrationNumber.Text = "";
                                     txtStatus.Text = "";
                                     conn.Close();
+                                    TabADDStudent.Hide();
+                                    TabViewStudent.Show();
+
+                                    conn.Open();
+                                    cmd = String.Format("SELECT *FROM Student");
+                                    command = new SqlCommand(cmd, conn);
+                                    reader = command.ExecuteReader();
+                                    adapter = new SqlDataAdapter(cmd, conn);
+                                    DataTable table = new DataTable();
+                                    adapter.Fill(table);
+                                    gridStudentInformation.DataSource = table;
+                                    TabViewStudent.Refresh();
+                                    conn.Close();
                                 }
                             }
                         }
@@ -329,35 +342,63 @@ namespace ProjectB
 
         private void gridStudentInformation_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var item = gridStudentInformation.Rows[e.RowIndex].Cells[0].Value;
-            //int IdOfItem;
-            //var SecondItem = gridStudentInformation.Rows[e.RowIndex].Cells[6].Value;
-            string cmd = String.Format("SELECT * FROM Student WHERE Id = @item");
-            SqlCommand command = new SqlCommand(cmd, conn);
-            command.Parameters.Add(new SqlParameter("@item", item));
-            conn.Open();
-            SqlDataReader reader = command.ExecuteReader();
-            Student s = new Student();
-            //tabControl1.SelectedTab = tabControl1.TabPages["View Student"].Show;
-            TabADDStudent.Show();
-            btnAddStudent.Text = "Update Student";
-            while(reader.Read())
+            var element = gridStudentInformation.Columns["Delete"].Index;
+            if(e.ColumnIndex == element)
             {
-                lblID.Text = Convert.ToString(reader[0]);
-                txtFirstName.Text = Convert.ToString(reader[1]);
-                txtLastName.Text = Convert.ToString(reader[2]);
-                txtContact.Text = Convert.ToString(reader[3]);
-                txtEmail.Text = Convert.ToString(reader[4]);
-                txtRegistrationNumber.Text = Convert.ToString(reader[5]);
-                txtStatus.Text = Convert.ToString(reader[6]);
+                int ID;
+                ID = Convert.ToInt32(gridStudentInformation.Rows[e.RowIndex].Cells[0].Value);
+                string cmd = String.Format("DELETE FROM Student WHERE Id = @ID");
+                SqlCommand command = new SqlCommand(cmd, conn);
+
+                command.Parameters.Add(new SqlParameter("@ID", ID));
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                conn.Close();
+                conn.Open();
+                cmd = String.Format("SELECT *FROM Student");
+                reader = command.ExecuteReader();
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                gridStudentInformation.DataSource = table;
+                TabViewStudent.Refresh();
+                conn.Close();
+
+            }
+            else
+            {
+                var item = gridStudentInformation.Rows[e.RowIndex].Cells[0].Value;
+                //int IdOfItem;
+                //var SecondItem = gridStudentInformation.Rows[e.RowIndex].Cells[6].Value;
+                string cmd = String.Format("SELECT * FROM Student WHERE Id = @item");
+                SqlCommand command = new SqlCommand(cmd, conn);
+                command.Parameters.Add(new SqlParameter("@item", item));
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                Student s = new Student();
+                //tabControl1.SelectedTab = tabControl1.TabPages["View Student"].Show;
+                TabADDStudent.Show();
+                btnAddStudent.Text = "Update Student";
+                while (reader.Read())
+                {
+                    lblID.Text = Convert.ToString(reader[0]);
+                    txtFirstName.Text = Convert.ToString(reader[1]);
+                    txtLastName.Text = Convert.ToString(reader[2]);
+                    txtContact.Text = Convert.ToString(reader[3]);
+                    txtEmail.Text = Convert.ToString(reader[4]);
+                    txtRegistrationNumber.Text = Convert.ToString(reader[5]);
+                    txtStatus.Text = Convert.ToString(reader[6]);
+                }
+
+                conn.Close();
             }
 
-            
-            
 
-            
+
+
+
             // MessageBox.Show("success");
-            conn.Close();
+            
         }
 
         private void btnUpdateStudent_Click(object sender, EventArgs e)
@@ -367,7 +408,19 @@ namespace ProjectB
 
         private void Student_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'projectBDataSet.Student' table. You can move, or remove it, as needed.
+            this.studentTableAdapter.Fill(this.projectBDataSet.Student);
             lblID.Hide();
+            conn.Open();
+            string cmd = String.Format("SELECT *FROM Student");
+            SqlCommand command = new SqlCommand(cmd, conn);
+            SqlDataReader reader = command.ExecuteReader();
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            gridStudentInformation.DataSource = table;
+            TabViewStudent.Refresh();
+            conn.Close();
         }
 
         private void gridStudentInformation_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -397,6 +450,20 @@ namespace ProjectB
             conn.Open();
             cmd = String.Format("SELECT *FROM Student");
             reader = command.ExecuteReader();
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            gridStudentInformation.DataSource = table;
+            TabViewStudent.Refresh();
+            conn.Close();
+        }
+
+        private void TabViewStudent_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+            string cmd = String.Format("SELECT *FROM Student");
+            SqlCommand command = new SqlCommand(cmd, conn);
+            SqlDataReader reader = command.ExecuteReader();
             SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
             DataTable table = new DataTable();
             adapter.Fill(table);

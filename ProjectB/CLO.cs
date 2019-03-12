@@ -49,6 +49,18 @@ namespace ProjectB
                 SqlDataReader reader = command.ExecuteReader();
                 txtName.Text = "";
                 conn.Close();
+                tabAddCLO.Hide();
+                tabViewCLO.Show();
+
+                conn.Open();
+                 cmd = String.Format("SELECT * FROM Clo");
+                command = new SqlCommand(cmd, conn);
+                reader = command.ExecuteReader();
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                gridCLO.DataSource = table;
+                conn.Close();
             }
         }
 
@@ -68,6 +80,57 @@ namespace ProjectB
 
         private void gridCLO_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            var element = gridCLO.Columns["Delete"].Index;
+            var update = gridCLO.Columns["Update"].Index;
+            if (e.ColumnIndex == element)
+            {
+                int ID;
+                ID = Convert.ToInt32(gridCLO.Rows[e.RowIndex].Cells[0].Value);
+                string cmd = String.Format("DELETE FROM Clo WHERE Id = @ID");
+                SqlCommand command = new SqlCommand(cmd, conn);
+
+                command.Parameters.Add(new SqlParameter("@ID", ID));
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                conn.Close();
+                conn.Open();
+                cmd = String.Format("SELECT *FROM Clo");
+                reader = command.ExecuteReader();
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                gridCLO.DataSource = table;
+                conn.Close();
+
+            }
+            else if(e.ColumnIndex == gridCLO.Columns["Update"].Index)
+            {
+                var item = gridCLO.Rows[e.RowIndex].Cells[0].Value;
+                //int IdOfItem;
+                //var SecondItem = gridStudentInformation.Rows[e.RowIndex].Cells[6].Value;
+                string cmd = String.Format("SELECT * FROM Clo WHERE Id = @item");
+                SqlCommand command = new SqlCommand(cmd, conn);
+                command.Parameters.Add(new SqlParameter("@item", item));
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                Student s = new Student();
+                //tabControl1.SelectedTab = tabControl1.TabPages["View Student"].Show;
+                
+                btnAddCLO.Text = "Update CLO";
+                while (reader.Read())
+                {
+                    lblId.Text = Convert.ToString(reader[0]);
+                    txtName.Text = Convert.ToString(reader[1]);
+                    
+                }
+                tabAddCLO.Show();
+                conn.Close();
+            }
+
+
+
+
+/*
             var item = gridCLO.Rows[e.RowIndex].Cells[0].Value;
             string cmd = String.Format("SELECT * FROM Clo WHERE Id = @item");
             SqlCommand command = new SqlCommand(cmd, conn);
@@ -81,11 +144,13 @@ namespace ProjectB
                 lblId.Text = Convert.ToString(reader[0]);
                 txtName.Text = Convert.ToString(reader[1]);
             }
-            conn.Close();
+            conn.Close();*/
         }
 
         private void CLO_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'projectBDataSet1.Clo' table. You can move, or remove it, as needed.
+            this.cloTableAdapter.Fill(this.projectBDataSet1.Clo);
             lblId.Hide();
         }
 
@@ -94,23 +159,6 @@ namespace ProjectB
             
         }
 
-        private void BtnDeleteStudent_Click(object sender, EventArgs e)
-        {
-            String ID = txtId.Text;
-            string cmd = String.Format("DELETE FROM Clo WHERE Id = @ID");
-            SqlCommand command = new SqlCommand(cmd, conn);
-            command.Parameters.Add(new SqlParameter("@ID", ID));
-            conn.Open();
-            SqlDataReader reader = command.ExecuteReader();
-            conn.Close();
-            conn.Open();
-            cmd = String.Format("SELECT *FROM Clo");
-            reader = command.ExecuteReader();
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
-            DataTable table = new DataTable();
-            adapter.Fill(table);
-            gridCLO.DataSource = table;
-            conn.Close();
-        }
+    
     }
 }

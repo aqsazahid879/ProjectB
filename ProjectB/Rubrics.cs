@@ -22,6 +22,8 @@ namespace ProjectB
 
         private void Rubrics_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'projectBDataSet2.Rubric' table. You can move, or remove it, as needed.
+            this.rubricTableAdapter.Fill(this.projectBDataSet2.Rubric);
             String cmd = "SELECT Id FROM Clo";
             SqlCommand command = new SqlCommand(cmd, conn);
             command.Parameters.Add(new SqlParameter("0", 1));
@@ -31,15 +33,67 @@ namespace ProjectB
             {
                 cmbCloId.Items.Add(reader[0]);
             }
+            conn.Close();
         }
 
         private void btnAddRubric_Click(object sender, EventArgs e)
         {
             bool isNumber = false;
             isNumber=isDigit(txtID.Text);
-            if(isNumber == true)
+            if(isNumber == true && btnAddRubric.Text == "Add Rubric")
             {
+                string detail;
+                int id, CloID;
+                detail = txtDetail.Text;
+                id = Convert.ToInt32(txtID.Text);
+                CloID = Convert.ToInt32(cmbCloId.Text);
 
+                conn.Open();
+                String cmd = String.Format("INSERT INTO Rubric(Id, Details, CloId) values('{0}','{1}','{2}')", id, detail, CloID);
+                SqlCommand command = new SqlCommand(cmd, conn);
+                command.Parameters.Add(new SqlParameter("0", 1));
+
+                SqlDataReader reader = command.ExecuteReader();
+                txtID.Text = "";
+                txtDetail.Text = "";
+                cmbCloId.Text = "";
+                conn.Close();
+
+            }
+            else
+            {
+                if(isDigit(txtID.Text) == true)
+                {
+                    conn.Open();
+                    string Name = txtDetail.Text;
+                    int Id = Convert.ToInt32(txtID.Text);
+                    int cloid = Convert.ToInt32(cmbCloId.Text);
+                    string cmd = String.Format("UPDATE Rubric SET Id = @Id, Details = @Name, CloId = @cloid WHERE Id = @Id");
+                    //SqlCommand command = new SqlCommand(cmd, conn);
+
+                    SqlCommand command = new SqlCommand(cmd, conn);
+                    command.Parameters.Add(new SqlParameter("@Name", Name));
+                    command.Parameters.Add(new SqlParameter("@cloid", cloid));
+                    command.Parameters.Add(new SqlParameter("@Id", Id));
+                    SqlDataReader reader = command.ExecuteReader();
+                    txtID.Text = "";
+                    txtDetail.Text = "";
+                    cmbCloId.Text = "";
+                    conn.Close();
+                    tabAddRubric.Hide();
+                    tabViewRubric.Show();
+
+                    conn.Open();
+                    cmd = String.Format("SELECT * FROM Rubric");
+                    command = new SqlCommand(cmd, conn);
+                    reader = command.ExecuteReader();
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    gridViewRubrics.DataSource = table;
+                    conn.Close();
+                }
+                
             }
         }
         /// <summary>
@@ -62,6 +116,72 @@ namespace ProjectB
                 }
             }
             return IsDigit;
+        }
+
+        private void btnViewRubric_Click(object sender, EventArgs e)
+        {
+            String cmd = "SELECT * FROM Rubric";
+            SqlCommand command = new SqlCommand(cmd, conn);
+            command.Parameters.Add(new SqlParameter("0", 1));
+            conn.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            gridViewRubrics.DataSource = table;
+            conn.Close();
+        }
+
+        private void gridViewRubrics_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var element = gridViewRubrics.Columns["Delete"].Index;
+            var update = gridViewRubrics.Columns["Update"].Index;
+            if (e.ColumnIndex == element)
+            {
+                int ID;
+                ID = Convert.ToInt32(gridViewRubrics.Rows[e.RowIndex].Cells[0].Value);
+                string cmd = String.Format("DELETE FROM Rubric WHERE Id = @ID");
+                SqlCommand command = new SqlCommand(cmd, conn);
+
+                command.Parameters.Add(new SqlParameter("@ID", ID));
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                conn.Close();
+                conn.Open();
+                cmd = String.Format("SELECT *FROM Rubric");
+                reader = command.ExecuteReader();
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                gridViewRubrics.DataSource = table;
+                conn.Close();
+
+            }
+            else if (e.ColumnIndex == gridViewRubrics.Columns["Update"].Index)
+            {
+                var item = gridViewRubrics.Rows[e.RowIndex].Cells[0].Value;
+                //int IdOfItem;
+                //var SecondItem = gridStudentInformation.Rows[e.RowIndex].Cells[6].Value;
+                string cmd = String.Format("SELECT * FROM Rubric WHERE Id = @item");
+                SqlCommand command = new SqlCommand(cmd, conn);
+                command.Parameters.Add(new SqlParameter("@item", item));
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                Student s = new Student();
+                //tabControl1.SelectedTab = tabControl1.TabPages["View Student"].Show;
+
+                btnAddRubric.Text = "Update Rubric";
+                while (reader.Read())
+                {
+                    txtID.Text = Convert.ToString(reader[0]);
+                    txtDetail.Text = Convert.ToString(reader[1]);
+                    cmbCloId.Text = Convert.ToString(reader[2]);
+
+                }
+                tabAddRubric.Show();
+                conn.Close();
+            }
+
         }
     }
 }

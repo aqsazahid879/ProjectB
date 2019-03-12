@@ -9,3 +9,5 @@ F:\UNI DATA\Semester 6\DBMS LAB\MidTermProject\ProjectB\ProjectB\obj\Debug\Proje
 F:\UNI DATA\Semester 6\DBMS LAB\MidTermProject\ProjectB\ProjectB\obj\Debug\ProjectB.Student.resources
 F:\UNI DATA\Semester 6\DBMS LAB\MidTermProject\ProjectB\ProjectB\obj\Debug\ProjectB.CLO.resources
 F:\UNI DATA\Semester 6\DBMS LAB\MidTermProject\ProjectB\ProjectB\obj\Debug\ProjectB.Rubrics.resources
+F:\UNI DATA\Semester 6\DBMS LAB\MidTermProject\ProjectB\ProjectB\obj\Debug\ProjectB.RubricLevel.resources
+F:\UNI DATA\Semester 6\DBMS LAB\MidTermProject\ProjectB\ProjectB\obj\Debug\ProjectB.Assessment.resources
