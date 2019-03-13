@@ -16,7 +16,7 @@ namespace ProjectB
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Rubrics());
+            Application.Run(new Student());
             //Application.Run(new Assessment());
         }
     }

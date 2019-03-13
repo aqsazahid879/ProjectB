@@ -438,26 +438,7 @@ namespace ProjectB
 
         }
 
-        private void BtnDeleteStudent_Click(object sender, EventArgs e)
-        {
-            String ID = txtIDTab.Text;
-            string cmd = String.Format("DELETE FROM Student WHERE Id = @ID");
-            SqlCommand command = new SqlCommand(cmd, conn);
-            command.Parameters.Add(new SqlParameter("@ID", ID));
-            conn.Open();
-            SqlDataReader reader = command.ExecuteReader();
-            conn.Close();
-            conn.Open();
-            cmd = String.Format("SELECT *FROM Student");
-            reader = command.ExecuteReader();
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
-            DataTable table = new DataTable();
-            adapter.Fill(table);
-            gridStudentInformation.DataSource = table;
-            TabViewStudent.Refresh();
-            conn.Close();
-        }
-
+       
         private void TabViewStudent_Click(object sender, EventArgs e)
         {
             conn.Open();
@@ -470,6 +451,11 @@ namespace ProjectB
             gridStudentInformation.DataSource = table;
             TabViewStudent.Refresh();
             conn.Close();
+        }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

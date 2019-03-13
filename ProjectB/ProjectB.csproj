@@ -52,6 +52,12 @@
     <Compile Include="Assessment.Designer.cs">
       <DependentUpon>Assessment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Checking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Checking.Designer.cs">
+      <DependentUpon>Checking.cs</DependentUpon>
+    </Compile>
     <Compile Include="CLO.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,9 @@
     </Compile>
     <EmbeddedResource Include="Assessment.resx">
       <DependentUpon>Assessment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Checking.resx">
+      <DependentUpon>Checking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CLO.resx">
       <DependentUpon>CLO.cs</DependentUpon>
