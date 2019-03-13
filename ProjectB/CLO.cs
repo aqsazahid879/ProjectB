@@ -61,6 +61,7 @@ namespace ProjectB
                 adapter.Fill(table);
                 gridCLO.DataSource = table;
                 conn.Close();
+                btnAddCLO.Text = "Add CLO";
             }
         }
 
@@ -86,13 +87,21 @@ namespace ProjectB
             {
                 int ID;
                 ID = Convert.ToInt32(gridCLO.Rows[e.RowIndex].Cells[0].Value);
-                string cmd = String.Format("DELETE FROM Clo WHERE Id = @ID");
-                SqlCommand command = new SqlCommand(cmd, conn);
 
+                string cmd = String.Format("DELETE FROM Rubric WHERE CloId = @ID");
+                SqlCommand command = new SqlCommand(cmd, conn);
                 command.Parameters.Add(new SqlParameter("@ID", ID));
                 conn.Open();
                 SqlDataReader reader = command.ExecuteReader();
                 conn.Close();
+
+                string cmd1 = String.Format("DELETE FROM Clo WHERE Id = @Cloid");
+                command = new SqlCommand(cmd1, conn);
+                command.Parameters.Add(new SqlParameter("@Cloid", ID));
+                conn.Open();
+                reader = command.ExecuteReader();
+                conn.Close();
+                
                 conn.Open();
                 cmd = String.Format("SELECT *FROM Clo");
                 reader = command.ExecuteReader();
@@ -159,6 +168,25 @@ namespace ProjectB
             
         }
 
-    
+        private void lnkStudent_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Student stu = new Student();
+            this.Hide();
+            stu.Show();
+        }
+
+        private void lnkClo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            CLO c = new CLO();
+            this.Hide();
+            c.Show();
+        }
+
+        private void lnkRubric_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Rubrics rub = new Rubrics();
+            this.Hide();
+            rub.Show();
+        }
     }
 }
