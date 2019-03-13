@@ -124,7 +124,7 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(1, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(1, 1);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -155,7 +155,7 @@
             this.tableLayoutPanel2.Controls.Add(this.lnkClo, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.lnkStudent, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.lnkRubric, 2, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(1, 51);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(1, 52);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -174,6 +174,7 @@
             this.lnkClo.TabStop = true;
             this.lnkClo.Text = "Clo";
             this.lnkClo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lnkClo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkClo_LinkClicked);
             // 
             // lnkStudent
             // 
@@ -187,6 +188,7 @@
             this.lnkStudent.TabStop = true;
             this.lnkStudent.Text = "Student";
             this.lnkStudent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lnkStudent.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkStudent_LinkClicked);
             // 
             // lnkRubric
             // 
@@ -200,6 +202,7 @@
             this.lnkRubric.TabStop = true;
             this.lnkRubric.Text = "Rubric";
             this.lnkRubric.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lnkRubric.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkRubric_LinkClicked);
             // 
             // tableLayoutPanel3
             // 
@@ -210,7 +213,7 @@
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.tabControl1, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(1, 95);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(1, 96);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));

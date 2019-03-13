@@ -65,14 +65,14 @@ namespace ProjectB
                 if(isDigit(txtID.Text) == true)
                 {
                     conn.Open();
-                    string Name = txtDetail.Text;
+                    string Detail = txtDetail.Text;
                     int Id = Convert.ToInt32(txtID.Text);
                     int cloid = Convert.ToInt32(cmbCloId.Text);
-                    string cmd = String.Format("UPDATE Rubric SET Id = @Id, Details = @Name, CloId = @cloid WHERE Id = @Id");
+                    string cmd = String.Format("UPDATE Rubric SET Id = @Id, Details = @Detail, CloId = @cloid WHERE Id = @Id");
                     //SqlCommand command = new SqlCommand(cmd, conn);
 
                     SqlCommand command = new SqlCommand(cmd, conn);
-                    command.Parameters.Add(new SqlParameter("@Name", Name));
+                    command.Parameters.Add(new SqlParameter("@Detail", Detail));
                     command.Parameters.Add(new SqlParameter("@cloid", cloid));
                     command.Parameters.Add(new SqlParameter("@Id", Id));
                     SqlDataReader reader = command.ExecuteReader();
@@ -182,6 +182,27 @@ namespace ProjectB
                 conn.Close();
             }
 
+        }
+
+        private void lnkStudent_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Student stu = new Student();
+            this.Hide();
+            stu.Show();
+        }
+
+        private void lnkClo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            CLO c = new CLO();
+            this.Hide();
+            c.Show();
+        }
+
+        private void lnkRubric_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Rubrics rub = new Rubrics();
+            this.Hide();
+            rub.Show();
         }
     }
 }
