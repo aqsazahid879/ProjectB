@@ -79,5 +79,35 @@ namespace ProjectB
                 conn.Close();
             }
         }
+
+        private void lnkRubricLevel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            RubricLevel rubriclevel = new RubricLevel();
+            this.Hide();
+            rubriclevel.Show();
+        }
+
+        private void lnkRubric_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Rubrics rub = new Rubrics();
+            this.Hide();
+            rub.Show();
+        }
+
+        
+
+        private void lnkClo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            CLO c = new CLO();
+            this.Hide();
+            c.Show();
+        }
+
+        private void lnkStudent_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Student stu = new Student();
+            this.Hide();
+            stu.Show();
+        }
     }
 }

@@ -204,5 +204,12 @@ namespace ProjectB
             this.Hide();
             rub.Show();
         }
+
+        private void lnkRubricLevel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            RubricLevel rubriclevel = new RubricLevel();
+            this.Hide();
+            rubriclevel.Show();
+        }
     }
 }

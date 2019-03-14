@@ -150,6 +150,30 @@
   <data name="StudentControl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
+  <data name="cmbStatus.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="cmbStatus.Location" type="System.Drawing.Point, System.Drawing">
+    <value>413, 188</value>
+  </data>
+  <data name="cmbStatus.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
+  </data>
+  <data name="cmbStatus.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;cmbStatus.Name" xml:space="preserve">
+    <value>cmbStatus</value>
+  </data>
+  <data name="&gt;&gt;cmbStatus.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmbStatus.Parent" xml:space="preserve">
+    <value>TabADDStudent</value>
+  </data>
+  <data name="&gt;&gt;cmbStatus.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="lblID.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -175,7 +199,7 @@
     <value>TabADDStudent</value>
   </data>
   <data name="&gt;&gt;lblID.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="btnAddStudent.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -202,30 +226,6 @@
     <value>TabADDStudent</value>
   </data>
   <data name="&gt;&gt;btnAddStudent.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="txtStatus.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="txtStatus.Location" type="System.Drawing.Point, System.Drawing">
-    <value>413, 185</value>
-  </data>
-  <data name="txtStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
-  </data>
-  <data name="txtStatus.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="&gt;&gt;txtStatus.Name" xml:space="preserve">
-    <value>txtStatus</value>
-  </data>
-  <data name="&gt;&gt;txtStatus.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtStatus.Parent" xml:space="preserve">
-    <value>TabADDStudent</value>
-  </data>
-  <data name="&gt;&gt;txtStatus.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="txtRegistrationNumber.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -555,6 +555,9 @@
   <data name="&gt;&gt;TabADDStudent.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="btnViewStudent.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
   <data name="btnViewStudent.Location" type="System.Drawing.Point, System.Drawing">
     <value>239, 41</value>
   </data>
@@ -602,6 +605,15 @@
   </data>
   <data name="statusDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
     <value>Status</value>
+  </data>
+  <metadata name="Update.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="Update.HeaderText" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="Update.ToolTipText" xml:space="preserve">
+    <value>Update</value>
   </data>
   <metadata name="Delete.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -660,345 +672,6 @@
   <data name="&gt;&gt;TabViewStudent.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="btnUpdateStudent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>251, 207</value>
-  </data>
-  <data name="btnUpdateStudent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 23</value>
-  </data>
-  <data name="btnUpdateStudent.TabIndex" type="System.Int32, mscorlib">
-    <value>38</value>
-  </data>
-  <data name="btnUpdateStudent.Text" xml:space="preserve">
-    <value>Update Student</value>
-  </data>
-  <data name="&gt;&gt;btnUpdateStudent.Name" xml:space="preserve">
-    <value>btnUpdateStudent</value>
-  </data>
-  <data name="&gt;&gt;btnUpdateStudent.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnUpdateStudent.Parent" xml:space="preserve">
-    <value>TabUpdateStudent</value>
-  </data>
-  <data name="&gt;&gt;btnUpdateStudent.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="txtStat1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>341, 168</value>
-  </data>
-  <data name="txtStat1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
-  </data>
-  <data name="txtStat1.TabIndex" type="System.Int32, mscorlib">
-    <value>37</value>
-  </data>
-  <data name="&gt;&gt;txtStat1.Name" xml:space="preserve">
-    <value>txtStat1</value>
-  </data>
-  <data name="&gt;&gt;txtStat1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtStat1.Parent" xml:space="preserve">
-    <value>TabUpdateStudent</value>
-  </data>
-  <data name="&gt;&gt;txtStat1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="txtRegNum1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>341, 138</value>
-  </data>
-  <data name="txtRegNum1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
-  </data>
-  <data name="txtRegNum1.TabIndex" type="System.Int32, mscorlib">
-    <value>36</value>
-  </data>
-  <data name="&gt;&gt;txtRegNum1.Name" xml:space="preserve">
-    <value>txtRegNum1</value>
-  </data>
-  <data name="&gt;&gt;txtRegNum1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtRegNum1.Parent" xml:space="preserve">
-    <value>TabUpdateStudent</value>
-  </data>
-  <data name="&gt;&gt;txtRegNum1.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="txtEmail1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>341, 108</value>
-  </data>
-  <data name="txtEmail1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
-  </data>
-  <data name="txtEmail1.TabIndex" type="System.Int32, mscorlib">
-    <value>35</value>
-  </data>
-  <data name="&gt;&gt;txtEmail1.Name" xml:space="preserve">
-    <value>txtEmail1</value>
-  </data>
-  <data name="&gt;&gt;txtEmail1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtEmail1.Parent" xml:space="preserve">
-    <value>TabUpdateStudent</value>
-  </data>
-  <data name="&gt;&gt;txtEmail1.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="txtContact1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>341, 78</value>
-  </data>
-  <data name="txtContact1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
-  </data>
-  <data name="txtContact1.TabIndex" type="System.Int32, mscorlib">
-    <value>34</value>
-  </data>
-  <data name="&gt;&gt;txtContact1.Name" xml:space="preserve">
-    <value>txtContact1</value>
-  </data>
-  <data name="&gt;&gt;txtContact1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtContact1.Parent" xml:space="preserve">
-    <value>TabUpdateStudent</value>
-  </data>
-  <data name="&gt;&gt;txtContact1.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="txtLast1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>341, 50</value>
-  </data>
-  <data name="txtLast1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
-  </data>
-  <data name="txtLast1.TabIndex" type="System.Int32, mscorlib">
-    <value>33</value>
-  </data>
-  <data name="&gt;&gt;txtLast1.Name" xml:space="preserve">
-    <value>txtLast1</value>
-  </data>
-  <data name="&gt;&gt;txtLast1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtLast1.Parent" xml:space="preserve">
-    <value>TabUpdateStudent</value>
-  </data>
-  <data name="&gt;&gt;txtLast1.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="txtFirst1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>341, 21</value>
-  </data>
-  <data name="txtFirst1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
-  </data>
-  <data name="txtFirst1.TabIndex" type="System.Int32, mscorlib">
-    <value>32</value>
-  </data>
-  <data name="&gt;&gt;txtFirst1.Name" xml:space="preserve">
-    <value>txtFirst1</value>
-  </data>
-  <data name="&gt;&gt;txtFirst1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtFirst1.Parent" xml:space="preserve">
-    <value>TabUpdateStudent</value>
-  </data>
-  <data name="&gt;&gt;txtFirst1.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>161, 171</value>
-  </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 13</value>
-  </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
-    <value>31</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Status</value>
-  </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>TabUpdateStudent</value>
-  </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>161, 141</value>
-  </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 13</value>
-  </data>
-  <data name="label3.TabIndex" type="System.Int32, mscorlib">
-    <value>30</value>
-  </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>Registration Number</value>
-  </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
-  </data>
-  <data name="&gt;&gt;label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
-    <value>TabUpdateStudent</value>
-  </data>
-  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>161, 111</value>
-  </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 13</value>
-  </data>
-  <data name="label4.TabIndex" type="System.Int32, mscorlib">
-    <value>29</value>
-  </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>Email</value>
-  </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
-  </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
-    <value>TabUpdateStudent</value>
-  </data>
-  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>161, 81</value>
-  </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 13</value>
-  </data>
-  <data name="label5.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
-  </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>Contact</value>
-  </data>
-  <data name="&gt;&gt;label5.Name" xml:space="preserve">
-    <value>label5</value>
-  </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
-    <value>TabUpdateStudent</value>
-  </data>
-  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>161, 53</value>
-  </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 13</value>
-  </data>
-  <data name="label6.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
-  </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>Last Name</value>
-  </data>
-  <data name="&gt;&gt;label6.Name" xml:space="preserve">
-    <value>label6</value>
-  </data>
-  <data name="&gt;&gt;label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
-    <value>TabUpdateStudent</value>
-  </data>
-  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>161, 24</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 13</value>
-  </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>First Name</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>TabUpdateStudent</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="TabUpdateStudent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="TabUpdateStudent.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="TabUpdateStudent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>993, 298</value>
-  </data>
-  <data name="TabUpdateStudent.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="TabUpdateStudent.Text" xml:space="preserve">
-    <value>Update Student</value>
-  </data>
-  <data name="&gt;&gt;TabUpdateStudent.Name" xml:space="preserve">
-    <value>TabUpdateStudent</value>
-  </data>
-  <data name="&gt;&gt;TabUpdateStudent.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TabUpdateStudent.Parent" xml:space="preserve">
-    <value>StudentControl</value>
-  </data>
-  <data name="&gt;&gt;TabUpdateStudent.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="StudentControl.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
@@ -1051,7 +724,7 @@
     <value>Top, Left, Right</value>
   </data>
   <data name="tableLayoutPanel2.ColumnCount" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="lnkClo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left, Right</value>
@@ -1060,10 +733,10 @@
     <value>True</value>
   </data>
   <data name="lnkClo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>338, 15</value>
+    <value>254, 15</value>
   </data>
   <data name="lnkClo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>329, 13</value>
+    <value>245, 13</value>
   </data>
   <data name="lnkClo.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1096,7 +769,7 @@
     <value>3, 15</value>
   </data>
   <data name="lnkStudent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>329, 13</value>
+    <value>245, 13</value>
   </data>
   <data name="lnkStudent.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1126,10 +799,10 @@
     <value>True</value>
   </data>
   <data name="lnkRubric.Location" type="System.Drawing.Point, System.Drawing">
-    <value>673, 15</value>
+    <value>505, 15</value>
   </data>
   <data name="lnkRubric.Size" type="System.Drawing.Size, System.Drawing">
-    <value>331, 13</value>
+    <value>245, 13</value>
   </data>
   <data name="lnkRubric.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1151,6 +824,39 @@
   </data>
   <data name="&gt;&gt;lnkRubric.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="lnkRubricLevel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="lnkRubricLevel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lnkRubricLevel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>756, 15</value>
+  </data>
+  <data name="lnkRubricLevel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>248, 13</value>
+  </data>
+  <data name="lnkRubricLevel.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="lnkRubricLevel.Text" xml:space="preserve">
+    <value>RubricLevel</value>
+  </data>
+  <data name="lnkRubricLevel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;lnkRubricLevel.Name" xml:space="preserve">
+    <value>lnkRubricLevel</value>
+  </data>
+  <data name="&gt;&gt;lnkRubricLevel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lnkRubricLevel.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;lnkRubricLevel.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="tableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 63</value>
@@ -1177,7 +883,7 @@
     <value>1</value>
   </data>
   <data name="tableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lnkClo" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lnkStudent" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lnkRubric" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,33.33,Percent,33.33,Percent,33.34" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lnkClo" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lnkStudent" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lnkRubric" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lnkRubricLevel" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,25,Percent,25,Percent,25,Percent,25" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tableLayoutPanel1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -1346,6 +1052,12 @@
   </data>
   <data name="&gt;&gt;statusDataGridViewTextBoxColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Update.Name" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="&gt;&gt;Update.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Delete.Name" xml:space="preserve">
     <value>Delete</value>

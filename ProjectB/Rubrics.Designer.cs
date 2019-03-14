@@ -42,12 +42,8 @@
             this.lnkClo = new System.Windows.Forms.LinkLabel();
             this.lnkStudent = new System.Windows.Forms.LinkLabel();
             this.lnkRubric = new System.Windows.Forms.LinkLabel();
+            this.lnkRubricLevel = new System.Windows.Forms.LinkLabel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.ErrorContact = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ErrorLastName = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ErrorRegistrationNumber = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ErrorStatus = new System.Windows.Forms.ErrorProvider(this.components);
-            this.studentTableAdapter = new ProjectB.ProjectBDataSetTableAdapters.StudentTableAdapter();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabAddRubric = new System.Windows.Forms.TabPage();
             this.lblId = new System.Windows.Forms.Label();
@@ -65,6 +61,11 @@
             this.cloIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Update = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ErrorContact = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ErrorLastName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ErrorRegistrationNumber = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ErrorStatus = new System.Windows.Forms.ErrorProvider(this.components);
+            this.studentTableAdapter = new ProjectB.ProjectBDataSetTableAdapters.StudentTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.rubricBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
@@ -74,14 +75,14 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ErrorContact)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ErrorLastName)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ErrorRegistrationNumber)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ErrorStatus)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabAddRubric.SuspendLayout();
             this.tabViewRubric.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewRubrics)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorContact)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorLastName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorRegistrationNumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorStatus)).BeginInit();
             this.SuspendLayout();
             // 
             // rubricBindingSource
@@ -148,13 +149,15 @@
             this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.34F));
+            this.tableLayoutPanel2.ColumnCount = 4;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.Controls.Add(this.lnkClo, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.lnkStudent, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.lnkRubric, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lnkRubricLevel, 3, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(1, 52);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
@@ -167,9 +170,9 @@
             this.lnkClo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lnkClo.AutoSize = true;
             this.lnkClo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lnkClo.Location = new System.Drawing.Point(338, 15);
+            this.lnkClo.Location = new System.Drawing.Point(254, 15);
             this.lnkClo.Name = "lnkClo";
-            this.lnkClo.Size = new System.Drawing.Size(329, 13);
+            this.lnkClo.Size = new System.Drawing.Size(245, 13);
             this.lnkClo.TabIndex = 1;
             this.lnkClo.TabStop = true;
             this.lnkClo.Text = "Clo";
@@ -183,7 +186,7 @@
             this.lnkStudent.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lnkStudent.Location = new System.Drawing.Point(3, 15);
             this.lnkStudent.Name = "lnkStudent";
-            this.lnkStudent.Size = new System.Drawing.Size(329, 13);
+            this.lnkStudent.Size = new System.Drawing.Size(245, 13);
             this.lnkStudent.TabIndex = 0;
             this.lnkStudent.TabStop = true;
             this.lnkStudent.Text = "Student";
@@ -195,14 +198,27 @@
             this.lnkRubric.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lnkRubric.AutoSize = true;
             this.lnkRubric.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lnkRubric.Location = new System.Drawing.Point(673, 15);
+            this.lnkRubric.Location = new System.Drawing.Point(505, 15);
             this.lnkRubric.Name = "lnkRubric";
-            this.lnkRubric.Size = new System.Drawing.Size(331, 13);
+            this.lnkRubric.Size = new System.Drawing.Size(245, 13);
             this.lnkRubric.TabIndex = 2;
             this.lnkRubric.TabStop = true;
             this.lnkRubric.Text = "Rubric";
             this.lnkRubric.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lnkRubric.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkRubric_LinkClicked);
+            // 
+            // lnkRubricLevel
+            // 
+            this.lnkRubricLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lnkRubricLevel.AutoSize = true;
+            this.lnkRubricLevel.Location = new System.Drawing.Point(756, 15);
+            this.lnkRubricLevel.Name = "lnkRubricLevel";
+            this.lnkRubricLevel.Size = new System.Drawing.Size(248, 13);
+            this.lnkRubricLevel.TabIndex = 4;
+            this.lnkRubricLevel.TabStop = true;
+            this.lnkRubricLevel.Text = "RubricLevel";
+            this.lnkRubricLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lnkRubricLevel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkRubricLevel_LinkClicked);
             // 
             // tableLayoutPanel3
             // 
@@ -219,26 +235,6 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(1007, 330);
             this.tableLayoutPanel3.TabIndex = 19;
-            // 
-            // ErrorContact
-            // 
-            this.ErrorContact.ContainerControl = this;
-            // 
-            // ErrorLastName
-            // 
-            this.ErrorLastName.ContainerControl = this;
-            // 
-            // ErrorRegistrationNumber
-            // 
-            this.ErrorRegistrationNumber.ContainerControl = this;
-            // 
-            // ErrorStatus
-            // 
-            this.ErrorStatus.ContainerControl = this;
-            // 
-            // studentTableAdapter
-            // 
-            this.studentTableAdapter.ClearBeforeFill = true;
             // 
             // tabControl1
             // 
@@ -357,6 +353,8 @@
             // 
             // btnViewRubric
             // 
+            this.btnViewRubric.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnViewRubric.Location = new System.Drawing.Point(170, 31);
             this.btnViewRubric.Name = "btnViewRubric";
             this.btnViewRubric.Size = new System.Drawing.Size(94, 23);
@@ -417,6 +415,26 @@
             this.Delete.ToolTipText = "Delete";
             this.Delete.UseColumnTextForButtonValue = true;
             // 
+            // ErrorContact
+            // 
+            this.ErrorContact.ContainerControl = this;
+            // 
+            // ErrorLastName
+            // 
+            this.ErrorLastName.ContainerControl = this;
+            // 
+            // ErrorRegistrationNumber
+            // 
+            this.ErrorRegistrationNumber.ContainerControl = this;
+            // 
+            // ErrorStatus
+            // 
+            this.ErrorStatus.ContainerControl = this;
+            // 
+            // studentTableAdapter
+            // 
+            this.studentTableAdapter.ClearBeforeFill = true;
+            // 
             // Rubrics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -440,15 +458,15 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ErrorContact)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ErrorLastName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ErrorRegistrationNumber)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ErrorStatus)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabAddRubric.ResumeLayout(false);
             this.tabAddRubric.PerformLayout();
             this.tabViewRubric.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridViewRubrics)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorContact)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorLastName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorRegistrationNumber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorStatus)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -490,5 +508,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cloIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Update;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        private System.Windows.Forms.LinkLabel lnkRubricLevel;
     }
 }

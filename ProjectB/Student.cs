@@ -41,7 +41,7 @@ namespace ProjectB
                     {
                         if (isValidContact(txtContact.Text))
                         {
-                            if (isDigit(txtStatus.Text) && isDigit(txtStatus.Text))
+                            if (isDigit(cmbStatus.Text) && isDigit(cmbStatus.Text))
                             {
                                 if (IsValidEmail(txtEmail.Text) && isValidRegistrationNumber(txtRegistrationNumber.Text))
                                 {
@@ -50,7 +50,7 @@ namespace ProjectB
                                     Contact = txtContact.Text;
                                     Email = txtEmail.Text;
                                     RegistrationNumber = txtRegistrationNumber.Text;
-                                    Status = Convert.ToInt32(txtStatus.Text);
+                                    Status = Convert.ToInt32(cmbStatus.Text);
                                     conn.Open();
                                     string cmd = String.Format("UPDATE Student SET FirstName = @FirstName, LastName = @LastName, Contact = @Contact, Email = @Email, RegistrationNumber = @RegistrationNumber, Status = @Status WHERE Id = @ID");
                                     SqlCommand command = new SqlCommand(cmd, conn);
@@ -69,7 +69,7 @@ namespace ProjectB
                                     txtFirstName.Text = "";
                                     txtLastName.Text = "";
                                     txtRegistrationNumber.Text = "";
-                                    txtStatus.Text = "";
+                                    cmbStatus.Text = "";
                                     conn.Close();
                                     TabADDStudent.Hide();
                                     TabViewStudent.Show();
@@ -102,7 +102,7 @@ namespace ProjectB
                     {
                         if (isValidContact(txtContact.Text))
                         {
-                            if (isDigit(txtStatus.Text) && isDigit(txtStatus.Text))
+                            if (isDigit(cmbStatus.Text) && isDigit(cmbStatus.Text))
                             {
                                 if (IsValidEmail(txtEmail.Text) && isValidRegistrationNumber(txtRegistrationNumber.Text))
                                 {
@@ -111,7 +111,7 @@ namespace ProjectB
                                     Contact = txtContact.Text;
                                     Email = txtEmail.Text;
                                     RegistrationNumber = txtRegistrationNumber.Text;
-                                    Status = Convert.ToInt32(txtStatus.Text);
+                                    Status = Convert.ToInt32(cmbStatus.Text);
                                     conn.Open();
                                     String cmd = String.Format("INSERT INTO Student(FirstName, LastName,Contact, Email, RegistrationNumber, Status) values('{0}','{1}','{2}','{3}','{4}','{5}')", FirstName, LastName, Contact, Email, RegistrationNumber, Status);
                                     SqlCommand command = new SqlCommand(cmd, conn);
@@ -124,7 +124,7 @@ namespace ProjectB
                                     txtFirstName.Text = "";
                                     txtLastName.Text = "";
                                     txtRegistrationNumber.Text = "";
-                                    txtStatus.Text = "";
+                                    cmbStatus.Text = "";
                                     conn.Close();
                                 }
                             }
@@ -309,14 +309,14 @@ namespace ProjectB
 
         private void txtStatus_Leave(object sender, EventArgs e)
         {
-            bool isStatus = isDigit(txtStatus.Text);
+            bool isStatus = isDigit(cmbStatus.Text);
             if(isStatus == true)
             {
                 ErrorStatus.Clear();
             }
             else
             {
-                ErrorStatus.SetError(txtStatus, "Invalid Status");
+                ErrorStatus.SetError(cmbStatus, "Invalid Status");
             }
         }
 
@@ -335,64 +335,10 @@ namespace ProjectB
             conn.Close();
         }
 
-        private void gridStudentInformation_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
+        
         private void gridStudentInformation_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var element = gridStudentInformation.Columns["Delete"].Index;
-            if(e.ColumnIndex == element)
-            {
-                int ID;
-                ID = Convert.ToInt32(gridStudentInformation.Rows[e.RowIndex].Cells[0].Value);
-                string cmd = String.Format("DELETE FROM Student WHERE Id = @ID");
-                SqlCommand command = new SqlCommand(cmd, conn);
-
-                command.Parameters.Add(new SqlParameter("@ID", ID));
-                conn.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                conn.Close();
-                conn.Open();
-                cmd = String.Format("SELECT *FROM Student");
-                reader = command.ExecuteReader();
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-                gridStudentInformation.DataSource = table;
-                TabViewStudent.Refresh();
-                conn.Close();
-
-            }
-            else
-            {
-                var item = gridStudentInformation.Rows[e.RowIndex].Cells[0].Value;
-                //int IdOfItem;
-                //var SecondItem = gridStudentInformation.Rows[e.RowIndex].Cells[6].Value;
-                string cmd = String.Format("SELECT * FROM Student WHERE Id = @item");
-                SqlCommand command = new SqlCommand(cmd, conn);
-                command.Parameters.Add(new SqlParameter("@item", item));
-                conn.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                Student s = new Student();
-                //tabControl1.SelectedTab = tabControl1.TabPages["View Student"].Show;
-                TabADDStudent.Show();
-                btnAddStudent.Text = "Update Student";
-                while (reader.Read())
-                {
-                    lblID.Text = Convert.ToString(reader[0]);
-                    txtFirstName.Text = Convert.ToString(reader[1]);
-                    txtLastName.Text = Convert.ToString(reader[2]);
-                    txtContact.Text = Convert.ToString(reader[3]);
-                    txtEmail.Text = Convert.ToString(reader[4]);
-                    txtRegistrationNumber.Text = Convert.ToString(reader[5]);
-                    txtStatus.Text = Convert.ToString(reader[6]);
-                }
-
-                conn.Close();
-            }
-
+            
 
 
 
@@ -408,13 +354,25 @@ namespace ProjectB
 
         private void Student_Load(object sender, EventArgs e)
         {
+            String cmd = "SELECT LookupId FROM Lookup";
+            SqlCommand command = new SqlCommand(cmd, conn);
+            command.Parameters.Add(new SqlParameter("0", 1));
+            conn.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                cmbStatus.Items.Add(reader[0]);
+            }
+            conn.Close();
+
+
             // TODO: This line of code loads data into the 'projectBDataSet.Student' table. You can move, or remove it, as needed.
             this.studentTableAdapter.Fill(this.projectBDataSet.Student);
             lblID.Hide();
             conn.Open();
-            string cmd = String.Format("SELECT *FROM Student");
-            SqlCommand command = new SqlCommand(cmd, conn);
-            SqlDataReader reader = command.ExecuteReader();
+            cmd = String.Format("SELECT *FROM Student");
+            command = new SqlCommand(cmd, conn);
+            reader = command.ExecuteReader();
             SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
             DataTable table = new DataTable();
             adapter.Fill(table);
@@ -477,6 +435,68 @@ namespace ProjectB
             Rubrics rub = new Rubrics();
             this.Hide();
             rub.Show();
+        }
+
+        private void lnkRubricLevel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            RubricLevel rubriclevel = new RubricLevel();
+            this.Hide();
+            rubriclevel.Show();
+        }
+
+        private void gridStudentInformation_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var element = gridStudentInformation.Columns["Delete"].Index;
+            if (e.ColumnIndex == element)
+            {
+                int ID;
+                ID = Convert.ToInt32(gridStudentInformation.Rows[e.RowIndex].Cells[0].Value);
+                string cmd = String.Format("DELETE FROM Student WHERE Id = @ID");
+                SqlCommand command = new SqlCommand(cmd, conn);
+
+                command.Parameters.Add(new SqlParameter("@ID", ID));
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                conn.Close();
+                conn.Open();
+                cmd = String.Format("SELECT *FROM Student");
+                reader = command.ExecuteReader();
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                gridStudentInformation.DataSource = table;
+                TabViewStudent.Refresh();
+                conn.Close();
+
+            }
+            else
+            {
+                var item = gridStudentInformation.Rows[e.RowIndex].Cells[0].Value;
+                //int IdOfItem;
+                //var SecondItem = gridStudentInformation.Rows[e.RowIndex].Cells[6].Value;
+                string cmd = String.Format("SELECT * FROM Student WHERE Id = @item");
+                SqlCommand command = new SqlCommand(cmd, conn);
+                command.Parameters.Add(new SqlParameter("@item", item));
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                Student s = new Student();
+                //tabControl1.SelectedTab = tabControl1.TabPages["View Student"].Show;
+                TabADDStudent.Show();
+                btnAddStudent.Text = "Update Student";
+                while (reader.Read())
+                {
+                    lblID.Text = Convert.ToString(reader[0]);
+                    txtFirstName.Text = Convert.ToString(reader[1]);
+                    txtLastName.Text = Convert.ToString(reader[2]);
+                    txtContact.Text = Convert.ToString(reader[3]);
+                    txtEmail.Text = Convert.ToString(reader[4]);
+                    txtRegistrationNumber.Text = Convert.ToString(reader[5]);
+                    cmbStatus.Text = Convert.ToString(reader[6]);
+                }
+
+                conn.Close();
+            }
+
         }
     }
 }

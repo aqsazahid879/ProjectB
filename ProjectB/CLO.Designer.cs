@@ -58,6 +58,7 @@
             this.Update = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.lnkRubricLevel = new System.Windows.Forms.LinkLabel();
             this.ErrorContact = new System.Windows.Forms.ErrorProvider(this.components);
             this.ErrorLastName = new System.Windows.Forms.ErrorProvider(this.components);
             this.ErrorRegistrationNumber = new System.Windows.Forms.ErrorProvider(this.components);
@@ -146,9 +147,9 @@
             this.lnkClo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lnkClo.AutoSize = true;
             this.lnkClo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lnkClo.Location = new System.Drawing.Point(338, 15);
+            this.lnkClo.Location = new System.Drawing.Point(254, 15);
             this.lnkClo.Name = "lnkClo";
-            this.lnkClo.Size = new System.Drawing.Size(329, 13);
+            this.lnkClo.Size = new System.Drawing.Size(245, 13);
             this.lnkClo.TabIndex = 1;
             this.lnkClo.TabStop = true;
             this.lnkClo.Text = "Clo";
@@ -162,7 +163,7 @@
             this.lnkStudent.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lnkStudent.Location = new System.Drawing.Point(3, 15);
             this.lnkStudent.Name = "lnkStudent";
-            this.lnkStudent.Size = new System.Drawing.Size(329, 13);
+            this.lnkStudent.Size = new System.Drawing.Size(245, 13);
             this.lnkStudent.TabIndex = 0;
             this.lnkStudent.TabStop = true;
             this.lnkStudent.Text = "Student";
@@ -174,9 +175,9 @@
             this.lnkRubric.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lnkRubric.AutoSize = true;
             this.lnkRubric.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lnkRubric.Location = new System.Drawing.Point(673, 15);
+            this.lnkRubric.Location = new System.Drawing.Point(505, 15);
             this.lnkRubric.Name = "lnkRubric";
-            this.lnkRubric.Size = new System.Drawing.Size(331, 13);
+            this.lnkRubric.Size = new System.Drawing.Size(245, 13);
             this.lnkRubric.TabIndex = 2;
             this.lnkRubric.TabStop = true;
             this.lnkRubric.Text = "Rubric";
@@ -281,6 +282,8 @@
             // 
             // btnViewCLO
             // 
+            this.btnViewCLO.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnViewCLO.Location = new System.Drawing.Point(339, 72);
             this.btnViewCLO.Name = "btnViewCLO";
             this.btnViewCLO.Size = new System.Drawing.Size(75, 23);
@@ -357,20 +360,34 @@
             this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.34F));
+            this.tableLayoutPanel2.ColumnCount = 4;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.Controls.Add(this.lnkClo, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.lnkStudent, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.lnkRubric, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lnkRubricLevel, 3, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 52);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1007, 44);
             this.tableLayoutPanel2.TabIndex = 18;
+            // 
+            // lnkRubricLevel
+            // 
+            this.lnkRubricLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lnkRubricLevel.AutoSize = true;
+            this.lnkRubricLevel.Location = new System.Drawing.Point(756, 15);
+            this.lnkRubricLevel.Name = "lnkRubricLevel";
+            this.lnkRubricLevel.Size = new System.Drawing.Size(248, 13);
+            this.lnkRubricLevel.TabIndex = 4;
+            this.lnkRubricLevel.TabStop = true;
+            this.lnkRubricLevel.Text = "RubricLevel";
+            this.lnkRubricLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lnkRubricLevel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkRubricLevel_LinkClicked);
             // 
             // ErrorContact
             // 
@@ -463,5 +480,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dateUpdatedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Update;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        private System.Windows.Forms.LinkLabel lnkRubricLevel;
     }
 }

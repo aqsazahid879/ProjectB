@@ -85,25 +85,44 @@ namespace ProjectB
             var update = gridCLO.Columns["Update"].Index;
             if (e.ColumnIndex == element)
             {
+
+
                 int ID;
                 ID = Convert.ToInt32(gridCLO.Rows[e.RowIndex].Cells[0].Value);
 
-                string cmd = String.Format("DELETE FROM Rubric WHERE CloId = @ID");
+                string cmd = String.Format("SELECT Id FROM Rubric WHERE CloId = @ID");
                 SqlCommand command = new SqlCommand(cmd, conn);
                 command.Parameters.Add(new SqlParameter("@ID", ID));
                 conn.Open();
-                SqlDataReader reader = command.ExecuteReader();
+                SqlDataReader reader, ReaderRubricLevel;
+                reader = command.ExecuteReader();
+                while(reader.Read())
+                {
+                    string cmd_1 = "DELETE FROM RubricLevel WHERE RubricId = @RubricID";
+                    SqlCommand command1 = new SqlCommand(cmd_1, conn);
+                    command1.Parameters.Add(new SqlParameter("@RubricID", Convert.ToInt32(reader[0])));
+                    ReaderRubricLevel = command1.ExecuteReader();
+                }
                 conn.Close();
-
-                string cmd1 = String.Format("DELETE FROM Clo WHERE Id = @Cloid");
-                command = new SqlCommand(cmd1, conn);
-                command.Parameters.Add(new SqlParameter("@Cloid", ID));
                 conn.Open();
+                cmd = String.Format("DELETE FROM Rubric WHERE CloId in (SELECT CloId FROM Rubric WHERE CloId = @cloid)");
+                command = new SqlCommand(cmd, conn);
+                command.Parameters.Add(new SqlParameter("@cloid", ID));
+                
                 reader = command.ExecuteReader();
                 conn.Close();
                 
                 conn.Open();
-                cmd = String.Format("SELECT *FROM Clo");
+
+                cmd = String.Format("DELETE FROM Clo WHERE Id = @clo");
+                command = new SqlCommand(cmd, conn);
+                command.Parameters.Add(new SqlParameter("@clo", ID));
+                reader = command.ExecuteReader();
+                conn.Close();
+
+                conn.Open();
+                cmd = String.Format("SELECT * FROM Clo");
+                command = new SqlCommand(cmd, conn);
                 reader = command.ExecuteReader();
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
                 DataTable table = new DataTable();
@@ -187,6 +206,13 @@ namespace ProjectB
             Rubrics rub = new Rubrics();
             this.Hide();
             rub.Show();
+        }
+
+        private void lnkRubricLevel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            RubricLevel rubriclevel = new RubricLevel();
+            this.Hide();
+            rubriclevel.Show();
         }
     }
 }

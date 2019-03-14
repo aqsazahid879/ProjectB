@@ -45,12 +45,12 @@
             this.lnkClo = new System.Windows.Forms.LinkLabel();
             this.lnkStudent = new System.Windows.Forms.LinkLabel();
             this.lnkRubric = new System.Windows.Forms.LinkLabel();
+            this.lnkRubricLevel = new System.Windows.Forms.LinkLabel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.StudentControl = new System.Windows.Forms.TabControl();
             this.TabADDStudent = new System.Windows.Forms.TabPage();
             this.lblID = new System.Windows.Forms.Label();
             this.btnAddStudent = new System.Windows.Forms.Button();
-            this.txtStatus = new System.Windows.Forms.TextBox();
             this.txtRegistrationNumber = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtContact = new System.Windows.Forms.TextBox();
@@ -65,6 +65,7 @@
             this.TabViewStudent = new System.Windows.Forms.TabPage();
             this.btnViewStudent = new System.Windows.Forms.Button();
             this.gridStudentInformation = new System.Windows.Forms.DataGridView();
+            this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,21 +73,8 @@
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.registrationNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Update = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.TabUpdateStudent = new System.Windows.Forms.TabPage();
-            this.btnUpdateStudent = new System.Windows.Forms.Button();
-            this.txtStat1 = new System.Windows.Forms.TextBox();
-            this.txtRegNum1 = new System.Windows.Forms.TextBox();
-            this.txtEmail1 = new System.Windows.Forms.TextBox();
-            this.txtContact1 = new System.Windows.Forms.TextBox();
-            this.txtLast1 = new System.Windows.Forms.TextBox();
-            this.txtFirst1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorEmail)).BeginInit();
@@ -102,7 +90,6 @@
             this.TabADDStudent.SuspendLayout();
             this.TabViewStudent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridStudentInformation)).BeginInit();
-            this.TabUpdateStudent.SuspendLayout();
             this.SuspendLayout();
             // 
             // studentBindingSource
@@ -162,6 +149,7 @@
             this.tableLayoutPanel2.Controls.Add(this.lnkClo, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.lnkStudent, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.lnkRubric, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lnkRubricLevel, 3, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
             // 
@@ -186,6 +174,13 @@
             this.lnkRubric.TabStop = true;
             this.lnkRubric.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkRubric_LinkClicked);
             // 
+            // lnkRubricLevel
+            // 
+            resources.ApplyResources(this.lnkRubricLevel, "lnkRubricLevel");
+            this.lnkRubricLevel.Name = "lnkRubricLevel";
+            this.lnkRubricLevel.TabStop = true;
+            this.lnkRubricLevel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkRubricLevel_LinkClicked);
+            // 
             // tableLayoutPanel3
             // 
             resources.ApplyResources(this.tableLayoutPanel3, "tableLayoutPanel3");
@@ -198,15 +193,14 @@
             resources.ApplyResources(this.StudentControl, "StudentControl");
             this.StudentControl.Controls.Add(this.TabADDStudent);
             this.StudentControl.Controls.Add(this.TabViewStudent);
-            this.StudentControl.Controls.Add(this.TabUpdateStudent);
             this.StudentControl.Name = "StudentControl";
             this.StudentControl.SelectedIndex = 0;
             // 
             // TabADDStudent
             // 
+            this.TabADDStudent.Controls.Add(this.cmbStatus);
             this.TabADDStudent.Controls.Add(this.lblID);
             this.TabADDStudent.Controls.Add(this.btnAddStudent);
-            this.TabADDStudent.Controls.Add(this.txtStatus);
             this.TabADDStudent.Controls.Add(this.txtRegistrationNumber);
             this.TabADDStudent.Controls.Add(this.txtEmail);
             this.TabADDStudent.Controls.Add(this.txtContact);
@@ -233,12 +227,6 @@
             this.btnAddStudent.Name = "btnAddStudent";
             this.btnAddStudent.UseVisualStyleBackColor = true;
             this.btnAddStudent.Click += new System.EventHandler(this.btnAddStudent_Click);
-            // 
-            // txtStatus
-            // 
-            resources.ApplyResources(this.txtStatus, "txtStatus");
-            this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Leave += new System.EventHandler(this.txtStatus_Leave);
             // 
             // txtRegistrationNumber
             // 
@@ -329,10 +317,17 @@
             this.emailDataGridViewTextBoxColumn,
             this.registrationNumberDataGridViewTextBoxColumn,
             this.statusDataGridViewTextBoxColumn,
+            this.Update,
             this.Delete});
             this.gridStudentInformation.DataSource = this.studentBindingSource;
             this.gridStudentInformation.Name = "gridStudentInformation";
             this.gridStudentInformation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridStudentInformation_CellContentClick);
+            // 
+            // cmbStatus
+            // 
+            resources.ApplyResources(this.cmbStatus, "cmbStatus");
+            this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Name = "cmbStatus";
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -377,97 +372,19 @@
             resources.ApplyResources(this.statusDataGridViewTextBoxColumn, "statusDataGridViewTextBoxColumn");
             this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
             // 
+            // Update
+            // 
+            resources.ApplyResources(this.Update, "Update");
+            this.Update.Name = "Update";
+            this.Update.Text = "Update";
+            this.Update.UseColumnTextForButtonValue = true;
+            // 
             // Delete
             // 
             resources.ApplyResources(this.Delete, "Delete");
             this.Delete.Name = "Delete";
             this.Delete.Text = "Delete";
             this.Delete.UseColumnTextForButtonValue = true;
-            // 
-            // TabUpdateStudent
-            // 
-            this.TabUpdateStudent.Controls.Add(this.btnUpdateStudent);
-            this.TabUpdateStudent.Controls.Add(this.txtStat1);
-            this.TabUpdateStudent.Controls.Add(this.txtRegNum1);
-            this.TabUpdateStudent.Controls.Add(this.txtEmail1);
-            this.TabUpdateStudent.Controls.Add(this.txtContact1);
-            this.TabUpdateStudent.Controls.Add(this.txtLast1);
-            this.TabUpdateStudent.Controls.Add(this.txtFirst1);
-            this.TabUpdateStudent.Controls.Add(this.label2);
-            this.TabUpdateStudent.Controls.Add(this.label3);
-            this.TabUpdateStudent.Controls.Add(this.label4);
-            this.TabUpdateStudent.Controls.Add(this.label5);
-            this.TabUpdateStudent.Controls.Add(this.label6);
-            this.TabUpdateStudent.Controls.Add(this.label1);
-            resources.ApplyResources(this.TabUpdateStudent, "TabUpdateStudent");
-            this.TabUpdateStudent.Name = "TabUpdateStudent";
-            this.TabUpdateStudent.UseVisualStyleBackColor = true;
-            // 
-            // btnUpdateStudent
-            // 
-            resources.ApplyResources(this.btnUpdateStudent, "btnUpdateStudent");
-            this.btnUpdateStudent.Name = "btnUpdateStudent";
-            this.btnUpdateStudent.UseVisualStyleBackColor = true;
-            // 
-            // txtStat1
-            // 
-            resources.ApplyResources(this.txtStat1, "txtStat1");
-            this.txtStat1.Name = "txtStat1";
-            // 
-            // txtRegNum1
-            // 
-            resources.ApplyResources(this.txtRegNum1, "txtRegNum1");
-            this.txtRegNum1.Name = "txtRegNum1";
-            // 
-            // txtEmail1
-            // 
-            resources.ApplyResources(this.txtEmail1, "txtEmail1");
-            this.txtEmail1.Name = "txtEmail1";
-            // 
-            // txtContact1
-            // 
-            resources.ApplyResources(this.txtContact1, "txtContact1");
-            this.txtContact1.Name = "txtContact1";
-            // 
-            // txtLast1
-            // 
-            resources.ApplyResources(this.txtLast1, "txtLast1");
-            this.txtLast1.Name = "txtLast1";
-            // 
-            // txtFirst1
-            // 
-            resources.ApplyResources(this.txtFirst1, "txtFirst1");
-            this.txtFirst1.Name = "txtFirst1";
-            // 
-            // label2
-            // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
-            // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
-            // 
-            // label4
-            // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
-            // 
-            // label5
-            // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
-            // 
-            // label6
-            // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.Name = "label6";
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
             // 
             // Student
             // 
@@ -496,8 +413,6 @@
             this.TabADDStudent.PerformLayout();
             this.TabViewStudent.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridStudentInformation)).EndInit();
-            this.TabUpdateStudent.ResumeLayout(false);
-            this.TabUpdateStudent.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -523,7 +438,6 @@
         private System.Windows.Forms.TabPage TabADDStudent;
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.Button btnAddStudent;
-        private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.TextBox txtRegistrationNumber;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtContact;
@@ -538,20 +452,8 @@
         private System.Windows.Forms.TabPage TabViewStudent;
         private System.Windows.Forms.Button btnViewStudent;
         private System.Windows.Forms.DataGridView gridStudentInformation;
-        private System.Windows.Forms.TabPage TabUpdateStudent;
-        private System.Windows.Forms.Button btnUpdateStudent;
-        private System.Windows.Forms.TextBox txtStat1;
-        private System.Windows.Forms.TextBox txtRegNum1;
-        private System.Windows.Forms.TextBox txtEmail1;
-        private System.Windows.Forms.TextBox txtContact1;
-        private System.Windows.Forms.TextBox txtLast1;
-        private System.Windows.Forms.TextBox txtFirst1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.LinkLabel lnkRubricLevel;
+        private System.Windows.Forms.ComboBox cmbStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
@@ -559,6 +461,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn registrationNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn Update;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
     }
 }

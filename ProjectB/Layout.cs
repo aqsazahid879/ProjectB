@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace ProjectB
 {
-    public partial class Checking : Form
+    public partial class Layout : Form
     {
-        public Checking()
+        public Layout()
         {
             InitializeComponent();
-        }
-
-        private void Checking_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
