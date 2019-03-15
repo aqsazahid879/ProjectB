@@ -25,13 +25,23 @@ namespace ProjectB
             if(btnAddCLO.Text == "Add CLO")
             {
                 lblId.Hide();
-                DateTime date = DateTime.Now;
-                conn.Open();
-                string cmd = String.Format("INSERT INTO Clo(Name, DateCreated, DateUpdated) VALUES('{0}','{1}','{2}')", txtName.Text, date, date);
-                SqlCommand command = new SqlCommand(cmd, conn);
-                SqlDataReader reader = command.ExecuteReader();
-                txtName.Text = "";
-                conn.Close();
+                if (isExist(txtName.Text))
+                {
+                    DateTime date = DateTime.Now;
+                    conn.Open();
+                    string cmd = String.Format("INSERT INTO Clo(Name, DateCreated, DateUpdated) VALUES('{0}','{1}','{2}')", txtName.Text, date, date);
+                    SqlCommand command = new SqlCommand(cmd, conn);
+                    SqlDataReader reader = command.ExecuteReader();
+                    txtName.Text = "";
+                    conn.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Please Enter CLO Name");
+                }
+                
+                
+                
             }
             else
             {
@@ -213,6 +223,22 @@ namespace ProjectB
             RubricLevel rubriclevel = new RubricLevel();
             this.Hide();
             rubriclevel.Show();
+        }
+
+        bool isExist(string alphanumeric)
+        {
+            int length;
+            length = alphanumeric.Length;
+            if(!string.IsNullOrWhiteSpace(alphanumeric) && length > 0)
+            {
+                return false;
+            } 
+            
+            else
+            {
+                return true;
+            }
+            
         }
     }
 }

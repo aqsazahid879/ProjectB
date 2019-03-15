@@ -58,6 +58,8 @@
     <Compile Include="Checking.Designer.cs">
       <DependentUpon>Checking.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClassCLO.cs" />
+    <Compile Include="ClassStudent.cs" />
     <Compile Include="CLO.cs">
       <SubType>Form</SubType>
     </Compile>

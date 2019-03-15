@@ -140,13 +140,23 @@ namespace ProjectB
             {
                 int ID;
                 ID = Convert.ToInt32(gridViewRubrics.Rows[e.RowIndex].Cells[0].Value);
-                string cmd = String.Format("DELETE FROM Rubric WHERE Id = @ID");
+                string cmd = String.Format("DELETE FROM RubricLevel WHERE RubricId IN(SELECT RubricId FROM RubricLevel WHERE RubricId = @ID)");
                 SqlCommand command = new SqlCommand(cmd, conn);
 
                 command.Parameters.Add(new SqlParameter("@ID", ID));
                 conn.Open();
                 SqlDataReader reader = command.ExecuteReader();
                 conn.Close();
+
+                cmd = String.Format("DELETE FROM Rubric WHERE Id = @ID1");
+                command = new SqlCommand(cmd, conn);
+
+                command.Parameters.Add(new SqlParameter("@ID1", ID));
+                conn.Open();
+                reader = command.ExecuteReader();
+                conn.Close();
+
+
                 conn.Open();
                 cmd = String.Format("SELECT *FROM Rubric");
                 reader = command.ExecuteReader();

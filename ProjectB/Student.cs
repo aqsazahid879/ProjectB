@@ -37,9 +37,9 @@ namespace ProjectB
                 string ID = lblID.Text;
                 if (IsValidString(txtFirstName.Text))
                 {
-                    if (IsValidString(txtLastName.Text))
+                    if (IsValidString(txtLastName.Text) || txtLastName.Text.Length == 0)
                     {
-                        if (isValidContact(txtContact.Text))
+                        if (isValidContact(txtContact.Text) || txtContact.Text.Length == 0)
                         {
                             if (isDigit(cmbStatus.Text) && isDigit(cmbStatus.Text))
                             {
@@ -62,7 +62,7 @@ namespace ProjectB
                                     command.Parameters.Add(new SqlParameter("@Status", Status));
                                     command.Parameters.Add(new SqlParameter("@Id", ID));
                                     SqlDataReader reader = command.ExecuteReader();
-
+                                    btnAddStudent.Text = "Add Student";
                                     SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
                                     txtContact.Text = "";
                                     txtEmail.Text = "";
@@ -89,6 +89,9 @@ namespace ProjectB
                         }
                     }
                 }
+                
+                
+
             }
             else
             {
@@ -98,19 +101,26 @@ namespace ProjectB
                 
                 if (IsValidString(txtFirstName.Text))
                 {
-                    if (IsValidString(txtLastName.Text))
+                    if (IsValidString(txtLastName.Text) || txtLastName.Text.Length == 0)
                     {
-                        if (isValidContact(txtContact.Text))
+                        if (isValidContact(txtContact.Text) || txtContact.Text.Length == 0)
                         {
                             if (isDigit(cmbStatus.Text) && isDigit(cmbStatus.Text))
                             {
                                 if (IsValidEmail(txtEmail.Text) && isValidRegistrationNumber(txtRegistrationNumber.Text))
                                 {
-                                    FirstName = txtFirstName.Text;
-                                    LastName = txtLastName.Text;
-                                    Contact = txtContact.Text;
-                                    Email = txtEmail.Text;
-                                    RegistrationNumber = txtRegistrationNumber.Text;
+                                    ClassStudent student = new ClassStudent();
+                                    student.FirstName = txtFirstName.Text;
+                                    student.LastName = txtLastName.Text;
+                                    student.Contact = txtContact.Text;
+                                    student.Email = txtEmail.Text;
+                                    student.RegistrationNumber = txtRegistrationNumber.Text;
+                                    student.Status = Convert.ToInt32(cmbStatus.Text);
+                                    FirstName = txtFirstName.Text = student.FirstName;
+                                    LastName = txtLastName.Text = student.LastName;
+                                    Contact = txtContact.Text = student.Contact;
+                                    Email = txtEmail.Text = student.Email;
+                                    RegistrationNumber = txtRegistrationNumber.Text = student.RegistrationNumber;
                                     Status = Convert.ToInt32(cmbStatus.Text);
                                     conn.Open();
                                     String cmd = String.Format("INSERT INTO Student(FirstName, LastName,Contact, Email, RegistrationNumber, Status) values('{0}','{1}','{2}','{3}','{4}','{5}')", FirstName, LastName, Contact, Email, RegistrationNumber, Status);
@@ -127,10 +137,96 @@ namespace ProjectB
                                     cmbStatus.Text = "";
                                     conn.Close();
                                 }
+                                else
+                                {
+                                    if (!IsValidEmail(txtEmail.Text))
+                                    {
+                                        MessageBox.Show("Invalid Email");
+                                    }
+                                    if (!isValidRegistrationNumber(txtRegistrationNumber.Text))
+                                    {
+                                        MessageBox.Show("Invalid Registration Number");
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Invalid Status");
+                                if (!IsValidEmail(txtEmail.Text))
+                                {
+                                    MessageBox.Show("Invalid Email");
+                                }
+                                if (!isValidRegistrationNumber(txtRegistrationNumber.Text))
+                                {
+                                    MessageBox.Show("Invalid Registration Number");
+                                }
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Invalid Contact");
+                        
+                            if (!IsValidEmail(txtEmail.Text))
+                            {
+                                MessageBox.Show("Invalid Email");
+                            }
+                            if (!isValidRegistrationNumber(txtRegistrationNumber.Text))
+                            {
+                                MessageBox.Show("Invalid Registration Number");
+                            }
+                            if (!isDigit(cmbStatus.Text))
+                            {
+                                MessageBox.Show("Invalid Status");
                             }
                         }
                     }
+                    else
+                    {
+                        MessageBox.Show("Invalid Last Name");
+                        if (!isValidContact(txtContact.Text) && txtContact.Text.Length > 0)
+                        {
+                            MessageBox.Show("Invalid Contact");
+                        }
+                        if (!IsValidEmail(txtEmail.Text))
+                        {
+                            MessageBox.Show("Invalid Email");
+                        }
+                        if (!isValidRegistrationNumber(txtRegistrationNumber.Text))
+                        {
+                            MessageBox.Show("Invalid Registration Number");
+                        }
+                        if (!isDigit(cmbStatus.Text))
+                        {
+                            MessageBox.Show("Invalid Status");
+                        }
+                    }
                 }
+                else
+                {
+                    MessageBox.Show("Invalid First Name");
+                    if (!IsValidString(txtLastName.Text) && txtLastName.Text.Length > 0)
+                    {
+                        MessageBox.Show("Invalid Last Name");
+                    }
+                    if (!isValidContact(txtContact.Text) && txtContact.Text.Length > 0)
+                    {
+                        MessageBox.Show("Invalid Contact");
+                    }
+                    if (!IsValidEmail(txtEmail.Text))
+                    {
+                        MessageBox.Show("Invalid Email");
+                    }
+                    if (!isValidRegistrationNumber(txtRegistrationNumber.Text))
+                    {
+                        MessageBox.Show("Invalid Registration Number");
+                    }
+                    if (!isDigit(cmbStatus.Text))
+                    {
+                        MessageBox.Show("Invalid Status");
+                    }
+
+                }
+                
             }
 
         }
@@ -271,20 +367,20 @@ namespace ProjectB
         {
             string pattern;
             pattern = @"^(([A-Z][a-z]+[\s]{1}[A-za-z]+)|([A-Z][a-z]+))$";
-            if (Regex.IsMatch(txtLastName.Text, pattern))
+            if (Regex.IsMatch(txtLastName.Text, pattern) || txtLastName.Text.Length == 0)
             {
                 ErrorLastName.Clear();
             }
             else
             {
-                ErrorLastName.SetError(txtLastName, "Invalid First Name");
+                ErrorLastName.SetError(txtLastName, "Invalid Last Name");
             }
         }
 
         private void txtContact_Leave(object sender, EventArgs e)
         {
             bool isTrue = isValidContact(txtContact.Text);
-            if(isTrue == true)
+            if(isTrue == true || txtContact.Text.Length == 0)
             {
                 ErrorContact.Clear();
             }
