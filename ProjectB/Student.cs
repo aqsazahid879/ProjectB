@@ -136,6 +136,8 @@ namespace ProjectB
                                     txtRegistrationNumber.Text = "";
                                     cmbStatus.Text = "";
                                     conn.Close();
+
+
                                 }
                                 else
                                 {
