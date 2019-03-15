@@ -69,7 +69,19 @@ namespace ProjectB
                 isCloId = false;
                 MessageBox.Show("Please Enter Valid CLOID");
             }
-            if(isNumber == true && btnAddRubric.Text == "Add Rubric" && IsValidDetail == true && isDigit(cmbCloId.Text))
+            bool isValidDetail2 = false;
+            if (string.IsNullOrWhiteSpace(txtDetail.Text))
+            {
+                MessageBox.Show("Invalid Detail");
+                isValidDetail2 = false;
+            }
+            else
+            {
+                
+                isValidDetail2 = true;
+            }
+
+            if (isNumber == true && btnAddRubric.Text == "Add Rubric" && IsValidDetail == true && isDigit(cmbCloId.Text) && isValidDetail2)
             {
                 bool isIDExist = false;
                 string cmd = "SELECT Id FROM Rubric";
@@ -111,7 +123,7 @@ namespace ProjectB
 
 
             }
-            else if(btnAddRubric.Text == "Update Rubric")
+            else if(btnAddRubric.Text == "Update Rubric" && IsValidDetail && isValidDetail2)
             {
                 if(isDigit(txtID.Text) == true)
                 {

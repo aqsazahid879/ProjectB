@@ -256,6 +256,8 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(238, 20);
             this.txtName.TabIndex = 5;
+            this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressString);
+            this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.NameValdity);
             // 
             // lblName
             // 

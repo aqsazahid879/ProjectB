@@ -28,8 +28,18 @@ namespace ProjectB
             
             if(btnAddCLO.Text == "Add CLO")
             {
+                bool isValidName = false;
+                if(string.IsNullOrWhiteSpace(txtName.Text))
+                {
+                    isValidName = false;
+                }
+                else
+                {
+                    isValidName = true;
+                }
+                
                 lblId.Hide();
-                if (isExist(txtName.Text))
+                if (isExist(txtName.Text) && isValidName == true)
                 {
                     ClassCLO clo = new ClassCLO();
                     clo.Name1 = txtName.Text;
@@ -54,38 +64,52 @@ namespace ProjectB
             }
             else
             {
-                ClassCLO clo = new ClassCLO();
-                clo.Name1 = txtName.Text;
-                clo.DateUpdated1 = DateTime.Now;
-                DateTime date = DateTime.Now;
-                conn.Open();
-                string Name = txtName.Text;
-                int Id = Convert.ToInt32(lblId.Text);
-                
+                bool isValidName = false;
+                if (string.IsNullOrWhiteSpace(txtName.Text))
+                {
+                    MessageBox.Show("Invalid Name");
+                    isValidName = false;
+                }
+                else
+                {
+                    isValidName = true;
+                }
+                if (isExist(txtName.Text) && isValidName == true)
+                {
+                    ClassCLO clo = new ClassCLO();
+                    clo.Name1 = txtName.Text;
+                    clo.DateUpdated1 = DateTime.Now;
+                    DateTime date = DateTime.Now;
+                    conn.Open();
+                    string Name = txtName.Text;
+                    int Id = Convert.ToInt32(lblId.Text);
 
-                string cmd = String.Format("UPDATE Clo SET Name = @Name, DateUpdated = @date WHERE Id = @Id");
-                //SqlCommand command = new SqlCommand(cmd, conn);
-                
-                SqlCommand command = new SqlCommand(cmd, conn);
-                command.Parameters.Add(new SqlParameter("@Name", Name));
-                command.Parameters.Add(new SqlParameter("@date", date));
-                command.Parameters.Add(new SqlParameter("@Id", Id));
-                SqlDataReader reader = command.ExecuteReader();
-                txtName.Text = "";
-                conn.Close();
-                tabAddCLO.Hide();
-                tabViewCLO.Show();
 
-                conn.Open();
-                 cmd = String.Format("SELECT * FROM Clo");
-                command = new SqlCommand(cmd, conn);
-                reader = command.ExecuteReader();
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-                gridCLO.DataSource = table;
-                conn.Close();
-                btnAddCLO.Text = "Add CLO";
+                    string cmd = String.Format("UPDATE Clo SET Name = @Name, DateUpdated = @date WHERE Id = @Id");
+                    //SqlCommand command = new SqlCommand(cmd, conn);
+                    MessageBox.Show("CLO has been updated");
+                    SqlCommand command = new SqlCommand(cmd, conn);
+                    command.Parameters.Add(new SqlParameter("@Name", Name));
+                    command.Parameters.Add(new SqlParameter("@date", date));
+                    command.Parameters.Add(new SqlParameter("@Id", Id));
+                    SqlDataReader reader = command.ExecuteReader();
+                    txtName.Text = "";
+                    conn.Close();
+                    tabAddCLO.Hide();
+                    tabViewCLO.Show();
+
+                    conn.Open();
+                    cmd = String.Format("SELECT * FROM Clo");
+                    command = new SqlCommand(cmd, conn);
+                    reader = command.ExecuteReader();
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    gridCLO.DataSource = table;
+                    conn.Close();
+                    btnAddCLO.Text = "Add CLO";
+                }
+                    
             }
         }
         /// <summary>
@@ -254,14 +278,32 @@ namespace ProjectB
             length = alphanumeric.Length;
             if(!string.IsNullOrWhiteSpace(alphanumeric) && length > 0)
             {
-                return false;
+                return true;
             } 
             
             else
             {
-                return true;
+                return false;
             }
             
+        }
+
+        private void KeyPressString(object sender, KeyPressEventArgs e)
+        {
+            if(!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && !(char.IsPunctuation(e.KeyChar)))
+            {
+                
+            }
+         }
+
+        private void NameValdity(object sender, CancelEventArgs e)
+        {
+            TextBox text = sender as TextBox;
+            if(string.IsNullOrWhiteSpace(text.Text)==true)
+            {
+                e.Cancel = false;
+                return;
+            }
         }
     }
 }
