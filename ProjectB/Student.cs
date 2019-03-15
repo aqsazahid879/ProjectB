@@ -129,6 +129,7 @@ namespace ProjectB
 
                                     SqlDataReader reader = command.ExecuteReader();
                                     SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
+                                    MessageBox.Show("Student has been added");
                                     txtContact.Text = "";
                                     txtEmail.Text = "";
                                     txtFirstName.Text = "";
@@ -250,7 +251,11 @@ namespace ProjectB
                 return false;
             }
         }
-
+        /// <summary>
+        /// This is the validation oF Email at leave Event.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtEmail_Leave(object sender, EventArgs e)
         {
             string pattren = @"^([\w\d.]+)@((\w+\.\w+)(\.\w+\.?)?)";
@@ -268,7 +273,7 @@ namespace ProjectB
         /// The function is validing the string for first and last name
         /// </summary>
         /// <param name="Alphanumeric"></param>
-        /// <returns></returns>
+        /// <returns>return true or false</returns>
         bool IsValidString(String Alphanumeric)
         {
             string pattern = @"^(([A-Z][a-z]+[\s]{1}[A-za-z]+)|([A-Z][a-z]+))$";
@@ -350,7 +355,11 @@ namespace ProjectB
                 return false;
             }
         }
-
+        /// <summary>
+        /// Validation of First Name Textbox.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtFirstName_Leave(object sender, EventArgs e)
         {
             string pattern;
@@ -364,7 +373,11 @@ namespace ProjectB
                 ErrorFirstName.SetError(txtFirstName, "Invalid First Name");
             }
         }
-
+        /// <summary>
+        /// This is the validation of last name.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtLastName_Leave(object sender, EventArgs e)
         {
             string pattern;
@@ -378,7 +391,11 @@ namespace ProjectB
                 ErrorLastName.SetError(txtLastName, "Invalid Last Name");
             }
         }
-
+        /// <summary>
+        /// This is the validation of Contact.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtContact_Leave(object sender, EventArgs e)
         {
             bool isTrue = isValidContact(txtContact.Text);
@@ -391,7 +408,11 @@ namespace ProjectB
                 ErrorContact.SetError(txtContact, "Invalid Contact");
             }
         }
-
+        /// <summary>
+        /// This is the validation of registration.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtRegistrationNumber_Leave(object sender, EventArgs e)
         {
             bool isValid = isValidRegistrationNumber(txtRegistrationNumber.Text);
@@ -404,7 +425,11 @@ namespace ProjectB
                 ErrorRegistrationNumber.SetError(txtRegistrationNumber, "Invalid Registration Number");
             }
         }
-
+        /// <summary>
+        /// This is the validation of status.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtStatus_Leave(object sender, EventArgs e)
         {
             bool isStatus = isDigit(cmbStatus.Text);
@@ -417,7 +442,11 @@ namespace ProjectB
                 ErrorStatus.SetError(cmbStatus, "Invalid Status");
             }
         }
-
+        /// <summary>
+        /// This is the Click Event of View Student Button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnViewStudent_Click(object sender, EventArgs e)
         {
             String cmd = "SELECT * FROM Student";
@@ -436,20 +465,18 @@ namespace ProjectB
         
         private void gridStudentInformation_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-
-
-
-
-            // MessageBox.Show("success");
-            
+          
         }
 
         private void btnUpdateStudent_Click(object sender, EventArgs e)
         {
 
         }
-
+        /// <summary>
+        /// Load of the page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Student_Load(object sender, EventArgs e)
         {
             String cmd = "SELECT LookupId FROM Lookup";
@@ -494,7 +521,11 @@ namespace ProjectB
 
         }
 
-       
+       /// <summary>
+       /// This is the click event of Student
+       /// </summary>
+       /// <param name="sender"></param>
+       /// <param name="e"></param>
         private void TabViewStudent_Click(object sender, EventArgs e)
         {
             conn.Open();
@@ -513,35 +544,55 @@ namespace ProjectB
         {
 
         }
-
+        /// <summary>
+        /// It will Link the form with student page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lnkStudent_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Student stu = new Student();
             this.Hide();
             stu.Show();
         }
-
+        /// <summary>
+        /// Click event that will open CLO page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lnkClo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             CLO c = new CLO();
             this.Hide();
             c.Show();
         }
-
+        /// <summary>
+        /// Click Event that will open Rubric Page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lnkRubric_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Rubrics rub = new Rubrics();
             this.Hide();
             rub.Show();
         }
-
+        /// <summary>
+        /// Click Event that will open RubricLevel Page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lnkRubricLevel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             RubricLevel rubriclevel = new RubricLevel();
             this.Hide();
             rubriclevel.Show();
         }
-
+        /// <summary>
+        /// This is the cell click event of the grid view.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gridStudentInformation_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var element = gridStudentInformation.Columns["Delete"].Index;

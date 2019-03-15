@@ -11,18 +11,70 @@ namespace ProjectB
         /// <summary>
         /// Name is the name of the CLO.
         /// </summary>
-        public string Name;
+        private string Name;
         /// <summary>
         /// Id is the Id of the CLO.
         /// </summary>
-        public string Id;
+        private string Id;
         /// <summary>
         /// This is the date of the record on which CLO is created.
         /// </summary>
-        public DateTime DateCreated;
+        private DateTime DateCreated;
         /// <summary>
         /// This is the date on which the date is updated.
         /// </summary>
-        public DateTime DateUpdated;
+        private DateTime DateUpdated;
+
+        public string Name1
+        {
+            get
+            {
+                return Name;
+            }
+
+            set
+            {
+                Name = value;
+            }
+        }
+
+        public string Id1
+        {
+            get
+            {
+                return Id;
+            }
+
+            set
+            {
+                Id = value;
+            }
+        }
+
+        public DateTime DateCreated1
+        {
+            get
+            {
+                return DateCreated;
+            }
+
+            set
+            {
+                DateCreated = value;
+            }
+        }
+
+        public DateTime DateUpdated1
+        {
+            get
+            {
+                return DateUpdated;
+            }
+
+            set
+            {
+                DateUpdated = value;
+            }
+        }
     }
 }

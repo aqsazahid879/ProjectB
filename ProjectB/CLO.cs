@@ -18,7 +18,11 @@ namespace ProjectB
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Button Click Event of Add CLO.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddCLO_Click(object sender, EventArgs e)
         {
             
@@ -27,11 +31,16 @@ namespace ProjectB
                 lblId.Hide();
                 if (isExist(txtName.Text))
                 {
+                    ClassCLO clo = new ClassCLO();
+                    clo.Name1 = txtName.Text;
+                    clo.DateCreated1 = DateTime.Now;
+                    clo.DateUpdated1 = DateTime.Now;
                     DateTime date = DateTime.Now;
                     conn.Open();
                     string cmd = String.Format("INSERT INTO Clo(Name, DateCreated, DateUpdated) VALUES('{0}','{1}','{2}')", txtName.Text, date, date);
                     SqlCommand command = new SqlCommand(cmd, conn);
                     SqlDataReader reader = command.ExecuteReader();
+                    MessageBox.Show("CLO has been added");
                     txtName.Text = "";
                     conn.Close();
                 }
@@ -45,10 +54,15 @@ namespace ProjectB
             }
             else
             {
+                ClassCLO clo = new ClassCLO();
+                clo.Name1 = txtName.Text;
+                clo.DateUpdated1 = DateTime.Now;
                 DateTime date = DateTime.Now;
                 conn.Open();
                 string Name = txtName.Text;
                 int Id = Convert.ToInt32(lblId.Text);
+                
+
                 string cmd = String.Format("UPDATE Clo SET Name = @Name, DateUpdated = @date WHERE Id = @Id");
                 //SqlCommand command = new SqlCommand(cmd, conn);
                 
@@ -74,7 +88,11 @@ namespace ProjectB
                 btnAddCLO.Text = "Add CLO";
             }
         }
-
+        /// <summary>
+        /// Button click of View CLO.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnViewCLO_Click(object sender, EventArgs e)
         {
             DateTime date = DateTime.Now;
@@ -88,7 +106,11 @@ namespace ProjectB
             gridCLO.DataSource = table;
             conn.Close();
         }
-
+        /// <summary>
+        /// Cell Click Event of GRID.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gridCLO_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             var element = gridCLO.Columns["Delete"].Index;
@@ -164,27 +186,12 @@ namespace ProjectB
                 tabAddCLO.Show();
                 conn.Close();
             }
-
-
-
-
-/*
-            var item = gridCLO.Rows[e.RowIndex].Cells[0].Value;
-            string cmd = String.Format("SELECT * FROM Clo WHERE Id = @item");
-            SqlCommand command = new SqlCommand(cmd, conn);
-            command.Parameters.Add(new SqlParameter("@item", item));
-            conn.Open();
-            SqlDataReader reader = command.ExecuteReader();
-            btnAddCLO.Text = "Update CLO";
-            tabAddCLO.Show();
-            while(reader.Read())
-            {
-                lblId.Text = Convert.ToString(reader[0]);
-                txtName.Text = Convert.ToString(reader[1]);
-            }
-            conn.Close();*/
         }
-
+        /// <summary>
+        /// Built in fucntion at page load
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CLO_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'projectBDataSet1.Clo' table. You can move, or remove it, as needed.
@@ -203,28 +210,44 @@ namespace ProjectB
             this.Hide();
             stu.Show();
         }
-
+        /// <summary>
+        /// Built in fucntion link to CLO page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lnkClo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             CLO c = new CLO();
             this.Hide();
             c.Show();
         }
-
+        /// <summary>
+        /// Built in function link to Rubric Page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lnkRubric_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Rubrics rub = new Rubrics();
             this.Hide();
             rub.Show();
         }
-
+        /// <summary>
+        /// Built In Function link to RubricLevel Page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lnkRubricLevel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             RubricLevel rubriclevel = new RubricLevel();
             this.Hide();
             rubriclevel.Show();
         }
-
+        /// <summary>
+        /// Checking that the value of the textbox exist or not
+        /// </summary>
+        /// <param name="alphanumeric"></param>
+        /// <returns>true or false</returns>
         bool isExist(string alphanumeric)
         {
             int length;

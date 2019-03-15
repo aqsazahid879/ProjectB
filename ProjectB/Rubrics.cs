@@ -40,30 +40,82 @@ namespace ProjectB
         {
             bool isNumber = false;
             isNumber=isDigit(txtID.Text);
-            if(isNumber == true && btnAddRubric.Text == "Add Rubric")
+            bool isID = false;
+            if(txtID.Text.Length > 0 && isNumber == true)
             {
-                string detail;
-                int id, CloID;
-                detail = txtDetail.Text;
-                id = Convert.ToInt32(txtID.Text);
-                CloID = Convert.ToInt32(cmbCloId.Text);
-
-                conn.Open();
-                String cmd = String.Format("INSERT INTO Rubric(Id, Details, CloId) values('{0}','{1}','{2}')", id, detail, CloID);
-                SqlCommand command = new SqlCommand(cmd, conn);
-                command.Parameters.Add(new SqlParameter("0", 1));
-
-                SqlDataReader reader = command.ExecuteReader();
-                txtID.Text = "";
-                txtDetail.Text = "";
-                cmbCloId.Text = "";
-                conn.Close();
-
+                isID = true;
             }
             else
             {
+                MessageBox.Show("Please Enter a valid ID");
+            }
+            bool IsValidDetail = false;
+            if(txtDetail.Text.Length > 0)
+            {
+                IsValidDetail = true;
+            }
+            else
+            {
+                IsValidDetail = false;
+                MessageBox.Show("Please Enter detail of rubric");
+            }
+            bool isCloId;
+            if(cmbCloId.Text.Length >0 && isDigit(cmbCloId.Text))
+            {
+                isCloId = true;
+            }
+            else
+            {
+                isCloId = false;
+                MessageBox.Show("Please Enter Valid CLOID");
+            }
+            if(isNumber == true && btnAddRubric.Text == "Add Rubric" && IsValidDetail == true && isDigit(cmbCloId.Text))
+            {
+                bool isIDExist = false;
+                string cmd = "SELECT Id FROM Rubric";
+                SqlCommand command = new SqlCommand(cmd, conn);
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    int Id = Convert.ToInt32(txtID.Text);
+                    if(Id == Convert.ToInt32(reader[0]))
+                    {
+                        isIDExist = true;
+                        MessageBox.Show("Rubric Id already exists");
+                        break;
+                    }
+                }
+                conn.Close();
+                if(isIDExist == false)
+                {
+                    string detail;
+                    int id, CloID;
+                    detail = txtDetail.Text;
+                    id = Convert.ToInt32(txtID.Text);
+                    CloID = Convert.ToInt32(cmbCloId.Text);
+
+                    conn.Open();
+                    cmd = String.Format("INSERT INTO Rubric(Id, Details, CloId) values('{0}','{1}','{2}')", id, detail, CloID);
+                    command = new SqlCommand(cmd, conn);
+                    command.Parameters.Add(new SqlParameter("0", 1));
+
+                    reader = command.ExecuteReader();
+                    MessageBox.Show("Rubric has been added");
+                    txtID.Text = "";
+                    txtDetail.Text = "";
+                    cmbCloId.Text = "";
+                    conn.Close();
+
+                }
+
+
+            }
+            else if(btnAddRubric.Text == "Update Rubric")
+            {
                 if(isDigit(txtID.Text) == true)
                 {
+                    
                     conn.Open();
                     string Detail = txtDetail.Text;
                     int Id = Convert.ToInt32(txtID.Text);
@@ -82,7 +134,9 @@ namespace ProjectB
                     conn.Close();
                     tabAddRubric.Hide();
                     tabViewRubric.Show();
-
+                    lblId.Show();
+                    txtID.Show();
+                    btnAddRubric.Text = "Add Rubric";
                     conn.Open();
                     cmd = String.Format("SELECT * FROM Rubric");
                     command = new SqlCommand(cmd, conn);
@@ -169,6 +223,7 @@ namespace ProjectB
             }
             else if (e.ColumnIndex == gridViewRubrics.Columns["Update"].Index)
             {
+                lblId.Hide(); txtID.Hide();
                 var item = gridViewRubrics.Rows[e.RowIndex].Cells[0].Value;
                 //int IdOfItem;
                 //var SecondItem = gridStudentInformation.Rows[e.RowIndex].Cells[6].Value;
