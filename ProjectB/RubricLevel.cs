@@ -21,6 +21,10 @@ namespace ProjectB
 
         private void RubricLevel_Load(object sender, EventArgs e)
         {
+            lblHide.Hide();
+            btnAddRubricLevel.Text = "Add Rubric Level";
+            // TODO: This line of code loads data into the 'projectBDataSet3.RubricLevel' table. You can move, or remove it, as needed.
+            this.rubricLevelTableAdapter.Fill(this.projectBDataSet3.RubricLevel);
             String cmd = "SELECT Id from Rubric";
             SqlCommand command = new SqlCommand(cmd, conn);
             command.Parameters.Add(new SqlParameter("0", 1));
@@ -63,21 +67,64 @@ namespace ProjectB
 
         private void btnAddRubricLevel_Click(object sender, EventArgs e)
         {
-        bool IsCorrectNumber = false;
-        IsCorrectNumber = isDigit(txtMeasurementLevel.Text);
-            if (IsCorrectNumber == true)
+            if(btnAddRubricLevel.Text == "Add Rubric Level")
             {
-                conn.Open();
-                String cmd = String.Format("INSERT INTO RubricLevel(RubricId, Details, MeasurementLevel) values('{0}','{1}','{2}')", Convert.ToInt32(cmbRubricID.Text), txtDetails.Text, Convert.ToInt32(txtMeasurementLevel.Text));
-                SqlCommand command = new SqlCommand(cmd, conn);
-                command.Parameters.Add(new SqlParameter("0", 1));
+                bool IsCorrectNumber = false;
+                IsCorrectNumber = isDigit(txtMeasurementLevel.Text);
+                if (IsCorrectNumber == true)
+                {
+                    conn.Open();
+                    String cmd = String.Format("INSERT INTO RubricLevel(RubricId, Details, MeasurementLevel) values('{0}','{1}','{2}')", Convert.ToInt32(cmbRubricID.Text), txtDetails.Text, Convert.ToInt32(txtMeasurementLevel.Text));
+                    SqlCommand command = new SqlCommand(cmd, conn);
+                    command.Parameters.Add(new SqlParameter("0", 1));
 
-                SqlDataReader reader = command.ExecuteReader();
-                txtDetails.Text = "";
-                txtMeasurementLevel.Text = "";
-                cmbRubricID.Text = "";
-                conn.Close();
+                    SqlDataReader reader = command.ExecuteReader();
+                    MessageBox.Show("Added Successfully");
+                    txtDetails.Text = "";
+                    txtMeasurementLevel.Text = "";
+                    cmbRubricID.Text = "";
+                    conn.Close();
+                }
             }
+            else
+            {
+                if(isDigit(txtMeasurementLevel.Text))
+                {
+                    conn.Open();
+                    int RubriciD = Convert.ToInt32(cmbRubricID.Text);
+                    string Detail = txtDetails.Text;
+                    int MeasurementLevel = Convert.ToInt32(txtMeasurementLevel.Text);
+                    string cmd = String.Format("UPDATE RubricLevel SET RubricId = @RubricID, Details = @Detail, MeasurementLevel = @level WHERE Id = @ID");
+                    SqlCommand command = new SqlCommand(cmd, conn);
+                    command.Parameters.Add(new SqlParameter("@Detail", Detail));
+                    command.Parameters.Add(new SqlParameter("@RubricID", RubriciD));
+                    command.Parameters.Add(new SqlParameter("@level", MeasurementLevel));
+                    command.Parameters.Add(new SqlParameter("Id", Convert.ToInt32(lblHide.Text)));
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    txtDetails.Text = "";
+                    txtMeasurementLevel.Text = "";
+                    cmbRubricID.Text = "";
+                    conn.Close();
+                    btnAddRubricLevel.Text = "Add Rubric Level";
+                    TabAddRubricLevel.Hide();
+                    TabViewRubricLevel.Show();
+
+                    cmd = "SELECT * FROM RubricLevel";
+                    command = new SqlCommand(cmd, conn);
+                    command.Parameters.Add(new SqlParameter("0", 1));
+                    conn.Open();
+                    reader = command.ExecuteReader();
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    gridRubricLevel.DataSource = table;
+                    conn.Close();
+
+                }
+            }
+
+            
         }
 
         private void lnkRubricLevel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -108,6 +155,96 @@ namespace ProjectB
             Student stu = new Student();
             this.Hide();
             stu.Show();
+        }
+
+        private void btnViewRubricLevel_Click(object sender, EventArgs e)
+        {
+            String cmd = "SELECT * FROM RubricLevel";
+            SqlCommand command = new SqlCommand(cmd, conn);
+            command.Parameters.Add(new SqlParameter("0", 1));
+            conn.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            gridRubricLevel.DataSource = table;
+            conn.Close();
+        }
+
+        private void TabViewRubricLevel_Click(object sender, EventArgs e)
+        {
+            String cmd = "SELECT * FROM RubricLevel";
+            SqlCommand command = new SqlCommand(cmd, conn);
+            command.Parameters.Add(new SqlParameter("0", 1));
+            conn.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            gridRubricLevel.DataSource = table;
+            conn.Close();
+        }
+
+        private void gridRubricLevel_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int ID = ID = Convert.ToInt32(gridRubricLevel.Rows[e.RowIndex].Cells[3].Value);
+            var element = gridRubricLevel.Columns["Delete"].Index;
+            var update = gridRubricLevel.Columns["Update"].Index;
+            if (e.ColumnIndex == element)
+            {
+                
+                string cmd = String.Format("DELETE FROM RubricLevel WHERE Id = @id");
+                SqlCommand command = new SqlCommand(cmd, conn);
+
+                command.Parameters.Add(new SqlParameter("@id", ID));
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                conn.Close();
+
+                cmd = "SELECT * FROM RubricLevel";
+                command = new SqlCommand(cmd, conn);
+                command.Parameters.Add(new SqlParameter("0", 1));
+                conn.Open();
+                reader = command.ExecuteReader();
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                gridRubricLevel.DataSource = table;
+                conn.Close();
+
+
+            }
+            else if (e.ColumnIndex == gridRubricLevel.Columns["Update"].Index)
+            {
+                lblHide.Hide(); 
+                var item = gridRubricLevel.Rows[e.RowIndex].Cells[3].Value;
+                
+                string cmd = String.Format("SELECT * FROM RubricLevel WHERE Id = @item");
+                SqlCommand command = new SqlCommand(cmd, conn);
+                command.Parameters.Add(new SqlParameter("@item", item));
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                Student s = new Student();
+                
+                btnAddRubricLevel.Text = "Update Rubric";
+                while (reader.Read())
+                {
+                    lblHide.Text = Convert.ToString(reader[0]);
+                    cmbRubricID.Text = Convert.ToString(reader[1]);
+                    txtDetails.Text = Convert.ToString(reader[2]);
+                    txtMeasurementLevel.Text = Convert.ToString(reader[3]);
+                }
+                TabAddRubricLevel.Show();
+                conn.Close();
+            }
+
+
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
