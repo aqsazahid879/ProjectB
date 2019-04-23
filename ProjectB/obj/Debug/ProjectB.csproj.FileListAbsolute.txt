@@ -17,3 +17,5 @@ F:\UNI DATA\Semester 6\DBMS LAB\MidTermProject\ProjectB\ProjectB\obj\Debug\Proje
 F:\UNI DATA\Semester 6\DBMS LAB\MidTermProject\ProjectB\ProjectB\obj\Debug\ProjectB.ClassAttendance.resources
 F:\UNI DATA\Semester 6\DBMS LAB\MidTermProject\ProjectB\ProjectB\obj\Debug\ProjectB.StudentAttendance.resources
 F:\UNI DATA\Semester 6\DBMS LAB\MidTermProject\ProjectB\ProjectB\obj\Debug\ProjectB.StudentResult.resources
+F:\UNI DATA\Semester 6\DBMS LAB\MidTermProject\ProjectB\ProjectB\bin\Debug\itextsharp.dll
+F:\UNI DATA\Semester 6\DBMS LAB\MidTermProject\ProjectB\ProjectB\obj\Debug\ProjectB.Report.resources

@@ -1063,7 +1063,7 @@
     <value>17, 125</value>
   </data>
   <data name="gridStudentInformation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>843, 150</value>
+    <value>843, 177</value>
   </data>
   <data name="gridStudentInformation.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1087,7 +1087,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="TabViewStudent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>993, 298</value>
+    <value>993, 325</value>
   </data>
   <data name="TabViewStudent.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1111,7 +1111,7 @@
     <value>3, 3</value>
   </data>
   <data name="StudentControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1001, 324</value>
+    <value>1001, 351</value>
   </data>
   <data name="StudentControl.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -1135,7 +1135,7 @@
     <value>1</value>
   </data>
   <data name="tableLayoutPanel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1007, 330</value>
+    <value>1007, 357</value>
   </data>
   <data name="tableLayoutPanel3.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>

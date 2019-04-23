@@ -48,8 +48,6 @@
             this.tabViewRubric = new System.Windows.Forms.TabPage();
             this.btnViewRubric = new System.Windows.Forms.Button();
             this.gridViewRubrics = new System.Windows.Forms.DataGridView();
-            this.Update = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.lnkRubric = new System.Windows.Forms.LinkLabel();
             this.lnkStudentAttendance = new System.Windows.Forms.LinkLabel();
             this.ErrorRegistrationNumber = new System.Windows.Forms.ErrorProvider(this.components);
@@ -65,6 +63,15 @@
             this.projectBDataSet = new ProjectB.ProjectBDataSet();
             this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ErrorStatus = new System.Windows.Forms.ErrorProvider(this.components);
+            this.projectBDataSet2 = new ProjectB.ProjectBDataSet2();
+            this.projectBDataSet2BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rubricBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rubricTableAdapter = new ProjectB.ProjectBDataSet2TableAdapters.RubricTableAdapter();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detailsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cloIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Update = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabAddRubric.SuspendLayout();
             this.tabViewRubric.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewRubrics)).BeginInit();
@@ -80,6 +87,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorStatus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet2BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rubricBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // studentTableAdapter
@@ -295,32 +305,21 @@
             // 
             // gridViewRubrics
             // 
+            this.gridViewRubrics.AutoGenerateColumns = false;
             this.gridViewRubrics.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridViewRubrics.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridViewRubrics.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.detailsDataGridViewTextBoxColumn,
+            this.cloIdDataGridViewTextBoxColumn,
             this.Update,
             this.Delete});
+            this.gridViewRubrics.DataSource = this.rubricBindingSource;
             this.gridViewRubrics.Location = new System.Drawing.Point(49, 76);
             this.gridViewRubrics.Name = "gridViewRubrics";
             this.gridViewRubrics.Size = new System.Drawing.Size(545, 150);
             this.gridViewRubrics.TabIndex = 0;
             this.gridViewRubrics.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewRubrics_CellClick);
-            // 
-            // Update
-            // 
-            this.Update.HeaderText = "Update";
-            this.Update.Name = "Update";
-            this.Update.Text = "Update";
-            this.Update.ToolTipText = "Update";
-            this.Update.UseColumnTextForButtonValue = true;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.Name = "Delete";
-            this.Delete.Text = "Delete";
-            this.Delete.ToolTipText = "Delete";
-            this.Delete.UseColumnTextForButtonValue = true;
             // 
             // lnkRubric
             // 
@@ -470,6 +469,59 @@
             // 
             this.ErrorStatus.ContainerControl = this;
             // 
+            // projectBDataSet2
+            // 
+            this.projectBDataSet2.DataSetName = "ProjectBDataSet2";
+            this.projectBDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // projectBDataSet2BindingSource
+            // 
+            this.projectBDataSet2BindingSource.DataSource = this.projectBDataSet2;
+            this.projectBDataSet2BindingSource.Position = 0;
+            // 
+            // rubricBindingSource
+            // 
+            this.rubricBindingSource.DataMember = "Rubric";
+            this.rubricBindingSource.DataSource = this.projectBDataSet2BindingSource;
+            // 
+            // rubricTableAdapter
+            // 
+            this.rubricTableAdapter.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // detailsDataGridViewTextBoxColumn
+            // 
+            this.detailsDataGridViewTextBoxColumn.DataPropertyName = "Details";
+            this.detailsDataGridViewTextBoxColumn.HeaderText = "Details";
+            this.detailsDataGridViewTextBoxColumn.Name = "detailsDataGridViewTextBoxColumn";
+            // 
+            // cloIdDataGridViewTextBoxColumn
+            // 
+            this.cloIdDataGridViewTextBoxColumn.DataPropertyName = "CloId";
+            this.cloIdDataGridViewTextBoxColumn.HeaderText = "CloId";
+            this.cloIdDataGridViewTextBoxColumn.Name = "cloIdDataGridViewTextBoxColumn";
+            // 
+            // Update
+            // 
+            this.Update.HeaderText = "Update";
+            this.Update.Name = "Update";
+            this.Update.Text = "Update";
+            this.Update.ToolTipText = "Update";
+            this.Update.UseColumnTextForButtonValue = true;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Delete";
+            this.Delete.ToolTipText = "Delete";
+            this.Delete.UseColumnTextForButtonValue = true;
+            // 
             // Rubrics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -500,6 +552,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorStatus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet2BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rubricBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -525,8 +580,6 @@
         private System.Windows.Forms.TabPage tabViewRubric;
         private System.Windows.Forms.Button btnViewRubric;
         private System.Windows.Forms.DataGridView gridViewRubrics;
-        private System.Windows.Forms.DataGridViewButtonColumn Update;
-        private System.Windows.Forms.DataGridViewButtonColumn Delete;
         private System.Windows.Forms.LinkLabel lnkRubric;
         private System.Windows.Forms.LinkLabel lnkStudentAttendance;
         private System.Windows.Forms.ErrorProvider ErrorRegistrationNumber;
@@ -542,5 +595,14 @@
         private ProjectBDataSet projectBDataSet;
         private System.Windows.Forms.BindingSource studentBindingSource;
         private System.Windows.Forms.ErrorProvider ErrorStatus;
+        private System.Windows.Forms.BindingSource projectBDataSet2BindingSource;
+        private ProjectBDataSet2 projectBDataSet2;
+        private System.Windows.Forms.BindingSource rubricBindingSource;
+        private ProjectBDataSet2TableAdapters.RubricTableAdapter rubricTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn detailsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cloIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn Update;
+        private System.Windows.Forms.DataGridViewButtonColumn Delete;
     }
 }

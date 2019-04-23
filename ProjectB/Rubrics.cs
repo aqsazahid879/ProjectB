@@ -23,7 +23,9 @@ namespace ProjectB
         private void Rubrics_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'projectBDataSet2.Rubric' table. You can move, or remove it, as needed.
-            //this.rubricTableAdapter.Fill(this.projectBDataSet2.Rubric);
+            this.rubricTableAdapter.Fill(this.projectBDataSet2.Rubric);
+            // TODO: This line of code loads data into the 'projectBDataSet2.Rubric' table. You can move, or remove it, as needed.
+            this.rubricTableAdapter.Fill(this.projectBDataSet2.Rubric);
             String cmd = "SELECT Id FROM Clo";
             SqlCommand command = new SqlCommand(cmd, conn);
             command.Parameters.Add(new SqlParameter("0", 1));
