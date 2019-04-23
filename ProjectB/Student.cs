@@ -647,6 +647,41 @@ namespace ProjectB
             }
 
         }
+
+        private void lnkAssessment_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Assessment c = new Assessment();
+            this.Hide();
+            c.Show();
+        }
+
+        private void lnkAssessmentComponent_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            AssessmentComponent c = new AssessmentComponent();
+            this.Hide();
+            c.Show();
+        }
+
+        private void lnkClassAttendance_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ClassAttendance c = new ClassAttendance();
+            this.Hide();
+            c.Show();
+        }
+
+        private void lnkStudentResult_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            StudentResult c = new StudentResult();
+            this.Hide();
+            c.Show();
+        }
+
+        private void lnkStudentAttendance_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            StudentAttendance c = new StudentAttendance();
+            this.Hide();
+            c.Show();
+        }
     }
 }
 

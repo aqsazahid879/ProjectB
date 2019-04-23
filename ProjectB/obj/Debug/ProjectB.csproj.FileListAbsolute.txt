@@ -13,3 +13,7 @@ F:\UNI DATA\Semester 6\DBMS LAB\MidTermProject\ProjectB\ProjectB\obj\Debug\Proje
 F:\UNI DATA\Semester 6\DBMS LAB\MidTermProject\ProjectB\ProjectB\obj\Debug\ProjectB.Assessment.resources
 F:\UNI DATA\Semester 6\DBMS LAB\MidTermProject\ProjectB\ProjectB\obj\Debug\ProjectB.Checking.resources
 F:\UNI DATA\Semester 6\DBMS LAB\MidTermProject\ProjectB\ProjectB\obj\Debug\ProjectB.Layout.resources
+F:\UNI DATA\Semester 6\DBMS LAB\MidTermProject\ProjectB\ProjectB\obj\Debug\ProjectB.AssessmentComponent.resources
+F:\UNI DATA\Semester 6\DBMS LAB\MidTermProject\ProjectB\ProjectB\obj\Debug\ProjectB.ClassAttendance.resources
+F:\UNI DATA\Semester 6\DBMS LAB\MidTermProject\ProjectB\ProjectB\obj\Debug\ProjectB.StudentAttendance.resources
+F:\UNI DATA\Semester 6\DBMS LAB\MidTermProject\ProjectB\ProjectB\obj\Debug\ProjectB.StudentResult.resources

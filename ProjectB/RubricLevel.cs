@@ -21,10 +21,12 @@ namespace ProjectB
 
         private void RubricLevel_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'rubricLevelData.RubricLevel' table. You can move, or remove it, as needed.
+            this.rubricLevelTableAdapter.Fill(this.rubricLevelData.RubricLevel);
             lblHide.Hide();
             btnAddRubricLevel.Text = "Add Rubric Level";
             // TODO: This line of code loads data into the 'projectBDataSet3.RubricLevel' table. You can move, or remove it, as needed.
-            this.rubricLevelTableAdapter.Fill(this.projectBDataSet3.RubricLevel);
+            //this.rubricLevelTableAdapter.Fill(this.projectBDataSet3.RubricLevel);
             String cmd = "SELECT Id from Rubric";
             SqlCommand command = new SqlCommand(cmd, conn);
             command.Parameters.Add(new SqlParameter("0", 1));
@@ -187,7 +189,7 @@ namespace ProjectB
 
         private void gridRubricLevel_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int ID = ID = Convert.ToInt32(gridRubricLevel.Rows[e.RowIndex].Cells[3].Value);
+            int ID = ID = Convert.ToInt32(gridRubricLevel.Rows[e.RowIndex].Cells[0].Value);
             var element = gridRubricLevel.Columns["Delete"].Index;
             var update = gridRubricLevel.Columns["Update"].Index;
             if (e.ColumnIndex == element)
@@ -217,7 +219,7 @@ namespace ProjectB
             else if (e.ColumnIndex == gridRubricLevel.Columns["Update"].Index)
             {
                 lblHide.Hide(); 
-                var item = gridRubricLevel.Rows[e.RowIndex].Cells[3].Value;
+                var item = gridRubricLevel.Rows[e.RowIndex].Cells[0].Value;
                 
                 string cmd = String.Format("SELECT * FROM RubricLevel WHERE Id = @item");
                 SqlCommand command = new SqlCommand(cmd, conn);
@@ -242,7 +244,42 @@ namespace ProjectB
 
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        private void lnkAssessment_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Assessment c = new Assessment();
+            this.Hide();
+            c.Show();
+        }
+
+        private void lnkAssessmentComponent_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            AssessmentComponent c = new AssessmentComponent();
+            this.Hide();
+            c.Show();
+        }
+
+        private void lnkClassAttendance_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ClassAttendance c = new ClassAttendance();
+            this.Hide();
+            c.Show();
+        }
+
+        private void lnkStudentResult_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            StudentResult c = new StudentResult();
+            this.Hide();
+            c.Show();
+        }
+
+        private void lnkStudentAttendance_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            StudentAttendance c = new StudentAttendance();
+            this.Hide();
+            c.Show();
+        }
+
+        private void lnkClassAttendance_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
         }

@@ -218,14 +218,11 @@ namespace ProjectB
         /// <param name="e"></param>
         private void CLO_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'cLODataSet.Clo' table. You can move, or remove it, as needed.
+            this.cloTableAdapter.Fill(this.cLODataSet.Clo);
             // TODO: This line of code loads data into the 'projectBDataSet1.Clo' table. You can move, or remove it, as needed.
-            this.cloTableAdapter.Fill(this.projectBDataSet1.Clo);
+            //this.cloTableAdapter.Fill(this.projectBDataSet1.Clo);
             lblId.Hide();
-        }
-
-        private void tabAddCLO_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void lnkStudent_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -304,6 +301,40 @@ namespace ProjectB
                 e.Cancel = false;
                 return;
             }
+        }
+        private void lnkAssessment_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Assessment c = new Assessment();
+            this.Hide();
+            c.Show();
+        }
+
+        private void lnkAssessmentComponent_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            AssessmentComponent c = new AssessmentComponent();
+            this.Hide();
+            c.Show();
+        }
+
+        private void lnkClassAttendance_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ClassAttendance c = new ClassAttendance();
+            this.Hide();
+            c.Show();
+        }
+
+        private void lnkStudentResult_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            StudentResult c = new StudentResult();
+            this.Hide();
+            c.Show();
+        }
+
+        private void lnkStudentAttendance_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            StudentAttendance c = new StudentAttendance();
+            this.Hide();
+            c.Show();
         }
     }
 }

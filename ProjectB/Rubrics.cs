@@ -23,7 +23,7 @@ namespace ProjectB
         private void Rubrics_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'projectBDataSet2.Rubric' table. You can move, or remove it, as needed.
-            this.rubricTableAdapter.Fill(this.projectBDataSet2.Rubric);
+            //this.rubricTableAdapter.Fill(this.projectBDataSet2.Rubric);
             String cmd = "SELECT Id FROM Clo";
             SqlCommand command = new SqlCommand(cmd, conn);
             command.Parameters.Add(new SqlParameter("0", 1));
@@ -287,6 +287,41 @@ namespace ProjectB
             RubricLevel rubriclevel = new RubricLevel();
             this.Hide();
             rubriclevel.Show();
+        }
+
+        private void lnkAssessment_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Assessment c = new Assessment();
+            this.Hide();
+            c.Show();
+        }
+
+        private void lnkAssessmentComponent_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            AssessmentComponent c = new AssessmentComponent();
+            this.Hide();
+            c.Show();
+        }
+
+        private void lnkClassAttendance_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ClassAttendance c = new ClassAttendance();
+            this.Hide();
+            c.Show();
+        }
+
+        private void lnkStudentResult_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            StudentResult c = new StudentResult();
+            this.Hide();
+            c.Show();
+        }
+
+        private void lnkStudentAttendance_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            StudentAttendance c = new StudentAttendance();
+            this.Hide();
+            c.Show();
         }
     }
 }

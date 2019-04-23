@@ -52,11 +52,33 @@
     <Compile Include="Assessment.Designer.cs">
       <DependentUpon>Assessment.cs</DependentUpon>
     </Compile>
+    <Compile Include="AssessmentComponent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssessmentComponent.Designer.cs">
+      <DependentUpon>AssessmentComponent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssessmentComponentDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AssessmentComponentDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AssessmentDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AssessmentDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Checking.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Checking.Designer.cs">
       <DependentUpon>Checking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClassAttendance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClassAttendance.Designer.cs">
+      <DependentUpon>ClassAttendance.cs</DependentUpon>
     </Compile>
     <Compile Include="ClassCLO.cs" />
     <Compile Include="ClassRubric.cs" />
@@ -66,6 +88,11 @@
     </Compile>
     <Compile Include="CLO.Designer.cs">
       <DependentUpon>CLO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CLODataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CLODataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Layout.cs">
       <SubType>Form</SubType>
@@ -99,12 +126,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProjectBDataSet4.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ProjectBDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProjectBDataSet5.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RubricLevel.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RubricLevel.Designer.cs">
       <DependentUpon>RubricLevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RubricLevelData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RubricLevelData.xsd</DependentUpon>
     </Compile>
     <Compile Include="Rubrics.cs">
       <SubType>Form</SubType>
@@ -118,11 +155,34 @@
     <Compile Include="Student.Designer.cs">
       <DependentUpon>Student.cs</DependentUpon>
     </Compile>
+    <Compile Include="StudentAttendance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentAttendance.Designer.cs">
+      <DependentUpon>StudentAttendance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentAttendanceDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentAttendanceDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="StudentResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentResult.Designer.cs">
+      <DependentUpon>StudentResult.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Assessment.resx">
       <DependentUpon>Assessment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AssessmentComponent.resx">
+      <DependentUpon>AssessmentComponent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Checking.resx">
       <DependentUpon>Checking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClassAttendance.resx">
+      <DependentUpon>ClassAttendance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CLO.resx">
       <DependentUpon>CLO.cs</DependentUpon>
@@ -148,6 +208,45 @@
     <EmbeddedResource Include="Student.resx">
       <DependentUpon>Student.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StudentAttendance.resx">
+      <DependentUpon>StudentAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentResult.resx">
+      <DependentUpon>StudentResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="AssessmentComponentDataSet.xsc">
+      <DependentUpon>AssessmentComponentDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AssessmentComponentDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AssessmentComponentDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AssessmentComponentDataSet.xss">
+      <DependentUpon>AssessmentComponentDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AssessmentDataSet.xsc">
+      <DependentUpon>AssessmentDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AssessmentDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AssessmentDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AssessmentDataSet.xss">
+      <DependentUpon>AssessmentDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CLODataSet.xsc">
+      <DependentUpon>CLODataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CLODataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CLODataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CLODataSet.xss">
+      <DependentUpon>CLODataSet.xsd</DependentUpon>
+    </None>
     <None Include="ProjectBDataSet.xsc">
       <DependentUpon>ProjectBDataSet.xsd</DependentUpon>
     </None>
@@ -203,6 +302,17 @@
     <None Include="ProjectBDataSet4.xss">
       <DependentUpon>ProjectBDataSet4.xsd</DependentUpon>
     </None>
+    <None Include="ProjectBDataSet5.xsc">
+      <DependentUpon>ProjectBDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="ProjectBDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProjectBDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProjectBDataSet5.xss">
+      <DependentUpon>ProjectBDataSet5.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -212,6 +322,28 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="RubricLevelData.xsc">
+      <DependentUpon>RubricLevelData.xsd</DependentUpon>
+    </None>
+    <None Include="RubricLevelData.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RubricLevelData.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RubricLevelData.xss">
+      <DependentUpon>RubricLevelData.xsd</DependentUpon>
+    </None>
+    <None Include="StudentAttendanceDataSet.xsc">
+      <DependentUpon>StudentAttendanceDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="StudentAttendanceDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StudentAttendanceDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StudentAttendanceDataSet.xss">
+      <DependentUpon>StudentAttendanceDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

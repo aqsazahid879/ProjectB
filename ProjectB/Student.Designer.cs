@@ -30,25 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Student));
-            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.projectBDataSet = new ProjectB.ProjectBDataSet();
-            this.ErrorEmail = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ErrorFirstName = new System.Windows.Forms.ErrorProvider(this.components);
             this.ErrorContact = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ErrorLastName = new System.Windows.Forms.ErrorProvider(this.components);
             this.ErrorRegistrationNumber = new System.Windows.Forms.ErrorProvider(this.components);
             this.ErrorStatus = new System.Windows.Forms.ErrorProvider(this.components);
             this.studentTableAdapter = new ProjectB.ProjectBDataSetTableAdapters.StudentTableAdapter();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.lnkClo = new System.Windows.Forms.LinkLabel();
-            this.lnkStudent = new System.Windows.Forms.LinkLabel();
-            this.lnkRubric = new System.Windows.Forms.LinkLabel();
-            this.lnkRubricLevel = new System.Windows.Forms.LinkLabel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.StudentControl = new System.Windows.Forms.TabControl();
             this.TabADDStudent = new System.Windows.Forms.TabPage();
+            this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.lblID = new System.Windows.Forms.Label();
             this.btnAddStudent = new System.Windows.Forms.Button();
             this.txtRegistrationNumber = new System.Windows.Forms.TextBox();
@@ -62,10 +49,10 @@
             this.lblContact = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
+            this.Update = new System.Windows.Forms.DataGridViewButtonColumn();
             this.TabViewStudent = new System.Windows.Forms.TabPage();
             this.btnViewStudent = new System.Windows.Forms.Button();
             this.gridStudentInformation = new System.Windows.Forms.DataGridView();
-            this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,50 +60,46 @@
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.registrationNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Update = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ErrorEmail)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ErrorFirstName)).BeginInit();
+            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.projectBDataSet = new ProjectB.ProjectBDataSet();
+            this.ErrorLastName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lnkClo = new System.Windows.Forms.LinkLabel();
+            this.lnkRubric = new System.Windows.Forms.LinkLabel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lnkStudent = new System.Windows.Forms.LinkLabel();
+            this.ErrorFirstName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ErrorEmail = new System.Windows.Forms.ErrorProvider(this.components);
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.StudentControl = new System.Windows.Forms.TabControl();
+            this.lnkStudentAttendance = new System.Windows.Forms.LinkLabel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.lnkRubricLevel = new System.Windows.Forms.LinkLabel();
+            this.lnkAssessment = new System.Windows.Forms.LinkLabel();
+            this.lnkAssessmentComponent = new System.Windows.Forms.LinkLabel();
+            this.lnkClassAttendance = new System.Windows.Forms.LinkLabel();
+            this.lnkStudentResult = new System.Windows.Forms.LinkLabel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorContact)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ErrorLastName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorRegistrationNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorStatus)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.StudentControl.SuspendLayout();
             this.TabADDStudent.SuspendLayout();
             this.TabViewStudent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridStudentInformation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorLastName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorFirstName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorEmail)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.StudentControl.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // studentBindingSource
-            // 
-            this.studentBindingSource.DataMember = "Student";
-            this.studentBindingSource.DataSource = this.projectBDataSet;
-            // 
-            // projectBDataSet
-            // 
-            this.projectBDataSet.DataSetName = "ProjectBDataSet";
-            this.projectBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // ErrorEmail
-            // 
-            this.ErrorEmail.ContainerControl = this;
-            // 
-            // ErrorFirstName
-            // 
-            this.ErrorFirstName.ContainerControl = this;
             // 
             // ErrorContact
             // 
             this.ErrorContact.ContainerControl = this;
-            // 
-            // ErrorLastName
-            // 
-            this.ErrorLastName.ContainerControl = this;
             // 
             // ErrorRegistrationNumber
             // 
@@ -129,72 +112,6 @@
             // studentTableAdapter
             // 
             this.studentTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableLayoutPanel1
-            // 
-            resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
-            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            // 
-            // label7
-            // 
-            resources.ApplyResources(this.label7, "label7");
-            this.label7.Name = "label7";
-            // 
-            // tableLayoutPanel2
-            // 
-            resources.ApplyResources(this.tableLayoutPanel2, "tableLayoutPanel2");
-            this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.tableLayoutPanel2.Controls.Add(this.lnkClo, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.lnkStudent, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.lnkRubric, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.lnkRubricLevel, 3, 0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
-            // 
-            // lnkClo
-            // 
-            resources.ApplyResources(this.lnkClo, "lnkClo");
-            this.lnkClo.Name = "lnkClo";
-            this.lnkClo.TabStop = true;
-            this.lnkClo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkClo_LinkClicked);
-            // 
-            // lnkStudent
-            // 
-            resources.ApplyResources(this.lnkStudent, "lnkStudent");
-            this.lnkStudent.Name = "lnkStudent";
-            this.lnkStudent.TabStop = true;
-            this.lnkStudent.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkStudent_LinkClicked);
-            // 
-            // lnkRubric
-            // 
-            resources.ApplyResources(this.lnkRubric, "lnkRubric");
-            this.lnkRubric.Name = "lnkRubric";
-            this.lnkRubric.TabStop = true;
-            this.lnkRubric.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkRubric_LinkClicked);
-            // 
-            // lnkRubricLevel
-            // 
-            resources.ApplyResources(this.lnkRubricLevel, "lnkRubricLevel");
-            this.lnkRubricLevel.Name = "lnkRubricLevel";
-            this.lnkRubricLevel.TabStop = true;
-            this.lnkRubricLevel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkRubricLevel_LinkClicked);
-            // 
-            // tableLayoutPanel3
-            // 
-            resources.ApplyResources(this.tableLayoutPanel3, "tableLayoutPanel3");
-            this.tableLayoutPanel3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.tableLayoutPanel3.Controls.Add(this.StudentControl, 0, 0);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            // 
-            // StudentControl
-            // 
-            resources.ApplyResources(this.StudentControl, "StudentControl");
-            this.StudentControl.Controls.Add(this.TabADDStudent);
-            this.StudentControl.Controls.Add(this.TabViewStudent);
-            this.StudentControl.Name = "StudentControl";
-            this.StudentControl.SelectedIndex = 0;
             // 
             // TabADDStudent
             // 
@@ -215,6 +132,12 @@
             resources.ApplyResources(this.TabADDStudent, "TabADDStudent");
             this.TabADDStudent.Name = "TabADDStudent";
             this.TabADDStudent.UseVisualStyleBackColor = true;
+            // 
+            // cmbStatus
+            // 
+            resources.ApplyResources(this.cmbStatus, "cmbStatus");
+            this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Name = "cmbStatus";
             // 
             // lblID
             // 
@@ -288,6 +211,13 @@
             resources.ApplyResources(this.lblFirstName, "lblFirstName");
             this.lblFirstName.Name = "lblFirstName";
             // 
+            // Update
+            // 
+            resources.ApplyResources(this.Update, "Update");
+            this.Update.Name = "Update";
+            this.Update.Text = "Update";
+            this.Update.UseColumnTextForButtonValue = true;
+            // 
             // TabViewStudent
             // 
             this.TabViewStudent.Controls.Add(this.btnViewStudent);
@@ -322,12 +252,6 @@
             this.gridStudentInformation.DataSource = this.studentBindingSource;
             this.gridStudentInformation.Name = "gridStudentInformation";
             this.gridStudentInformation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridStudentInformation_CellContentClick);
-            // 
-            // cmbStatus
-            // 
-            resources.ApplyResources(this.cmbStatus, "cmbStatus");
-            this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Name = "cmbStatus";
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -372,13 +296,6 @@
             resources.ApplyResources(this.statusDataGridViewTextBoxColumn, "statusDataGridViewTextBoxColumn");
             this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
             // 
-            // Update
-            // 
-            resources.ApplyResources(this.Update, "Update");
-            this.Update.Name = "Update";
-            this.Update.Text = "Update";
-            this.Update.UseColumnTextForButtonValue = true;
-            // 
             // Delete
             // 
             resources.ApplyResources(this.Delete, "Delete");
@@ -386,56 +303,183 @@
             this.Delete.Text = "Delete";
             this.Delete.UseColumnTextForButtonValue = true;
             // 
+            // studentBindingSource
+            // 
+            this.studentBindingSource.DataMember = "Student";
+            this.studentBindingSource.DataSource = this.projectBDataSet;
+            // 
+            // projectBDataSet
+            // 
+            this.projectBDataSet.DataSetName = "ProjectBDataSet";
+            this.projectBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // ErrorLastName
+            // 
+            this.ErrorLastName.ContainerControl = this;
+            // 
+            // lnkClo
+            // 
+            resources.ApplyResources(this.lnkClo, "lnkClo");
+            this.lnkClo.Name = "lnkClo";
+            this.lnkClo.TabStop = true;
+            this.lnkClo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkClo_LinkClicked);
+            // 
+            // lnkRubric
+            // 
+            resources.ApplyResources(this.lnkRubric, "lnkRubric");
+            this.lnkRubric.Name = "lnkRubric";
+            this.lnkRubric.TabStop = true;
+            this.lnkRubric.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkRubric_LinkClicked);
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
+            // 
+            // lnkStudent
+            // 
+            resources.ApplyResources(this.lnkStudent, "lnkStudent");
+            this.lnkStudent.Name = "lnkStudent";
+            this.lnkStudent.TabStop = true;
+            this.lnkStudent.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkStudent_LinkClicked);
+            // 
+            // ErrorFirstName
+            // 
+            this.ErrorFirstName.ContainerControl = this;
+            // 
+            // ErrorEmail
+            // 
+            this.ErrorEmail.ContainerControl = this;
+            // 
+            // tableLayoutPanel1
+            // 
+            resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
+            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            // 
+            // StudentControl
+            // 
+            resources.ApplyResources(this.StudentControl, "StudentControl");
+            this.StudentControl.Controls.Add(this.TabADDStudent);
+            this.StudentControl.Controls.Add(this.TabViewStudent);
+            this.StudentControl.Name = "StudentControl";
+            this.StudentControl.SelectedIndex = 0;
+            // 
+            // lnkStudentAttendance
+            // 
+            resources.ApplyResources(this.lnkStudentAttendance, "lnkStudentAttendance");
+            this.lnkStudentAttendance.Name = "lnkStudentAttendance";
+            this.lnkStudentAttendance.TabStop = true;
+            this.lnkStudentAttendance.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkStudentAttendance_LinkClicked);
+            // 
+            // tableLayoutPanel2
+            // 
+            resources.ApplyResources(this.tableLayoutPanel2, "tableLayoutPanel2");
+            this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.tableLayoutPanel2.Controls.Add(this.lnkClo, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lnkStudent, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lnkRubric, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lnkRubricLevel, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lnkAssessment, 4, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lnkAssessmentComponent, 5, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lnkClassAttendance, 6, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lnkStudentResult, 7, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lnkStudentAttendance, 8, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            // 
+            // lnkRubricLevel
+            // 
+            resources.ApplyResources(this.lnkRubricLevel, "lnkRubricLevel");
+            this.lnkRubricLevel.Name = "lnkRubricLevel";
+            this.lnkRubricLevel.TabStop = true;
+            this.lnkRubricLevel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkRubricLevel_LinkClicked);
+            // 
+            // lnkAssessment
+            // 
+            resources.ApplyResources(this.lnkAssessment, "lnkAssessment");
+            this.lnkAssessment.Name = "lnkAssessment";
+            this.lnkAssessment.TabStop = true;
+            this.lnkAssessment.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkAssessment_LinkClicked);
+            // 
+            // lnkAssessmentComponent
+            // 
+            resources.ApplyResources(this.lnkAssessmentComponent, "lnkAssessmentComponent");
+            this.lnkAssessmentComponent.Name = "lnkAssessmentComponent";
+            this.lnkAssessmentComponent.TabStop = true;
+            this.lnkAssessmentComponent.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkAssessmentComponent_LinkClicked);
+            // 
+            // lnkClassAttendance
+            // 
+            resources.ApplyResources(this.lnkClassAttendance, "lnkClassAttendance");
+            this.lnkClassAttendance.Name = "lnkClassAttendance";
+            this.lnkClassAttendance.TabStop = true;
+            this.lnkClassAttendance.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkClassAttendance_LinkClicked);
+            // 
+            // lnkStudentResult
+            // 
+            resources.ApplyResources(this.lnkStudentResult, "lnkStudentResult");
+            this.lnkStudentResult.Name = "lnkStudentResult";
+            this.lnkStudentResult.TabStop = true;
+            this.lnkStudentResult.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkStudentResult_LinkClicked);
+            // 
+            // tableLayoutPanel3
+            // 
+            resources.ApplyResources(this.tableLayoutPanel3, "tableLayoutPanel3");
+            this.tableLayoutPanel3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.tableLayoutPanel3.Controls.Add(this.StudentControl, 0, 0);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            // 
             // Student
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tableLayoutPanel3);
-            this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.tableLayoutPanel2);
+            this.Controls.Add(this.tableLayoutPanel3);
             this.Name = "Student";
             this.Load += new System.EventHandler(this.Student_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ErrorEmail)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ErrorFirstName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorContact)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ErrorLastName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorRegistrationNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorStatus)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.StudentControl.ResumeLayout(false);
             this.TabADDStudent.ResumeLayout(false);
             this.TabADDStudent.PerformLayout();
             this.TabViewStudent.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridStudentInformation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorLastName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorFirstName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorEmail)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            this.StudentControl.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.ErrorProvider ErrorEmail;
-        private System.Windows.Forms.ErrorProvider ErrorFirstName;
+
         private System.Windows.Forms.ErrorProvider ErrorContact;
-        private System.Windows.Forms.ErrorProvider ErrorLastName;
-        private System.Windows.Forms.ErrorProvider ErrorRegistrationNumber;
-        private System.Windows.Forms.ErrorProvider ErrorStatus;
-        private ProjectBDataSet projectBDataSet;
-        private System.Windows.Forms.BindingSource studentBindingSource;
-        private ProjectBDataSetTableAdapters.StudentTableAdapter studentTableAdapter;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.LinkLabel lnkClo;
         private System.Windows.Forms.LinkLabel lnkStudent;
         private System.Windows.Forms.LinkLabel lnkRubric;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.LinkLabel lnkRubricLevel;
+        private System.Windows.Forms.LinkLabel lnkAssessment;
+        private System.Windows.Forms.LinkLabel lnkAssessmentComponent;
+        private System.Windows.Forms.LinkLabel lnkClassAttendance;
+        private System.Windows.Forms.LinkLabel lnkStudentResult;
+        private System.Windows.Forms.LinkLabel lnkStudentAttendance;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TabControl StudentControl;
         private System.Windows.Forms.TabPage TabADDStudent;
+        private System.Windows.Forms.ComboBox cmbStatus;
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.Button btnAddStudent;
         private System.Windows.Forms.TextBox txtRegistrationNumber;
@@ -452,8 +496,6 @@
         private System.Windows.Forms.TabPage TabViewStudent;
         private System.Windows.Forms.Button btnViewStudent;
         private System.Windows.Forms.DataGridView gridStudentInformation;
-        private System.Windows.Forms.LinkLabel lnkRubricLevel;
-        private System.Windows.Forms.ComboBox cmbStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
@@ -463,5 +505,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Update;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        private System.Windows.Forms.BindingSource studentBindingSource;
+        private ProjectBDataSet projectBDataSet;
+        private System.Windows.Forms.ErrorProvider ErrorRegistrationNumber;
+        private System.Windows.Forms.ErrorProvider ErrorStatus;
+        private ProjectBDataSetTableAdapters.StudentTableAdapter studentTableAdapter;
+        private System.Windows.Forms.ErrorProvider ErrorLastName;
+        private System.Windows.Forms.ErrorProvider ErrorFirstName;
+        private System.Windows.Forms.ErrorProvider ErrorEmail;
     }
 }

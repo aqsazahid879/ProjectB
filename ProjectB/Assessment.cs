@@ -61,12 +61,13 @@ namespace ProjectB
                     string title = txtTitle.Text;
                     int mark = Convert.ToInt32(txtMarks.Text);
                     int weightage = Convert.ToInt32(txtTotalWeightage.Text);
-                    string cmd = String.Format("UPDATE Assessment SET Title = @title, TotalMarks = @mark, TotalWeightage = @weightage WHERE Id = @ID");
+                    
+                    string cmd = String.Format("UPDATE AssessmentComponent SET Title = @title, TotalMarks = @mark, TotalWeightage = @weightage WHERE Id = @ID");
                     SqlCommand command = new SqlCommand(cmd, conn);
                     command.Parameters.Add(new SqlParameter("@title", title));
                     command.Parameters.Add(new SqlParameter("@mark", mark));
                     command.Parameters.Add(new SqlParameter("@weightage", weightage));
-                    command.Parameters.Add(new SqlParameter("Id", Convert.ToInt32(lblHide.Text)));
+                    command.Parameters.Add(new SqlParameter("@ID", Convert.ToInt32(lblHide.Text)));
                     SqlDataReader reader = command.ExecuteReader();
 
                     txtTitle.Text = "";
@@ -130,8 +131,10 @@ namespace ProjectB
 
         private void Assessment_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'assessmentDataSet.Assessment' table. You can move, or remove it, as needed.
+            this.assessmentTableAdapter.Fill(this.assessmentDataSet.Assessment);
             // TODO: This line of code loads data into the 'projectBDataSet4.Assessment' table. You can move, or remove it, as needed.
-            this.assessmentTableAdapter.Fill(this.projectBDataSet4.Assessment);
+           // this.assessmentTableAdapter.Fill(this.projectBDataSet4.Assessment);
             lblHide.Hide();
 
         }
@@ -202,6 +205,69 @@ namespace ProjectB
                 tabAddAssessment.Show();
                 conn.Close();
             }
+        }
+
+        private void lnkStudent_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Student s = new Student();
+            this.Hide();
+            s.Show();
+        }
+
+        private void lnkClo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            CLO c = new CLO();
+            this.Hide();
+            c.Show();
+        }
+
+        private void lnkRubric_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Rubrics c = new Rubrics();
+            this.Hide();
+            c.Show();
+        }
+
+        private void lnkRubricLevel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            RubricLevel c = new RubricLevel();
+            this.Hide();
+            c.Show();
+        }
+
+        private void lnkAssessment_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Assessment c = new Assessment();
+            this.Hide();
+            c.Show();
+        }
+
+        private void lnkAssessmentComponent_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            AssessmentComponent c = new AssessmentComponent();
+            this.Hide();
+            c.Show();
+        }
+
+        private void lnkClassAttendance_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ClassAttendance c = new ClassAttendance();
+            this.Hide();
+            c.Show();
+        }
+
+        private void lnkStudentResult_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            StudentResult c = new StudentResult();
+            this.Hide();
+            c.Show();
+        }
+
+        private void lnkStudentAttendance_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            StudentAttendance c = new StudentAttendance();
+            this.Hide();
+            c.Show();
         }
     }
 }
