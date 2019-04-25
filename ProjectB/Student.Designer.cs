@@ -80,6 +80,7 @@
             this.lnkClassAttendance = new System.Windows.Forms.LinkLabel();
             this.lnkStudentResult = new System.Windows.Forms.LinkLabel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.lnkreports = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorContact)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorRegistrationNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorStatus)).BeginInit();
@@ -386,6 +387,7 @@
             this.tableLayoutPanel2.Controls.Add(this.lnkClassAttendance, 6, 0);
             this.tableLayoutPanel2.Controls.Add(this.lnkStudentResult, 7, 0);
             this.tableLayoutPanel2.Controls.Add(this.lnkStudentAttendance, 8, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lnkreports, 9, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             // 
             // lnkRubricLevel
@@ -429,6 +431,13 @@
             this.tableLayoutPanel3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.tableLayoutPanel3.Controls.Add(this.StudentControl, 0, 0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            // 
+            // lnkreports
+            // 
+            resources.ApplyResources(this.lnkreports, "lnkreports");
+            this.lnkreports.Name = "lnkreports";
+            this.lnkreports.TabStop = true;
+            this.lnkreports.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkreports_LinkClicked);
             // 
             // Student
             // 
@@ -513,5 +522,6 @@
         private System.Windows.Forms.ErrorProvider ErrorLastName;
         private System.Windows.Forms.ErrorProvider ErrorFirstName;
         private System.Windows.Forms.ErrorProvider ErrorEmail;
+        private System.Windows.Forms.LinkLabel lnkreports;
     }
 }

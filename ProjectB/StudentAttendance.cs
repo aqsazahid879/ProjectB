@@ -165,9 +165,76 @@ namespace ProjectB
             {
                 if (isValidAttendanceId && isvalidAttendanceStatus && isvalidStudentId)
                 {
+                    //int att_id = 0;
+                    //int lookid = 0;
+                    //int sid = 0;
+                    //string reg_no = null;
+                    //string status = null;
+                    //string att_date = null;
+                    //int update_student = 0;
+                    //int update_attendance = 0;
+                    //int update_lookup = 0;
+
+                    //string query1 = "SELECT Id FROM Student WHERE RegistrationNumber = '" + cmbStudentId.Text + "'";
+                    //SqlCommand cmdDataBase1 = new SqlCommand(query1, conn);
+                    //SqlDataReader myreader1;
+                    //conn.Open();
+                    //cmdDataBase1.Parameters.Add(new SqlParameter("0", 1));
+                    //myreader1 = cmdDataBase1.ExecuteReader();
+                    //while (myreader1.Read())
+                    //{
+                    //    update_student = Convert.ToInt32(myreader1[0]);
+                    //}
+
+                    //string query = "SELECT LookupId FROM Lookup WHERE Name = '" + cmbAttendanceStatus.Text + "'";
+                    //SqlCommand cmdDataBase2 = new SqlCommand(query, conn);
+                    //SqlDataReader myreader2;
+                    ////constring.Open();
+                    //cmdDataBase2.Parameters.Add(new SqlParameter("0", 1));
+                    //myreader2 = cmdDataBase2.ExecuteReader();
+                    //while (myreader2.Read())
+                    //{
+                    //    update_lookup = Convert.ToInt32(myreader2[0]);
+                    //}
+
+                    //string d = cmbattendanceID.Text;
+                    //DateTime d1 = Convert.ToDateTime(d);
+                    //DateTime d2 = d1.Date;
+
+                    //string query3 = "SELECT Id FROM ClassAttendance WHERE AttendanceDate = '" + d1 + "'";
+                    //SqlCommand cmdDataBase3 = new SqlCommand(query3, conn);
+                    //SqlDataReader myreader3;
+                    ////constring.Open();
+                    //cmdDataBase3.Parameters.Add(new SqlParameter("0", 1));
+                    //myreader3 = cmdDataBase3.ExecuteReader();
+                    //while (myreader3.Read())
+                    //{
+                    //    update_attendance = Convert.ToInt32(myreader3[0]);
+                    //}
+
+                    ////constring.Open();
+                    //string Qeury = "Update StudentAttendance Set AttendanceId ='" + update_attendance + "',StudentId ='" + update_student + "',AttendanceStatus ='" + update_lookup + "' Where AttendanceId ='" + att_id + "' AND StudentId ='" + sid + "' ";
+                    //SqlCommand cmd = new SqlCommand(Qeury, conn);
+                    //cmd.ExecuteNonQuery();
+                    //MessageBox.Show("Attendance Updated");
+                    ////constring.Close();
+                    //String query8 = "SELECT * FROM StudentAttendance";
+                    //SqlCommand c = new SqlCommand(query8, conn);
+                    //c.Parameters.Add(new SqlParameter("0", 1));
+                    ////constring.Open();
+                    //SqlDataReader reader = c.ExecuteReader();
+                    //SqlDataAdapter adapter = new SqlDataAdapter(query8, conn);
+                    //DataTable view = new DataTable();
+                    //adapter.Fill(view);
+                    //GridStudentAttendance.DataSource = view;
+                    //conn.Close();
+
+
+
+
                     conn.Open();
-                    string cmd = String.Format("UPDATE StudentAttendance SET AttendanceId = @AttendanceId, StudentId = @StudentId, AttendanceStatus = @AttendanceStatus WHERE AttendanceId = @AttendanceId AND StudentId = @StudentId");
-                    
+                    string cmd = String.Format("UPDATE StudentAttendance SET AttendanceStatus = @AttendanceStatus WHERE AttendanceId = @AttendanceId AND StudentId = @StudentId");
+
                     SqlCommand command = new SqlCommand(cmd, conn);
                     command.Parameters.Add(new SqlParameter("@AttendanceId", Convert.ToInt32(cmbattendanceID.Text)));
                     command.Parameters.Add(new SqlParameter("@StudentId", Convert.ToInt32(cmbStudentId.Text)));

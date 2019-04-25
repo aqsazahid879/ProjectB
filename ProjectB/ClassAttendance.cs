@@ -165,6 +165,7 @@ namespace ProjectB
 
                 conn.Open();
                 cmd = String.Format("DELETE FROM ClassAttendance WHERE Id = @id1");
+                command = new SqlCommand(cmd, conn);
                 command.Parameters.Add(new SqlParameter("@id1", ID));
                 reader = command.ExecuteReader();
                 conn.Close();

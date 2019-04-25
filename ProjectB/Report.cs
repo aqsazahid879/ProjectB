@@ -111,5 +111,12 @@ namespace ProjectB
         {
             exportgridtopdf(dataGridView2, "Attendence wise Report Evaluation");
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            Student s = new Student();
+            this.Hide();
+            s.Show();
+        }
     }
 }

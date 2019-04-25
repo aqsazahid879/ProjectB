@@ -194,13 +194,23 @@ namespace ProjectB
             var update = gridRubricLevel.Columns["Update"].Index;
             if (e.ColumnIndex == element)
             {
-                
-                string cmd = String.Format("DELETE FROM RubricLevel WHERE Id = @id");
+
+                string cmd;
+                cmd = "Delete from StudentResult where RubricMeasurementId = @id";
                 SqlCommand command = new SqlCommand(cmd, conn);
 
                 command.Parameters.Add(new SqlParameter("@id", ID));
                 conn.Open();
                 SqlDataReader reader = command.ExecuteReader();
+                conn.Close();
+
+
+                cmd = String.Format("DELETE FROM RubricLevel WHERE Id = @id");
+                command = new SqlCommand(cmd, conn);
+
+                command.Parameters.Add(new SqlParameter("@id", ID));
+                conn.Open();
+                reader = command.ExecuteReader();
                 conn.Close();
 
                 cmd = "SELECT * FROM RubricLevel";

@@ -62,7 +62,7 @@ namespace ProjectB
                     int mark = Convert.ToInt32(txtMarks.Text);
                     int weightage = Convert.ToInt32(txtTotalWeightage.Text);
                     
-                    string cmd = String.Format("UPDATE AssessmentComponent SET Title = @title, TotalMarks = @mark, TotalWeightage = @weightage WHERE Id = @ID");
+                    string cmd = String.Format("UPDATE Assessment SET Title = @title, TotalMarks = @mark, TotalWeightage = @weightage WHERE Id = @ID");
                     SqlCommand command = new SqlCommand(cmd, conn);
                     command.Parameters.Add(new SqlParameter("@title", title));
                     command.Parameters.Add(new SqlParameter("@mark", mark));
@@ -160,27 +160,42 @@ namespace ProjectB
             var update = dataGridView1.Columns["Update"].Index;
             if (e.ColumnIndex == element)
             {
-
-                string cmd = String.Format("DELETE FROM Assessment WHERE Id = @id");
-                SqlCommand command = new SqlCommand(cmd, conn);
-
-                command.Parameters.Add(new SqlParameter("@id", ID));
+                int[] assessmentcomponent_array = new int[50];
+                int i = 0;
+                string qeury = "Select Id from AssessmentComponent where AssessmentId = '" + ID + "'";
+                SqlCommand com = new SqlCommand(qeury, conn);
+                com.Parameters.Add(new SqlParameter("0", 1));
                 conn.Open();
-                SqlDataReader reader = command.ExecuteReader();
+                SqlDataReader reader1 = com.ExecuteReader();
+                while (reader1.Read())
+                {
+                    assessmentcomponent_array[i] = Convert.ToInt32(reader1[0]);
+                    i++;
+                }
+                int c = assessmentcomponent_array[0];
+                int d = assessmentcomponent_array[1];
+                reader1.Close();
+                foreach (int componentid in assessmentcomponent_array)
+                {
+                    string qeury1 = "Delete from StudentResult where AssessmentComponentId = '" + componentid + "'";
+                    SqlCommand com1 = new SqlCommand(qeury1, conn);
+                    com1.ExecuteNonQuery();
+
+                    string qeury2 = "Delete from AssessmentComponent where Id = '" + componentid + "'";
+                    SqlCommand com2 = new SqlCommand(qeury2, conn);
+                    com2.ExecuteNonQuery();
+                }
+                string Qeury3 = "Delete from dbo.Assessment where Id = '" + ID + "'";
+                SqlCommand cmd3 = new SqlCommand(Qeury3, conn);
+                cmd3.ExecuteNonQuery();
+                MessageBox.Show("Assessment Deleted");
                 conn.Close();
+                SqlDataAdapter sqlDA = new SqlDataAdapter("Select * from dbo.Assessment", conn);
+                DataTable dtbl = new DataTable();
+                sqlDA.Fill(dtbl);
 
-                cmd = "SELECT * FROM Assessment";
-                command = new SqlCommand(cmd, conn);
-                command.Parameters.Add(new SqlParameter("0", 1));
-                conn.Open();
-                reader = command.ExecuteReader();
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-                dataGridView1.DataSource = table;
-                conn.Close();
-
-
+                dataGridView1.DataSource = dtbl;
+                
             }
             else if (e.ColumnIndex == dataGridView1.Columns["Update"].Index)
             {

@@ -73,13 +73,8 @@
             this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.studentResultTableAdapter = new ProjectB.ProjectBDataSet6TableAdapters.StudentResultTableAdapter();
             this.ObtainedMarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MeasurementLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ComponentMarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.assessmentComponentIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rubricMeasurementIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.evaluationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.StudentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorRegistrationNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorLastName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorContact)).BeginInit();
@@ -127,7 +122,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1007, 55);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1259, 55);
             this.tableLayoutPanel1.TabIndex = 20;
             // 
             // label7
@@ -136,7 +131,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Calibri", 26.25F, System.Drawing.FontStyle.Bold);
             this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label7.Location = new System.Drawing.Point(421, 6);
+            this.label7.Location = new System.Drawing.Point(547, 6);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(165, 42);
             this.label7.TabIndex = 0;
@@ -146,9 +141,9 @@
             // 
             this.lnkAssessmentComponent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lnkAssessmentComponent.AutoSize = true;
-            this.lnkAssessmentComponent.Location = new System.Drawing.Point(558, 9);
+            this.lnkAssessmentComponent.Location = new System.Drawing.Point(698, 15);
             this.lnkAssessmentComponent.Name = "lnkAssessmentComponent";
-            this.lnkAssessmentComponent.Size = new System.Drawing.Size(105, 26);
+            this.lnkAssessmentComponent.Size = new System.Drawing.Size(133, 13);
             this.lnkAssessmentComponent.TabIndex = 4;
             this.lnkAssessmentComponent.TabStop = true;
             this.lnkAssessmentComponent.Text = "Assessment Component";
@@ -159,9 +154,9 @@
             // 
             this.lnkClassAttendance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lnkClassAttendance.AutoSize = true;
-            this.lnkClassAttendance.Location = new System.Drawing.Point(669, 15);
+            this.lnkClassAttendance.Location = new System.Drawing.Point(837, 15);
             this.lnkClassAttendance.Name = "lnkClassAttendance";
-            this.lnkClassAttendance.Size = new System.Drawing.Size(105, 13);
+            this.lnkClassAttendance.Size = new System.Drawing.Size(133, 13);
             this.lnkClassAttendance.TabIndex = 5;
             this.lnkClassAttendance.TabStop = true;
             this.lnkClassAttendance.Text = "Class Attendance";
@@ -172,9 +167,9 @@
             // 
             this.lnkStudentResult.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lnkStudentResult.AutoSize = true;
-            this.lnkStudentResult.Location = new System.Drawing.Point(780, 15);
+            this.lnkStudentResult.Location = new System.Drawing.Point(976, 15);
             this.lnkStudentResult.Name = "lnkStudentResult";
-            this.lnkStudentResult.Size = new System.Drawing.Size(105, 13);
+            this.lnkStudentResult.Size = new System.Drawing.Size(133, 13);
             this.lnkStudentResult.TabIndex = 6;
             this.lnkStudentResult.TabStop = true;
             this.lnkStudentResult.Text = "Student Result";
@@ -185,9 +180,9 @@
             // 
             this.lnkStudentAttendance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lnkStudentAttendance.AutoSize = true;
-            this.lnkStudentAttendance.Location = new System.Drawing.Point(891, 15);
+            this.lnkStudentAttendance.Location = new System.Drawing.Point(1115, 15);
             this.lnkStudentAttendance.Name = "lnkStudentAttendance";
-            this.lnkStudentAttendance.Size = new System.Drawing.Size(113, 13);
+            this.lnkStudentAttendance.Size = new System.Drawing.Size(141, 13);
             this.lnkStudentAttendance.TabIndex = 7;
             this.lnkStudentAttendance.TabStop = true;
             this.lnkStudentAttendance.Text = "Student Attendance";
@@ -207,7 +202,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1007, 282);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1259, 282);
             this.tableLayoutPanel3.TabIndex = 22;
             // 
             // TabStudentResult
@@ -220,7 +215,7 @@
             this.TabStudentResult.Location = new System.Drawing.Point(3, 3);
             this.TabStudentResult.Name = "TabStudentResult";
             this.TabStudentResult.SelectedIndex = 0;
-            this.TabStudentResult.Size = new System.Drawing.Size(1001, 276);
+            this.TabStudentResult.Size = new System.Drawing.Size(1253, 276);
             this.TabStudentResult.TabIndex = 0;
             // 
             // TabPageAddStudentResult
@@ -241,7 +236,7 @@
             this.TabPageAddStudentResult.Location = new System.Drawing.Point(4, 22);
             this.TabPageAddStudentResult.Name = "TabPageAddStudentResult";
             this.TabPageAddStudentResult.Padding = new System.Windows.Forms.Padding(3);
-            this.TabPageAddStudentResult.Size = new System.Drawing.Size(993, 250);
+            this.TabPageAddStudentResult.Size = new System.Drawing.Size(1048, 250);
             this.TabPageAddStudentResult.TabIndex = 0;
             this.TabPageAddStudentResult.Text = "Add Student Result";
             this.TabPageAddStudentResult.UseVisualStyleBackColor = true;
@@ -251,7 +246,7 @@
             this.btnaddStudentResult.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.btnaddStudentResult.Location = new System.Drawing.Point(421, 209);
             this.btnaddStudentResult.Name = "btnaddStudentResult";
-            this.btnaddStudentResult.Size = new System.Drawing.Size(158, 23);
+            this.btnaddStudentResult.Size = new System.Drawing.Size(213, 23);
             this.btnaddStudentResult.TabIndex = 26;
             this.btnaddStudentResult.Text = "Add Student Result";
             this.btnaddStudentResult.UseVisualStyleBackColor = true;
@@ -274,7 +269,7 @@
             this.cmbRubricLevel.FormattingEnabled = true;
             this.cmbRubricLevel.Location = new System.Drawing.Point(490, 172);
             this.cmbRubricLevel.Name = "cmbRubricLevel";
-            this.cmbRubricLevel.Size = new System.Drawing.Size(166, 21);
+            this.cmbRubricLevel.Size = new System.Drawing.Size(221, 21);
             this.cmbRubricLevel.TabIndex = 24;
             // 
             // lblMeasurementLevel
@@ -334,7 +329,7 @@
             this.cmbMeasurementLevel.FormattingEnabled = true;
             this.cmbMeasurementLevel.Location = new System.Drawing.Point(490, 145);
             this.cmbMeasurementLevel.Name = "cmbMeasurementLevel";
-            this.cmbMeasurementLevel.Size = new System.Drawing.Size(166, 21);
+            this.cmbMeasurementLevel.Size = new System.Drawing.Size(221, 21);
             this.cmbMeasurementLevel.TabIndex = 18;
             this.cmbMeasurementLevel.SelectedIndexChanged += new System.EventHandler(this.cmbMeasurementLevel_SelectedIndexChanged);
             // 
@@ -345,7 +340,7 @@
             this.cmbDetails.FormattingEnabled = true;
             this.cmbDetails.Location = new System.Drawing.Point(490, 118);
             this.cmbDetails.Name = "cmbDetails";
-            this.cmbDetails.Size = new System.Drawing.Size(166, 21);
+            this.cmbDetails.Size = new System.Drawing.Size(221, 21);
             this.cmbDetails.TabIndex = 17;
             this.cmbDetails.SelectedIndexChanged += new System.EventHandler(this.cmbDetails_SelectedIndexChanged);
             // 
@@ -356,7 +351,7 @@
             this.cmbAssessmentComponentId.FormattingEnabled = true;
             this.cmbAssessmentComponentId.Location = new System.Drawing.Point(490, 91);
             this.cmbAssessmentComponentId.Name = "cmbAssessmentComponentId";
-            this.cmbAssessmentComponentId.Size = new System.Drawing.Size(166, 21);
+            this.cmbAssessmentComponentId.Size = new System.Drawing.Size(221, 21);
             this.cmbAssessmentComponentId.TabIndex = 16;
             this.cmbAssessmentComponentId.SelectedIndexChanged += new System.EventHandler(this.cmbAssessmentComponentId_SelectedIndexChanged);
             // 
@@ -367,7 +362,7 @@
             this.cmbAssessmentTitle.FormattingEnabled = true;
             this.cmbAssessmentTitle.Location = new System.Drawing.Point(490, 64);
             this.cmbAssessmentTitle.Name = "cmbAssessmentTitle";
-            this.cmbAssessmentTitle.Size = new System.Drawing.Size(166, 21);
+            this.cmbAssessmentTitle.Size = new System.Drawing.Size(221, 21);
             this.cmbAssessmentTitle.TabIndex = 15;
             this.cmbAssessmentTitle.SelectedIndexChanged += new System.EventHandler(this.cmbAssessmentTitle_SelectedIndexChanged);
             // 
@@ -378,7 +373,7 @@
             this.cmbStudentId.FormattingEnabled = true;
             this.cmbStudentId.Location = new System.Drawing.Point(490, 37);
             this.cmbStudentId.Name = "cmbStudentId";
-            this.cmbStudentId.Size = new System.Drawing.Size(166, 21);
+            this.cmbStudentId.Size = new System.Drawing.Size(221, 21);
             this.cmbStudentId.TabIndex = 14;
             // 
             // TabPageViewStudentResult
@@ -388,29 +383,22 @@
             this.TabPageViewStudentResult.Location = new System.Drawing.Point(4, 22);
             this.TabPageViewStudentResult.Name = "TabPageViewStudentResult";
             this.TabPageViewStudentResult.Padding = new System.Windows.Forms.Padding(3);
-            this.TabPageViewStudentResult.Size = new System.Drawing.Size(993, 250);
+            this.TabPageViewStudentResult.Size = new System.Drawing.Size(1245, 250);
             this.TabPageViewStudentResult.TabIndex = 1;
             this.TabPageViewStudentResult.Text = "View Student Result";
             this.TabPageViewStudentResult.UseVisualStyleBackColor = true;
             // 
             // GridStudentResult
             // 
-            this.GridStudentResult.AutoGenerateColumns = false;
             this.GridStudentResult.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.GridStudentResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridStudentResult.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ObtainedMarks,
-            this.MeasurementLevel,
-            this.ComponentMarks,
-            this.studentIdDataGridViewTextBoxColumn,
-            this.assessmentComponentIdDataGridViewTextBoxColumn,
-            this.rubricMeasurementIdDataGridViewTextBoxColumn,
-            this.evaluationDateDataGridViewTextBoxColumn,
-            this.Delete});
-            this.GridStudentResult.DataSource = this.studentResultBindingSource;
-            this.GridStudentResult.Location = new System.Drawing.Point(134, 67);
+            this.Delete,
+            this.StudentId});
+            this.GridStudentResult.Location = new System.Drawing.Point(138, 65);
             this.GridStudentResult.Name = "GridStudentResult";
-            this.GridStudentResult.Size = new System.Drawing.Size(830, 150);
+            this.GridStudentResult.Size = new System.Drawing.Size(911, 150);
             this.GridStudentResult.TabIndex = 1;
             this.GridStudentResult.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridStudentResult_CellContentClick);
             // 
@@ -438,9 +426,9 @@
             // 
             this.lnkAssessment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lnkAssessment.AutoSize = true;
-            this.lnkAssessment.Location = new System.Drawing.Point(447, 15);
+            this.lnkAssessment.Location = new System.Drawing.Point(559, 15);
             this.lnkAssessment.Name = "lnkAssessment";
-            this.lnkAssessment.Size = new System.Drawing.Size(105, 13);
+            this.lnkAssessment.Size = new System.Drawing.Size(133, 13);
             this.lnkAssessment.TabIndex = 3;
             this.lnkAssessment.TabStop = true;
             this.lnkAssessment.Text = "Assessment";
@@ -475,7 +463,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1007, 44);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1259, 44);
             this.tableLayoutPanel2.TabIndex = 21;
             // 
             // lnkClo
@@ -483,9 +471,9 @@
             this.lnkClo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lnkClo.AutoSize = true;
             this.lnkClo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lnkClo.Location = new System.Drawing.Point(114, 15);
+            this.lnkClo.Location = new System.Drawing.Point(142, 15);
             this.lnkClo.Name = "lnkClo";
-            this.lnkClo.Size = new System.Drawing.Size(105, 13);
+            this.lnkClo.Size = new System.Drawing.Size(133, 13);
             this.lnkClo.TabIndex = 1;
             this.lnkClo.TabStop = true;
             this.lnkClo.Text = "Clo";
@@ -499,7 +487,7 @@
             this.lnkStudent.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lnkStudent.Location = new System.Drawing.Point(3, 15);
             this.lnkStudent.Name = "lnkStudent";
-            this.lnkStudent.Size = new System.Drawing.Size(105, 13);
+            this.lnkStudent.Size = new System.Drawing.Size(133, 13);
             this.lnkStudent.TabIndex = 0;
             this.lnkStudent.TabStop = true;
             this.lnkStudent.Text = "Student";
@@ -511,9 +499,9 @@
             this.lnkRubric.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lnkRubric.AutoSize = true;
             this.lnkRubric.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lnkRubric.Location = new System.Drawing.Point(225, 15);
+            this.lnkRubric.Location = new System.Drawing.Point(281, 15);
             this.lnkRubric.Name = "lnkRubric";
-            this.lnkRubric.Size = new System.Drawing.Size(105, 13);
+            this.lnkRubric.Size = new System.Drawing.Size(133, 13);
             this.lnkRubric.TabIndex = 2;
             this.lnkRubric.TabStop = true;
             this.lnkRubric.Text = "Rubric";
@@ -524,9 +512,9 @@
             // 
             this.lnkRubricLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lnkRubricLevel.AutoSize = true;
-            this.lnkRubricLevel.Location = new System.Drawing.Point(336, 15);
+            this.lnkRubricLevel.Location = new System.Drawing.Point(420, 15);
             this.lnkRubricLevel.Name = "lnkRubricLevel";
-            this.lnkRubricLevel.Size = new System.Drawing.Size(105, 13);
+            this.lnkRubricLevel.Size = new System.Drawing.Size(133, 13);
             this.lnkRubricLevel.TabIndex = 0;
             this.lnkRubricLevel.TabStop = true;
             this.lnkRubricLevel.Text = "Rubric Level";
@@ -566,44 +554,6 @@
             this.ObtainedMarks.Name = "ObtainedMarks";
             this.ObtainedMarks.ToolTipText = "ObtainedMarks";
             // 
-            // MeasurementLevel
-            // 
-            this.MeasurementLevel.DataPropertyName = "StudentId";
-            this.MeasurementLevel.HeaderText = "MeasurementLevel";
-            this.MeasurementLevel.Name = "MeasurementLevel";
-            this.MeasurementLevel.ToolTipText = "MeasurementLevel";
-            // 
-            // ComponentMarks
-            // 
-            this.ComponentMarks.DataPropertyName = "StudentId";
-            this.ComponentMarks.HeaderText = "ComponentMarks";
-            this.ComponentMarks.Name = "ComponentMarks";
-            this.ComponentMarks.ToolTipText = "ComponentMarks";
-            // 
-            // studentIdDataGridViewTextBoxColumn
-            // 
-            this.studentIdDataGridViewTextBoxColumn.DataPropertyName = "StudentId";
-            this.studentIdDataGridViewTextBoxColumn.HeaderText = "StudentId";
-            this.studentIdDataGridViewTextBoxColumn.Name = "studentIdDataGridViewTextBoxColumn";
-            // 
-            // assessmentComponentIdDataGridViewTextBoxColumn
-            // 
-            this.assessmentComponentIdDataGridViewTextBoxColumn.DataPropertyName = "AssessmentComponentId";
-            this.assessmentComponentIdDataGridViewTextBoxColumn.HeaderText = "AssessmentComponentId";
-            this.assessmentComponentIdDataGridViewTextBoxColumn.Name = "assessmentComponentIdDataGridViewTextBoxColumn";
-            // 
-            // rubricMeasurementIdDataGridViewTextBoxColumn
-            // 
-            this.rubricMeasurementIdDataGridViewTextBoxColumn.DataPropertyName = "RubricMeasurementId";
-            this.rubricMeasurementIdDataGridViewTextBoxColumn.HeaderText = "RubricMeasurementId";
-            this.rubricMeasurementIdDataGridViewTextBoxColumn.Name = "rubricMeasurementIdDataGridViewTextBoxColumn";
-            // 
-            // evaluationDateDataGridViewTextBoxColumn
-            // 
-            this.evaluationDateDataGridViewTextBoxColumn.DataPropertyName = "EvaluationDate";
-            this.evaluationDateDataGridViewTextBoxColumn.HeaderText = "EvaluationDate";
-            this.evaluationDateDataGridViewTextBoxColumn.Name = "evaluationDateDataGridViewTextBoxColumn";
-            // 
             // Delete
             // 
             this.Delete.HeaderText = "Delete";
@@ -612,11 +562,16 @@
             this.Delete.ToolTipText = "Delete";
             this.Delete.UseColumnTextForButtonValue = true;
             // 
+            // StudentId
+            // 
+            this.StudentId.HeaderText = "StudentId";
+            this.StudentId.Name = "StudentId";
+            // 
             // StudentResult
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1007, 375);
+            this.ClientSize = new System.Drawing.Size(1259, 375);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel2);
@@ -694,12 +649,7 @@
         private System.Windows.Forms.BindingSource studentResultBindingSource;
         private ProjectBDataSet6TableAdapters.StudentResultTableAdapter studentResultTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn ObtainedMarks;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MeasurementLevel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ComponentMarks;
-        private System.Windows.Forms.DataGridViewTextBoxColumn studentIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn assessmentComponentIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rubricMeasurementIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn evaluationDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StudentId;
     }
 }

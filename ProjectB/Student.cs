@@ -600,12 +600,31 @@ namespace ProjectB
             {
                 int ID;
                 ID = Convert.ToInt32(gridStudentInformation.Rows[e.RowIndex].Cells[0].Value);
-                string cmd = String.Format("DELETE FROM Student WHERE Id = @ID");
-                SqlCommand command = new SqlCommand(cmd, conn);
+                string cmd;
+                SqlCommand command;
+                SqlDataReader reader;
+                cmd = "Delete from StudentAttendance where StudentId = @id";
+                command = new SqlCommand(cmd, conn);
+                command.Parameters.Add(new SqlParameter("@id", ID));
+                conn.Open();
+                command.ExecuteReader();
+                conn.Close();
+
+                cmd = "DELETE FROM StudentResult WHERE StudentId = @id1";
+                command = new SqlCommand(cmd, conn);
+                command.Parameters.Add(new SqlParameter("@id1", ID));
+                conn.Open();
+                command.ExecuteReader();
+                conn.Close();
+
+
+
+                cmd = String.Format("DELETE FROM Student WHERE Id = @ID");
+                command = new SqlCommand(cmd, conn);
 
                 command.Parameters.Add(new SqlParameter("@ID", ID));
                 conn.Open();
-                SqlDataReader reader = command.ExecuteReader();
+                reader = command.ExecuteReader();
                 conn.Close();
                 conn.Open();
                 cmd = String.Format("SELECT *FROM Student");
@@ -681,6 +700,13 @@ namespace ProjectB
             StudentAttendance c = new StudentAttendance();
             this.Hide();
             c.Show();
+        }
+
+        private void lnkreports_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Report report = new Report();
+            this.Hide();
+            report.Show();
         }
     }
 }

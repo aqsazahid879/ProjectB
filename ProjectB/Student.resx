@@ -208,7 +208,7 @@
     <value>Top, Left, Right</value>
   </data>
   <data name="tableLayoutPanel2.ColumnCount" type="System.Int32, mscorlib">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="lnkClo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left, Right</value>
@@ -220,10 +220,10 @@
     <value>NoControl</value>
   </data>
   <data name="lnkClo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>114, 15</value>
+    <value>103, 15</value>
   </data>
   <data name="lnkClo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 13</value>
+    <value>94, 13</value>
   </data>
   <data name="lnkClo.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -259,7 +259,7 @@
     <value>3, 15</value>
   </data>
   <data name="lnkStudent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 13</value>
+    <value>94, 13</value>
   </data>
   <data name="lnkStudent.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -292,10 +292,10 @@
     <value>NoControl</value>
   </data>
   <data name="lnkRubric.Location" type="System.Drawing.Point, System.Drawing">
-    <value>225, 15</value>
+    <value>203, 15</value>
   </data>
   <data name="lnkRubric.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 13</value>
+    <value>94, 13</value>
   </data>
   <data name="lnkRubric.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -325,10 +325,10 @@
     <value>True</value>
   </data>
   <data name="lnkRubricLevel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>336, 15</value>
+    <value>303, 15</value>
   </data>
   <data name="lnkRubricLevel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 13</value>
+    <value>94, 13</value>
   </data>
   <data name="lnkRubricLevel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -358,10 +358,10 @@
     <value>True</value>
   </data>
   <data name="lnkAssessment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>447, 15</value>
+    <value>403, 15</value>
   </data>
   <data name="lnkAssessment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 13</value>
+    <value>94, 13</value>
   </data>
   <data name="lnkAssessment.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -391,10 +391,10 @@
     <value>True</value>
   </data>
   <data name="lnkAssessmentComponent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>558, 9</value>
+    <value>503, 9</value>
   </data>
   <data name="lnkAssessmentComponent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 26</value>
+    <value>94, 26</value>
   </data>
   <data name="lnkAssessmentComponent.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -424,10 +424,10 @@
     <value>True</value>
   </data>
   <data name="lnkClassAttendance.Location" type="System.Drawing.Point, System.Drawing">
-    <value>669, 15</value>
+    <value>603, 15</value>
   </data>
   <data name="lnkClassAttendance.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 13</value>
+    <value>94, 13</value>
   </data>
   <data name="lnkClassAttendance.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -457,10 +457,10 @@
     <value>True</value>
   </data>
   <data name="lnkStudentResult.Location" type="System.Drawing.Point, System.Drawing">
-    <value>780, 15</value>
+    <value>703, 15</value>
   </data>
   <data name="lnkStudentResult.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 13</value>
+    <value>94, 13</value>
   </data>
   <data name="lnkStudentResult.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -490,10 +490,10 @@
     <value>True</value>
   </data>
   <data name="lnkStudentAttendance.Location" type="System.Drawing.Point, System.Drawing">
-    <value>891, 15</value>
+    <value>803, 9</value>
   </data>
   <data name="lnkStudentAttendance.Size" type="System.Drawing.Size, System.Drawing">
-    <value>113, 13</value>
+    <value>94, 26</value>
   </data>
   <data name="lnkStudentAttendance.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -515,6 +515,39 @@
   </data>
   <data name="&gt;&gt;lnkStudentAttendance.ZOrder" xml:space="preserve">
     <value>8</value>
+  </data>
+  <data name="lnkreports.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="lnkreports.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lnkreports.Location" type="System.Drawing.Point, System.Drawing">
+    <value>903, 15</value>
+  </data>
+  <data name="lnkreports.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 13</value>
+  </data>
+  <data name="lnkreports.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="lnkreports.Text" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="lnkreports.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;lnkreports.Name" xml:space="preserve">
+    <value>lnkreports</value>
+  </data>
+  <data name="&gt;&gt;lnkreports.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lnkreports.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;lnkreports.ZOrder" xml:space="preserve">
+    <value>9</value>
   </data>
   <data name="tableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 52</value>
@@ -541,7 +574,7 @@
     <value>1</value>
   </data>
   <data name="tableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lnkClo" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lnkStudent" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lnkRubric" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lnkRubricLevel" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="lnkAssessment" Row="0" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="lnkAssessmentComponent" Row="0" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="lnkClassAttendance" Row="0" RowSpan="1" Column="6" ColumnSpan="1" /&gt;&lt;Control Name="lnkStudentResult" Row="0" RowSpan="1" Column="7" ColumnSpan="1" /&gt;&lt;Control Name="lnkStudentAttendance" Row="0" RowSpan="1" Column="8" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,11.11111,Percent,11.11111,Percent,11.11111,Percent,11.11111,Percent,11.11111,Percent,11.11111,Percent,11.11111,Percent,11.11111,Percent,11.11111" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lnkClo" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lnkStudent" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lnkRubric" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lnkRubricLevel" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="lnkAssessment" Row="0" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="lnkAssessmentComponent" Row="0" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="lnkClassAttendance" Row="0" RowSpan="1" Column="6" ColumnSpan="1" /&gt;&lt;Control Name="lnkStudentResult" Row="0" RowSpan="1" Column="7" ColumnSpan="1" /&gt;&lt;Control Name="lnkStudentAttendance" Row="0" RowSpan="1" Column="8" ColumnSpan="1" /&gt;&lt;Control Name="lnkreports" Row="0" RowSpan="1" Column="9" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,10,Percent,10,Percent,10,Percent,10,Percent,10,Percent,10,Percent,10,Percent,10,Percent,10,Percent,10" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tableLayoutPanel3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -961,7 +994,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="TabADDStudent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>993, 298</value>
+    <value>993, 325</value>
   </data>
   <data name="TabADDStudent.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>

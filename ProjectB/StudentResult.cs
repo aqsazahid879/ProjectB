@@ -23,25 +23,6 @@ namespace ProjectB
 
         private void StudentResult_Load(object sender, EventArgs e)
         {
-            string q1 = "SELECT StudentResult.AssessmentComponentId, StudentResult.StudentId, Student.FirstName As Student, Rubric.Details, Assessment.Title AS AssessmentTitle, AssessmentComponent.TotalMarks AS ComponentMarks, RubricLevel.MeasurementLevel FROM StudentResult JOIN Student On StudentResult.StudentId = Student.Id JOIN AssessmentComponent ON Assessmentcomponent.Id = StudentResult.AssessmentComponentId JOIN RubricLevel ON StudentResult.RubricMeasurementId = RubricLevel.Id JOIN Rubric ON RubricLevel.RubricId = Rubric.Id Join Assessment ON Assessment.Id = AssessmentComponent.AssessmentId ";
-            SqlDataAdapter d = new SqlDataAdapter(q1, conn);
-            DataTable dt = new DataTable();
-            d.Fill(dt);
-            GridStudentResult.DataSource = dt;
-            //GridStudentResult.Columns["AssessmentComponentId"].Visible = false;
-            //GridStudentResult.Columns["StudentId"].Visible = false;
-
-            int count = GridStudentResult.RowCount;
-            for (int i = 0; i < count; i++)
-            {
-                double k = Convert.ToDouble(GridStudentResult.Rows[i].Cells["ComponentMarks"].Value);
-                double l = Convert.ToDouble(GridStudentResult.Rows[i].Cells["MeasurementLevel"].Value);
-                double marks = Convert.ToDouble((l / 4) * k);
-                GridStudentResult.Rows[i].Cells["ObtainedMarks"].Value = marks;
-            }
-            // TODO: This line of code loads data into the 'projectBDataSet6.StudentResult' table. You can move, or remove it, as needed.
-            this.studentResultTableAdapter.Fill(this.projectBDataSet6.StudentResult);
-            // Adding Student Id in comb box
             String cmd = "SELECT Id FROM Student";
             SqlCommand command = new SqlCommand(cmd, conn);
             conn.Open();
@@ -51,6 +32,8 @@ namespace ProjectB
                 cmbStudentId.Items.Add(reader[0]);
             }
             conn.Close();
+
+            
             // Adding Assesment Titles in combo box
             cmd = "SELECT Title FROM Assessment";
             command = new SqlCommand(cmd, conn);
@@ -73,8 +56,38 @@ namespace ProjectB
             }
             conn.Close();
 
-            
-            
+            string cm = "SELECT StudentId From StudentResult";
+            SqlCommand comm = new SqlCommand(cm, conn);
+            conn.Open();
+            reader = comm.ExecuteReader();
+            int[] student = new int[100];
+            int j = 0;
+            while(reader.Read())
+            {
+                GridStudentResult.Columns["StudentId"].Visible = true;
+                student[j] = Convert.ToInt32(reader[0]);
+                j = j + 1;
+            }
+
+                conn.Close();
+            string q1 = "SELECT StudentResult.AssessmentComponentId, StudentResult.StudentId, Student.FirstName As Student, Rubric.Details, Assessment.Title AS AssessmentTitle, AssessmentComponent.TotalMarks AS ComponentMarks, RubricLevel.MeasurementLevel FROM StudentResult JOIN Student On StudentResult.StudentId = Student.Id JOIN AssessmentComponent ON Assessmentcomponent.Id = StudentResult.AssessmentComponentId JOIN RubricLevel ON StudentResult.RubricMeasurementId = RubricLevel.Id JOIN Rubric ON RubricLevel.RubricId = Rubric.Id Join Assessment ON Assessment.Id = AssessmentComponent.AssessmentId ";
+            SqlDataAdapter d = new SqlDataAdapter(q1, conn);
+            DataTable dt = new DataTable();
+            d.Fill(dt);
+            GridStudentResult.DataSource = dt;
+            GridStudentResult.Columns["AssessmentComponentId"].Visible = true;
+            GridStudentResult.Columns["StudentId"].Visible = true;
+
+            int count = GridStudentResult.RowCount;
+            for (int i = 0; i < count; i++)
+            {
+                double k = Convert.ToDouble(GridStudentResult.Rows[i].Cells["ComponentMarks"].Value);
+                double l = Convert.ToDouble(GridStudentResult.Rows[i].Cells["MeasurementLevel"].Value);
+                double marks = Convert.ToDouble((l / 4) * k);
+                GridStudentResult.Rows[i].Cells["ObtainedMarks"].Value = marks;
+                GridStudentResult.Rows[i].Cells["StudentId"].Value = student[i];
+            }
+
         }
         private void lnkStudent_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -237,6 +250,25 @@ namespace ProjectB
             cmbMeasurementLevel.Items.Clear();
             MessageBox.Show("Student Result has been Added");
             conn.Close();
+            string q1 = "SELECT StudentResult.AssessmentComponentId, StudentResult.StudentId, Student.FirstName As Student, Rubric.Details, Assessment.Title AS AssessmentTitle, AssessmentComponent.TotalMarks AS ComponentMarks, RubricLevel.MeasurementLevel FROM StudentResult JOIN Student On StudentResult.StudentId = Student.Id JOIN AssessmentComponent ON Assessmentcomponent.Id = StudentResult.AssessmentComponentId JOIN RubricLevel ON StudentResult.RubricMeasurementId = RubricLevel.Id JOIN Rubric ON RubricLevel.RubricId = Rubric.Id Join Assessment ON Assessment.Id = AssessmentComponent.AssessmentId ";
+
+            SqlDataAdapter d = new SqlDataAdapter(q1, conn);
+            DataTable dt = new DataTable();
+            d.Fill(dt);
+            GridStudentResult.DataSource = dt;
+            GridStudentResult.Columns["AssessmentComponentId"].Visible = false;
+            //GridStudentResult.Columns["StudentId"].Visible = false;
+
+            int count = GridStudentResult.RowCount;
+            for (int i = 0; i < count; i++)
+            {
+                double k = Convert.ToDouble(GridStudentResult.Rows[i].Cells["ComponentMarks"].Value);
+                double l = Convert.ToDouble(GridStudentResult.Rows[i].Cells["MeasurementLevel"].Value);
+                double marks = Convert.ToDouble((l / 4) * k);
+                GridStudentResult.Rows[i].Cells["ObtainedMarks"].Value = marks;
+            }
+
+
 
             cmd = "SELECT Id FROM Student";
             command = new SqlCommand(cmd, conn);
@@ -274,17 +306,38 @@ namespace ProjectB
 
         private void btnViewStudentResult_Click(object sender, EventArgs e)
         {
-            String cmd = "SELECT * FROM StudentResult";
-            SqlCommand command = new SqlCommand(cmd, conn);
-            command.Parameters.Add(new SqlParameter("0", 1));
-            conn.Open();
-            SqlDataReader reader = command.ExecuteReader();
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
-            DataTable table = new DataTable();
-            adapter.Fill(table);
-            GridStudentResult.DataSource = table;
 
+            string cm = "SELECT StudentId From StudentResult";
+            SqlCommand comm = new SqlCommand(cm, conn);
+            conn.Open();
+            SqlDataReader reader = comm.ExecuteReader();
+            int[] student = new int[100];
+            int j = 0;
+            while (reader.Read())
+            {
+                GridStudentResult.Columns["StudentId"].Visible = true;
+                student[j] = Convert.ToInt32(reader[0]);
+                j = j + 1;
+            }
             conn.Close();
+            string q1 = "SELECT StudentResult.AssessmentComponentId, StudentResult.StudentId, Student.FirstName As Student, Rubric.Details, Assessment.Title AS AssessmentTitle, AssessmentComponent.TotalMarks AS ComponentMarks, RubricLevel.MeasurementLevel FROM StudentResult JOIN Student On StudentResult.StudentId = Student.Id JOIN AssessmentComponent ON Assessmentcomponent.Id = StudentResult.AssessmentComponentId JOIN RubricLevel ON StudentResult.RubricMeasurementId = RubricLevel.Id JOIN Rubric ON RubricLevel.RubricId = Rubric.Id Join Assessment ON Assessment.Id = AssessmentComponent.AssessmentId ";
+            SqlDataAdapter d = new SqlDataAdapter(q1, conn);
+            DataTable dt = new DataTable();
+            d.Fill(dt);
+            GridStudentResult.DataSource = dt;
+            GridStudentResult.Columns["AssessmentComponentId"].Visible = true;
+            GridStudentResult.Columns["StudentId"].Visible = true;
+
+            int count = GridStudentResult.RowCount;
+            for (int i = 0; i < count; i++)
+            {
+                double k = Convert.ToDouble(GridStudentResult.Rows[i].Cells["ComponentMarks"].Value);
+                double l = Convert.ToDouble(GridStudentResult.Rows[i].Cells["MeasurementLevel"].Value);
+                double marks = Convert.ToDouble((l / 4) * k);
+                GridStudentResult.Rows[i].Cells["ObtainedMarks"].Value = marks;
+                GridStudentResult.Rows[i].Cells["StudentId"].Value = student[i];
+            }
+
         }
 
         private void GridStudentResult_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -297,20 +350,12 @@ namespace ProjectB
                 conn.Open();
                 String cmd = "DELETE FROM StudentResult WHERE StudentId = @id1 and AssessmentComponentId = @id2";
                 SqlCommand command = new SqlCommand(cmd, conn);
-
+                this.GridStudentResult.Rows.RemoveAt(e.RowIndex);
                 command.Parameters.Add(new SqlParameter("@id1", StudentId));
                 command.Parameters.Add(new SqlParameter("@id2", AssessmentComponentId));
                 SqlDataReader reader = command.ExecuteReader();
                 conn.Close();
-                conn.Open();
-                cmd = String.Format("SELECT *FROM StudentResult");
-                reader = command.ExecuteReader();
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd, conn);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-                GridStudentResult.DataSource = table;
-                conn.Close();
-
+                
 
             }
             
